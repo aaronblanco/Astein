@@ -1,0 +1,28 @@
+#main-content img{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  float: left;
+  position: static;
+  font-size: 25px;
+  font-size: 50pt;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+  margin-bottom: 25px;
+  text-align: center;
+}
+.caption{
+  text-align: center;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+table {
+  padding-top: 50px;
+  width: 50%;
+  layout: fixed;
+}
+td {
+  word-wrap: break-word;
+}
+#table-container tr{
+  background-color: white;
+}
