@@ -1,0 +1,442 @@
+:root {
+  /* --astein-blue: #1976d2; */
+  /* --astein-blue: #2bafdd; */
+  --astein-primary: #2b91dd;
+  --astein-primary-dark: #166abd;
+  --fullwidth: 100%;
+  --width-form: calc(280px + 16vw);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#astein-logo {
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 17px;
+    width: 100px;
+    height: 23px;
+}
+
+.navbar {
+  background-color: var(--astein-primary);
+}
+
+.navtab {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  background-color: var(--astein-primary);
+  border: none;
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: background-color 0.5s;
+}
+
+#navtab-logo {
+  padding: auto;
+}
+
+.navtab:hover {
+  background-color: var(--astein-primary-dark);
+  cursor: pointer;
+}
+
+a:hover, a:active {
+  /* border-bottom: 1px solid white; */
+}
+
+.active {
+  background-color: var(--astein-primary-dark);
+}
+
+#main-content {
+  padding-top: 2vw;
+  padding-left: 5vw;
+  margin-bottom: 100px;
+}
+
+#footer {
+  height: 40px;
+  width: 100vw;
+  background-color: var(--astein-primary);
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.social-media-icon {
+  margin-left: 8px;
+  margin-right: -3px;
+  height: 30px;
+  width: 30px;
+}
+
+.icon-white {
+  color: white;
+}
+
+#footer-icon {
+  margin-left: 5vw;
+  margin-right: 10px;
+}
+
+.footer-text {
+  color: white;
+  font-size: calc(0.7em + 0.25vw);
+}
+
+#footer-right {
+  height: 40px;
+  width: 78vw;
+  position: fixed;
+  bottom: 0;
+  right: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.astein-form > input[type=text]{
+	position: relative;
+	display: block;
+	background-color: #e8e8e8;
+  border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+  width: calc(300px + 15vw);
+  height: 40px;
+  font-size: 1em;
+  font-weight: 100;
+  padding-left: 5px;
+}
+
+.astein-form > input[type=submit]{
+  height: 40px;
+  width: 150px;
+	background-color: #303030;
+  border: none;
+	border-radius: 5px;
+  color: white;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left, padding-right: 30px;
+  margin-top: 40px;
+}
+
+.astein-form > input[type=submit]:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.submit_button {
+  height: 40px;
+  width: 150px;
+	background-color: #303030;
+  border: none;
+	border-radius: 5px;
+  color: white;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left, padding-right: 30px;
+}
+
+.submit_button:hover {
+  background-color: black;
+}
+
+.astein-form > label {
+  display: flex;
+  align-items: center;
+  float: left;
+  width: 200px;
+  margin-top: calc((40px - 1em) / 2);
+}
+
+
+/* ---- Inicio (Admin) ---- */
+
+.admin-inicio-image {
+  height: 50px;
+  width: 672px;
+  background-color: #dcdcdc;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  margin-top: 25px;
+  margin-right: 30vw;
+  font-size: 1.1em;
+}
+
+.icon-action {
+  font-size: 32px !important;
+  color: #303030;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.icon-arrow {
+  font-size: 36px !important;
+  color: #303030;
+  cursor: pointer;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.icon-action:hover {
+  color: #000;
+}
+
+.inicio-upload-icon {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.inicio-imagename {
+  width: 250px;
+}
+
+.subtitle {
+  margin-bottom: 50px;
+  margin-right: 30px;
+}
+
+.filename-input {
+  float: left;
+  position: relative;
+	display: block;
+	background-color: #efefef;
+  border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+  width: 150px;
+  height: 30px;
+  font-size: 1em;
+  font-weight: 100;
+  padding-left: 5px;
+  margin-left: 20px;
+  margin-right: 30px;
+}
+
+.plus_icon {
+  font-size: 46px !important;
+  margin-top: 30px;
+  margin-left: -5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* ---- Equípo (Admin) ---- */
+.admin-equipo {
+  width: 460px;
+}
+
+/* ---- Editar Empleado (Admin) ---- */
+.admin-textarea {
+	position: relative;
+	display: block;
+	background-color: #e8e8e8;
+  border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+  min-width: calc(300px + 15vw);
+  min-height: 100px;
+  font-size: 1em;
+  font-weight: 100;
+  padding: 5px;
+}
+
+.employee-image {
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+  margin-bottom: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.icon-back {
+  font-size: 48px !important;
+  color: #757575;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-top: -30px;
+  margin-left: -16px;
+  transition: margin 0.5s;
+}
+
+.icon-back:hover {
+  color: #303030;
+  margin-left: -24px;
+}
+
+.light-button {
+  height: 40px;
+  width: 150px;
+	background-color: #cccccc;
+  border: none;
+	border-radius: 5px;
+  color: #303030;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  display: inline-block;
+}
+
+.light-button:hover {
+  background-color: #bbbbbb;
+  cursor: pointer;
+  color: black;
+}
+
+#image-label {
+  width: 200px;
+  height: 40px;
+}
+
+#employee-image-container {
+  display: flex;
+  flex-flow:column nowrap;
+  width: calc(50px + 10vw);
+  margin-bottom: 30px;
+}
+
+#delete-image {
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.light-icon-button {
+  height: 40px;
+  width: 206px;
+  background-color: #cccccc;
+  border: none;
+  border-radius: 5px;
+  color: #303030;
+  font-size: 1em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: background-color 0.2s ease-in;
+}
+
+.light-icon-button:hover {
+  cursor: pointer;
+  background-color: #b9b9b9;
+  color: black !important;
+}
+
+.light-icon-button:hover > .button-icon {
+  color: black;
+}
+
+.button-icon {
+  font-size: 32px !important;
+  color: #303030;
+  cursor: pointer;
+  padding-left: 12px;
+  padding-right: 15px;
+}
+
+/* ---- Reserva Detalle (Admin) ---- */
+#reserva-details {
+  margin-top: -20px;
+  line-height: 150%;
+}
+
+.reserva-status-subtitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+#subtitle-label {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  background-color: #7FFFBF;
+}
+
+.new {
+  background-color: #FFB28C;
+}
+
+.in-progress {
+  background-color: #FFFF80;
+}
+
+.completed {
+  background-color: #7FFFBF;
+}
+
+#icon-back-reservas {
+  margin-top: 5px;
+  margin-bottom: 24px;
+}
+
+/* ---- Trabaja con Nosotros (Admin) ---- */
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  height: 50px;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: var(--astein-primary);
+  color: white;
+}
+
+td {
+  height: 50px;
+  min-width: 100px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+tr {
+  background-color: #EBEBEB;
+}
+
+tr:nth-child(even) {
+  background-color: #F9F9F9;
+}
+
+.icon-table {
+  font-size: 28px !important;
+  margin-top, margin-bottom: 0px;
+  padding-top, padding-bottom: 0px;
+}
+
+.table-options {
+  text-align: center;
+}
