@@ -1,0 +1,12 @@
+.Contac-text {
+  color: black;
+  font-size: calc(0.7em + 0.25vw);
+}
+
+
+#icon {
+ color: black;
+ width: 30px;
+ height: 30px;
+
+}

@@ -1,0 +1,34 @@
+.datos input{
+  display: block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.datos{
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.datos input[type=submit]:hover{
+  background-color:#166abd;
+}
+.datos input[type=submit]{
+  background-color:#2b91dd;
+}
+.datos input[type=text]{
+	width:400px;
+	height: 20px;
+	text-align: left;
+  font-weight: bold;
+}
+img {
+	position: relative;
+	float: right;
+  margin-right: 10%;
+}
+form{
+  position: fixed;
+  width: 50%;
+  float: left;
+}
