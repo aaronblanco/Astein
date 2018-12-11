@@ -14,44 +14,44 @@
     include "admin_navbar.php";
   ?>
 
-<div id="main-content">
-<h1>Ofertas presentadas en la pagina</h1>
-<div class="selection" style="width:200px;">
-  <select>
-    <option value="0">Particulares</option>
-    <option value="1">Empresas</option>
-  </select>
-</div>
-<div class="search">
-<form action="\Astein\ofertasadmin.php" method="POST">
-<input type="text" placeholder="Buscar ofertas" required="true">
-<input type="submit" value="Buscar">
-</form>
-</div>
-<table>
-  <tr>
-    <th>Código</th>
-    <th>Nombre</th>
-    <th>Proveedor</th>
-    <th>Precio</th>
-    <th style="width:33%; word-wrap: word-break">Descripción</th>
-    </tr>
+  <div id="main-content">
+  <h1>Ofertas presentadas en la pagina</h1>
+  <div class="selection" style="width:200px;">
+    <select>
+      <option value="0">Particulares</option>
+      <option value="1">Empresas</option>
+    </select>
+  </div>
+  <div class="search">
+  <form action="\Astein\ofertasadmin.html" method="POST">
+  <input type="text" placeholder="Buscar ofertas" required="true">
+  <input type="submit" value="Buscar">
+  </form>
+  </div>
+  <table>
     <tr>
-      <td>3456</td>
-      <td>Digi 5000</td>
-      <td>Movistar</td>
-      <td>49,99€/mes</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>987</td>
-      <td>Digi 300</td>
-      <td>DigiMobil</td>
-      <td>15,99€/mes</td>
-      <td>Esta oferta está muy bien porque lo digo yo. Compra ahora para que estes feliz!</td>
-    </tr>
-</table>
-</div>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Proveedor</th>
+      <th>Precio</th>
+      <th style="width:33%; word-wrap: word-break">Descripción</th>
+      </tr>
+  <?php
+    include("connection.php");
+    $query = "SELECT * from offer";
+    $result = $connection->query($query);
+      while($row = $result->fetch_assoc()){
+      ?>
+      <tr>
+      <td><?php echo $row['ID']; ?></td>
+      <td><?php echo $row['name']; ?></td>
+      <td><?php echo $row['provider']; ?></td>
+      <td><?php echo $row['price']; ?></td>
+      <td><?php echo $row['description']; ?></td>
+      </tr>
+      <?php } ?>
+  </table>
+  </div>
 
 <?php
   include "admin_footer.php";

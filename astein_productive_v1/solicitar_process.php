@@ -16,9 +16,9 @@ if(mysqli_num_rows($result) > 0 ){
 } else {
   $addUser = "INSERT INTO client (firstname, lastname, email, phone) values ('$name', '$lastname', '$mail', '$phone')";
   $connection->query($addUser);
-  $getID = "SELECT * from client";
-  $result = $connection->query($getID);
-  $id_client = mysqli_num_rows($result) + 26;
+  $result = $connection->query($query_findUser);
+  $row =  $result->fetch_assoc();
+  $id_client = $row['ID'];
 }
 echo $id_client;
 $query = "INSERT INTO reservation (status, message, id_offer, id_client) values ('pendiente', '$message', '$id_offer', '$id_client')";

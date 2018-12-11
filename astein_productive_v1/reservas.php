@@ -14,57 +14,42 @@
     include "usuario_navbar.php";
   ?>
 
-<div id="main-content">
+  <div id="main-content">
 
-<h1>Reservas hechas por los clientes</h1>
-<table>
-  <tr>
-      <th>Fecha</th>
-      <th>Referencia</th>
-      <th>Nombre</th>
-      <th>Apellidos</th>
-      <th>Correo Electrónico</th>
-      <th>Teléfono</th>
-      <th style="width:33%; word-wrap: word-break">Mensaje</th>
-      <th>Estado</th>
-      <th>Borrar reserva</th>
-      </tr>
-      <tr>
-        <td>19.10.2018</td>
-        <td>RR4290290</td>
-        <td>María</td>
-        <td>Gonzalez Lopez</td>
-        <td>mgl@algo.es</td>
-        <td>+3489302012</td>
-        <td></td>
-        <td>Abierta</td>
-        <td style="text-decoration:underline">Borrar</td>
-      </tr>
-      <tr>
-          <td>21.10.2018</td>
-          <td>RR49876290</td>
-          <td>Juan</td>
-          <td>Valdez Garcia</td>
-          <td>juanvg@algo.es</td>
-          <td>+3489392012</td>
-          <td>Hay esta oferta a un precio más bajo?</td>
-          <td>Pendiente</td>
-          <td style="text-decoration:underline">Borrar</td>
-      </tr>
-      <tr>
-          <td>22.10.2018</td>
-          <td>RX23490</td>
-          <td>Jose</td>
-          <td>Isai Franco</td>
-          <td>xyz@algo.es</td>
-          <td>+3403922012</td>
-          <td></td>
-          <td>Realizado</td>
-          <td style="text-decoration:underline">Borrar</td>
-      </tr>
-          </table>
+  <h1>Reservas hechas por los clientes</h1>
+  <table>
+    <tr>
+        <th>Fecha</th>
+        <th>Referencia</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Correo Electrónico</th>
+        <th>Teléfono</th>
+        <th style="width:33%; word-wrap: word-break">Mensaje</th>
+        <th>Estado</th>
+        <th>Modificar reserva</th>
+        </tr>
+        <?php
+          include('connection.php');
+          $query = "SELECT * FROM reservation inner join client on reservation.id_client = client.ID ";
+          $result = $connection->query($query);
+            while($row = $result->fetch_assoc()){
+            ?>
+            <tr>
+            <td><?php echo $row['timestamp']; ?></td>
+            <td><?php echo $row['ID']; ?></td>
+            <td><?php echo $row['firstname']; ?></td>
+            <td><?php echo $row['lastname']; ?></td>
+            <td><?php echo $row['email']; ?></td>
+            <td><?php echo $row['phone']; ?></td>
+            <td><?php echo $row['message']; ?></td>
+            <td><?php echo $row['status']; ?></td>
+            <td><a href = "modify.php?id=<?php echo $row['ID']; ?>">Modificar</a></td>
+            </tr>
+            <?php } ?>
+      </table>
 
-        </div>
+          </div>
 
         <?php
           include "usuario_footer.php";
