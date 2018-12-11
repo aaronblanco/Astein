@@ -1,5 +1,5 @@
 <?php
-include(connection.php);
+include("connection.php");
 $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 $mail = $_POST['mail'];
@@ -8,12 +8,9 @@ $phone = $_POST['phone'];
 $message = $_POST['message'];
 
 
-$query = "INSERT INTO applicant (firstname, lastname, email, phone, message) values ('$name', '$lastname', '$mail', '$phone', '$message')";
-
-if($connection->query($query)){
-	header("Location: trabajar.html");
-	//falta un mensaje de verificación del éxito, hay que implementar
-} else {
-	echo "Failue";
-}
- ?>
+$query = $connection->prepare("INSERT INTO applicant (firstname, lastname, email, phone, message) values (?,?,?,?,?)");
+$query->bind_param("sssis", $name, $lastname, $mail, $phone, $message)
+$query->execute();
+$query->close();
+header("Location: trabajar.html");
+?>
