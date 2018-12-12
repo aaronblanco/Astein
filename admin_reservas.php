@@ -10,7 +10,7 @@
 <body>
 
   <?php
-    include "usuario_navbar.php";
+    include "admin_navbar.php";
   ?>
 
   <div id="main-content">
