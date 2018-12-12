@@ -17,18 +17,16 @@
 <div id="main-content">
 
 <h1>Trabaja con nosotros </h1>
-<div class="datos">
-<form action="\Astein\trabajar.php" method="POST" enctype="multipart/form-data">
+<form class="astein-form" action="trabajar_process.php" method="POST" enctype="multipart/form-data">
   <input type="text" placeholder="Nombre" required="true">
   <input type="text" placeholder="Apellidos" required="true">
   <input type="text" placeholder="Número de teléfono" required="true">
   <input type="text" placeholder="Correo electrónico" required="true">
   Curriculum Vitae:
   <input type="file" value="CV" required="true">
-  <input type="text" placeholder="Mensaje (opcional)" style="height:150px; word-wrap:break-word">
+  <textarea class="mensaje" name="message" placeholder="Mensaje con información adicional (Opcional)"></textarea>
   <input type="submit" value="Enviar">
 </form>
-</div>
 <img src="images\equipo.jpg"></img>
 
 </div>

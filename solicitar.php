@@ -17,17 +17,15 @@
 <div id="main-content">
 
 <h1>Reserva tu oferta ahora</h1>
-<div id=datos>
-<form action="solicitar.php" method="POST">
-<input type="text" placeholder="Nombre" required="true">
-<input type="text" placeholder="Apellido" required="true">
-<input type="text" placeholder="Correo electrónico" required="true">
-<input type="text" placeholder="Telefono" required="true">
-<input type="text" placeholder="Mensaje con informacion additional (opcional)" style="height:150px;">
+<form class="astein-form" action="solicitar_process.php" method="POST">
+<input type="text" name="name" placeholder="Nombre" required="true">
+<input type="text" name="lastname" placeholder="Apellido" required="true">
+<input type="text" name="mail" placeholder="Correo electrónico" required="true">
+<input type="number" name="phone" placeholder="Telefono" required="true">
+<textarea class="mensaje" name="message" placeholder="Mensaje con información adicional (Opcional)"></textarea>
 <input type="submit" value="Submit">
 </form>
-</div>
-<p>Usted solo envia una solicitud. No tiene que pagar ning�n coste.</p>
+<p>Usted solo envia una solicitud. No tiene que pagar ningún coste.</p>
 </div>
 
 <?php

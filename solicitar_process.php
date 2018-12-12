@@ -1,10 +1,14 @@
 <?php
 include("connection.php");
+if ($connection->connect_error){
+  die("Connection failed: " . $connection->connect_error);
+}
 $message = $_POST['message'];
 $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 $phone = $_POST['phone'];
 $mail = $_POST['mail'];
+$status = 'pendiente';
 $id_offer = 1;
 $id_client;
 
@@ -14,18 +18,17 @@ if(mysqli_num_rows($result) > 0 ){
   $row = $result->fetch_assoc();
   $id_client = $row['ID'];
 } else {
-  $addUser = "INSERT INTO client (firstname, lastname, email, phone) values ('$name', '$lastname', '$mail', '$phone')";
-  $connection->query($addUser);
+  $addUser = $connection->prepare("INSERT INTO client (firstname, lastname, email, phone) values (?, ?, ?, ?)");
+  $addUser->bind_param("sssi", $name, $lastname, $mail, $phone);
+  $addUser->execute();
+  $addUser->close();
   $result = $connection->query($query_findUser);
   $row =  $result->fetch_assoc();
   $id_client = $row['ID'];
 }
-echo $id_client;
-$query = "INSERT INTO reservation (status, message, id_offer, id_client) values ('pendiente', '$message', '$id_offer', '$id_client')";
-if($connection->query($query)){
-  echo "éxito";
-  header("Location: solicitar.html");
-} else {
-  echo "error while adding reservation";
-}
+$query = $connection->prepare("INSERT INTO reservation (status, message, id_offer, id_client) values (?, ?, ?, ?)");
+$query->bind_param("ssii", $status, $message, $id_offer, $id_client);
+$query->execute();
+$query->close();
+header("Location: solicitar.php");
  ?>
