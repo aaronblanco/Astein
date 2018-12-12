@@ -50,17 +50,14 @@ ul {
   transition: background-color 0.5s;
 }
 
-#navtab-logo {
-  padding: auto;
-}
-
 .navtab:hover {
   background-color: var(--astein-primary-dark);
   cursor: pointer;
 }
 
-a:hover, a:active {
-  /* border-bottom: 1px solid white; */
+#link-admin-page {
+  color: white;
+  text-decoration: none;
 }
 
 .active {
