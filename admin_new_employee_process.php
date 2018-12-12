@@ -3,23 +3,24 @@ include("connection.php");
 if ($connection->connect_error){
   die("Connection failed: " . $connection->connect_error);
 }
-$mail = $_POST['mail'];
+
+$email = $_POST['email'];
 $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 
-$query_findUser = "SELECT * from client where email='$mail'";
-$result = $connection->query($query_findUser);
-if(mysqli_num_rows($result) > 0 ){
-  $row = $result->fetch_assoc();
-  $id_client = $row['ID'];
+$query_findEmployee = "SELECT * from employee where email='$email'";
+$result = $connection->query($query_findEmployee);
+if(!$result || mysqli_num_rows($result) == 0 ){
+  if($addEmployee = $connection->prepare("INSERT INTO employee (email, name, lastname) values (?, ?, ?)")) {
+    $addEmployee->bind_param("sss", $email, $name, $lastname);
+    $addEmployee->execute();
+    $addEmployee->close();
+    header("Location: admin_equipo.php");
+  } else {
+    printf("Error: %s\n", $connection->error);
+  }
 } else {
-  $addEmployee = $connection->prepare("INSERT INTO employee (email, name, lastname) values (?, ?, ?)");
-  $addEmployee->bind_param("sss", $email, $name, $lastname);
-  $addEmployee->execute();
-  $addEmployee->close();
-  $result = $connection->query($query_findEmployee);
-  $row =  $result->fetch_assoc();
-  $id_employee = $row['ID'];
+  echo "Este empleado ya existe.";
+  header( "refresh:1; url=admin_nuevo_empleado.php" );
 }
-header("Location: admin_equipo.php");
- ?>
+?>
