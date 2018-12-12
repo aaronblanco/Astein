@@ -11,11 +11,27 @@
 
   <?php
     include "admin_navbar.php";
-  ?>
+
+    include("connection.php");
+    if ($connection->connect_error){
+      die("Connection failed: " . $connection->connect_error);
+    }
+
+    $employee_id = $_GET['id'];
+    $query_findEmployee = "SELECT * from employee where ID='$employee_id'";
+    $result = $connection->query($query_findEmployee);
+    if(mysqli_num_rows($result) > 0 ){
+      $row = $result->fetch_assoc();
+      $name = $row['name'];
+      $lastname = $row['lastname'];
+    } else {
+        printf("Este Empleado no existe. </br> Error: %s\n", $connection->error);
+    }
+    ?>
 
 <div id="main-content">
 
-  <h1>Empleado: Francisco Javier</h1>
+  <?php echo '<h1>Empleado: '.$name.' '.$lastname.'</h1>' ?>
   <p class="subtitle">Aquí puede editar el empleado en detalle.</p>
   <a href="admin_equipo.php"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
 
@@ -33,7 +49,7 @@
       <label>Actividad</label> <input type="text" class="astein-input" name="activity" value="administración"><br>
       <label>Descripción</label>
       <textarea class="admin-textarea" name="description">Mi responsabilidad es la gestión de la empresa y de nuestros empleados.</textarea>
-      <input class="save-changes save-changes-admin" type="submit" action="saved_changes.php" method="post" value="guardar cambios">
+      <input class="save-changes save-changes-admin" type="submit" action="editar_empleado.php" method="post" value="guardar cambios">
 
     </form>
   </div>
