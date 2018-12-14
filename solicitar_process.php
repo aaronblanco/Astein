@@ -12,8 +12,9 @@ $status = 'pendiente';
 $id_offer = 1;
 $id_client;
 
-$query_findUser = "SELECT * from client where email='$mail'";
-$result = $connection->query($query_findUser);
+$query_findUser = $connection->prepare("SELECT * from client where email='?'");
+$query_findUser->bind_param("s", $mail);
+$result = $query_findUser->execute();
 if(mysqli_num_rows($result) > 0 ){
   $row = $result->fetch_assoc();
   $id_client = $row['ID'];
@@ -22,9 +23,10 @@ if(mysqli_num_rows($result) > 0 ){
   $addUser->bind_param("sssi", $name, $lastname, $mail, $phone);
   $addUser->execute();
   $addUser->close();
-  $result = $connection->query($query_findUser);
+  $result = $query_findUser->execute();
   $row =  $result->fetch_assoc();
   $id_client = $row['ID'];
+  $query_findUser->close();
 }
 $query = $connection->prepare("INSERT INTO reservation (status, message, id_offer, id_client) values (?, ?, ?, ?)");
 $query->bind_param("ssii", $status, $message, $id_offer, $id_client);
