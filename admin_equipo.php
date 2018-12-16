@@ -14,9 +14,6 @@
     include "admin_navbar.php";
 
     include("connection.php");
-    if ($connection->connect_error){
-      die("Connection failed: " . $connection->connect_error);
-    }
 
     ?>
 

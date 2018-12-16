@@ -11,11 +11,8 @@
 
   <?php
     include "admin_navbar.php";
-
+    
     include("connection.php");
-    if ($connection->connect_error){
-      die("Connection failed: " . $connection->connect_error);
-    }
 
     $employee_id = $_GET['id'];
     $query_findEmployee = "SELECT * from employee where ID='$employee_id'";

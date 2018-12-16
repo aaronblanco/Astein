@@ -1,8 +1,5 @@
 <?php
 include("connection.php");
-if ($connection->connect_error){
-  die("Connection failed: " . $connection->connect_error);
-}
 
 $id = $_GET['id'];
 
