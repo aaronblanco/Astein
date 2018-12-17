@@ -21,7 +21,7 @@ function showWarningMessage(message) {
 function displayMessage(feedback) {
   feedback.style.display = 'flex';
   feedback.style.opacity = '1';
-  setTimeout(function(){ feedback.style.opacity = '0';}, 2500);
+  setTimeout(function(){ feedback.style.opacity = '0';}, 2000);
   setTimeout(function(){ feedback.style.display = 'none';}, 5000);
 }
 

@@ -10,8 +10,23 @@
 <body>
 
   <?php
-    include "admin_navbar.php";
-  ?>
+    include("admin_navbar.php");
+    include("user_feedback.php");
+    include("connection.php");
+
+    $company_id = 1;
+    $query_findCompany = "SELECT * from company where ID='$company_id'";
+    $result = $connection->query($query_findCompany);
+    if(mysqli_num_rows($result) > 0 ){
+      $row = $result->fetch_assoc();
+      $phone = $row['phone'];
+      $address = $row['address'];
+      $email = $row['email'];
+      //echo($email.$phone.$address);
+    } else {
+        printf("No hay ninguna empresa en la base de datos. </br> Error: %s\n", $connection->error);
+    }
+    ?>
 
 <div id="main-content">
 
@@ -19,10 +34,11 @@
   <p class="subtitle">Aquí puede cambiar las informaciones de contacto de la empresa.</p>
 
 <div id="contact-info-form">
-  <form class="astein-form" action="/action_page.php" method="post">
-    <label>Teléfono</label> <input type="text" class="astein-input" name="phone" value="+34 601 221 125"><br>
-    <label>Dirección</label> <input type="text" class="astein-input" name="address" value="Carretera de Almeria 86 Oficina 5, Huercal De Almeria"><br>
-    <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" value="dptoinformatico@astein.net"><br>
+  <form class="astein-form" action="admin_edit_contact_info_process.php" method="post">
+    <label>Teléfono</label> <input type="text" class="astein-input" name="phone" value="<?php echo $phone ?>" required><br>
+    <label>Dirección</label> <input type="text" class="astein-input" name="address" value="<?php echo $address ?>" required><br>
+    <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" value="<?php echo $email ?>" required><br>
+    <input type="hidden" id="company_id" name="company_id" value="<?php echo $company_id ?>">
     <input class="save-changes" type="submit" action="saved_changes.php" method="post" value="guardar cambios">
   </form>
 </div>
