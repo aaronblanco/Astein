@@ -1,5 +1,9 @@
 <?php
+
+session_start();
+
 include("connection.php");
+header('Content-type: text/plain; charset=utf-8');
 
 $id = $_GET['id'];
 $email = $_POST['email'];
@@ -15,8 +19,8 @@ if($editEmployee = $connection->prepare("UPDATE employee SET email=?, name=?, la
   $editEmployee->bind_param("sssssi", $email, $name, $lastname, $activity, $description, $id);
   $editEmployee->execute();
   $editEmployee->close();
-  echo "Empleado editado.";
-  header( "refresh:1; url=admin_equipo.php" );
+  $_SESSION["message-success"] = "Empleado editado.";
+  header("Location: admin_equipo.php");
 } else {
   printf("Error: %s\n", $connection->error . $editEmployee);
 }

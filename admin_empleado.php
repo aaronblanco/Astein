@@ -10,8 +10,8 @@
 <body>
 
   <?php
-    include "admin_navbar.php";
-
+    include("admin_navbar.php");
+    include("user_feedback.php");
     include("connection.php");
 
     $employee_id = $_GET['id'];
@@ -24,8 +24,8 @@
       $lastname = $row['lastname'];
       $description = $row['description'];
       $activity = $row['activity'];
-      echo($email.$name.$lastname.$description.$activity);
-      // --> Missing: photo (link to location of photo in file system)
+      $photo = $row['photo'];
+      //echo($email.$name.$lastname.$description.$activity);
     } else {
         printf("Este Empleado no existe. </br> Error: %s\n", $connection->error);
     }
@@ -33,27 +33,33 @@
 
 <div id="main-content">
 
-  <?php echo '<h1>Empleado: '.$name.' '.$lastname.'</h1>' ?>
+  <?php echo '<h1>'.$name.' '.$lastname.'</h1>' ?>
   <p class="subtitle">Aquí puede editar el empleado en detalle.</p>
   <a href="admin_equipo.php"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
 
   <div id="empleado-info-form">
     <form class="astein-form" action="admin_edit_employee_process.php?id=<?php echo $employee_id ?>" method="post">
-        <label id="image-label">Image</label><br>
+      <label id="image-label"></label><br>
       <div id="employee-image-container">
-        <img class="employee-image" src="https://go.forrester.com/wp-content/uploads/Sam-Stern_150x150.png">
+        <img class="employee-image" src="<?php echo $photo ?>">
         <button class="light-icon-button"><i class="material-icons button-icon">cloud_upload</i>cambiar imagen</button>
         <button class="light-icon-button" id="delete-image"><i class="material-icons button-icon">delete</i>borrar imagen</button>
       </div>
-      <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" value="<?php echo $email ?>"><br>
-      <label>Nombre</label> <input type="text" class="astein-input" name="name" value="<?php echo $name ?>"><br>
-      <label>Apellido</label> <input type="text" class="astein-input" name="lastname" value="<?php echo $lastname ?>"><br>
+      <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" value="<?php echo $email ?>" required><br>
+      <label>Nombre</label> <input type="text" class="astein-input" name="name" value="<?php echo $name ?>" required><br>
+      <label>Apellido</label> <input type="text" class="astein-input" name="lastname" value="<?php echo $lastname ?>" required><br>
       <label>Actividad</label> <input type="text" class="astein-input" name="activity" value="<?php echo $activity ?>"><br>
       <label>Descripción</label>
       <textarea class="admin-textarea" name="description"><?php echo $description ?></textarea>
-      <input class="save-changes save-changes-admin" type="submit" value="guardar cambios">
+      <input class="save-changes save-changes-admin" id="submit-button" type="submit" value="guardar cambios">
     </form>
   </div>
+
+  <script>
+  document.getElementById('submit-button').onclick = function() {
+   alert("Empleado editado.");
+  }​;​
+  </script>
 
 </div>
 

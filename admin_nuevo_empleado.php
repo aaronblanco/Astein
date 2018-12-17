@@ -11,6 +11,7 @@
 
   <?php
     include "admin_navbar.php";
+    include("user_feedback.php");
   ?>
 
 <div id="main-content">
@@ -21,9 +22,9 @@
 
   <div id="empleado-info-form">
     <form class="astein-form" action="admin_new_employee_process.php" method="post">
-      <label>Correo electrónico</label> <input type="text" class="astein-input" name="email"><br>
-      <label>Nombre</label> <input type="text" class="astein-input" name="name"><br>
-      <label>Apellido</label> <input type="text" class="astein-input" name="lastname"><br>
+      <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" required><br>
+      <label>Nombre</label> <input type="text" class="astein-input" name="name" required><br>
+      <label>Apellido</label> <input type="text" class="astein-input" name="lastname" required><br>
       <input class="save-changes new-employee-admin" type="submit" action="saved_changes.php" method="post" value="crear empleado">
     </form>
   </div>

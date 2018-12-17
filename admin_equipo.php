@@ -10,12 +10,10 @@
 <body>
 
   <?php
-
+    include("user_feedback.php");
     include "admin_navbar.php";
-
     include("connection.php");
-
-    ?>
+  ?>
 
 <div id="main-content">
 
@@ -72,4 +70,5 @@ function askDeleteEmployee(employeeID) {
 ?>
 
 </body>
+
 </html>
