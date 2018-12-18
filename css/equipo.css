@@ -1,4 +1,4 @@
-#main-content img{
+#table-container img{
   height: 150px;
   width: 150px;
   border-radius: 50%;
@@ -10,9 +10,7 @@
   margin-bottom: 25px;
   text-align: center;
 }
-.caption{
-  text-align: center;
-  padding: 10px 20px;
+figcaption{
   font-weight: bold;
 }
 table {

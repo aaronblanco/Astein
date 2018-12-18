@@ -12,29 +12,30 @@
 
   <?php
     include "usuario_navbar.php";
+    include "connection.php";
   ?>
 
 <div id="main-content">
-  <div id="table-container">
+
 <h1>Nuestro equipo</h1>
+<div id="table-container">
 <center>
   <table>
+    <?php
+    $query = "SELECT * from employee";
+    $result = $connection->query($query);
+      while($row = $result->fetch_assoc()){
+      ?>
     <tr>
-    <td> <img src="images\equipo.jpg""><div class="caption">Nombre Apellidos</div></img></td>
-      <td><p>Yo soy nombre apellido, tengo algunos años y soy el jefe aquí. Mis responsilidades son hacer eso y eso y también a veces eso. Nunca hago esto ni aquello</p></td>
+    <td>
+      <figure>
+        <img src=<?php echo $row['photo'];?>>
+        <figcaption><?php echo $row['name']; echo " "; echo $row['lastname'];?></figcaption>
+      </figure>
+    </td>
+      <td><p><?php echo $row['description']?></p></td>
     </tr>
-    <tr>
-    <td style="padding-right:30px"><img src="images\equipo.jpg"><div class="caption">Nombre Apellidos</div></img></td>
-    <td><p>Yo soy nombre apellido y trabajo aquí</p></td>
-  </tr>
-  <tr>
-    <td><img src="images\equipo.jpg""><div class="caption">Nombre Apellidos</div></img></td>
-    <td><p>Yo soy nombre apellido y trabajo aquí</p></td>
-  </tr>
-  <tr>
-    <td><img src="images\equipo.jpg""><div class="caption">Nombre Apellidos</div></img></td>
-    <td><p>Yo soy nombre apellido y trabajo aquí</p></td>
-  </tr>
+  <?php } ?>
 </table>
 </center>
 </div>
