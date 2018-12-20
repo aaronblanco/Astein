@@ -6,7 +6,7 @@ if ($connection->connect_error){
 
 $id = $_GET['id'];
 
-$deleteEmployee = $connection->prepare("DELETE FROM employee WHERE ID = ?");
+$deleteEmployee = $connection->prepare("DELETE FROM employee WHERE id = ?");
 $deleteEmployee->bind_param("i", $id);
 $deleteEmployee->execute();
 $deleteEmployee->close();

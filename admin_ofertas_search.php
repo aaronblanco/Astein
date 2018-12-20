@@ -50,7 +50,7 @@
       while($row = $result->fetch_assoc()){
       ?>
       <tr>
-      <td><?php echo $row['ID']; ?></td>
+      <td><?php echo $row['id']; ?></td>
       <td><?php echo $row['name']; ?></td>
       <td><?php echo $row['provider']; ?></td>
       <td><?php echo $row['price']; ?></td>

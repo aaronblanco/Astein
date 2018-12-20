@@ -18,7 +18,7 @@ $query_findUser->execute();
 $result = $query_findUser->get_result();
 if(mysqli_num_rows($result) > 0 ){
   $row = $result->fetch_assoc();
-  $id_client = $row['ID'];
+  $id_client = $row['id'];
 } else {
   $addUser = $connection->prepare("INSERT INTO client (firstname, lastname, email, phone) values (?, ?, ?, ?)");
   $addUser->bind_param("sssi", $name, $lastname, $mail, $phone);
@@ -27,7 +27,7 @@ if(mysqli_num_rows($result) > 0 ){
   $query_findUser->execute();
   $result = $query_findUser->get_result();
   $row =  $result->fetch_assoc();
-  $id_client = $row['ID'];
+  $id_client = $row['id'];
   $query_findUser->close();
 }
 $query = $connection->prepare("INSERT INTO reservation (status, message, id_offer, id_client) values (?, ?, ?, ?)");

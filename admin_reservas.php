@@ -30,20 +30,20 @@
         </tr>
         <?php
           include('connection.php');
-          $query = "SELECT * FROM reservation inner join client on reservation.id_client = client.ID ";
+          $query = "SELECT * FROM reservation inner join client on reservation.id_client = client.id ";
           $result = $connection->query($query);
             while($row = $result->fetch_assoc()){
             ?>
             <tr>
             <td><?php echo $row['timestamp']; ?></td>
-            <td><?php echo $row['ID']; ?></td>
+            <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['firstname']; ?></td>
             <td><?php echo $row['lastname']; ?></td>
             <td><?php echo $row['email']; ?></td>
             <td><?php echo $row['phone']; ?></td>
             <td><?php echo $row['message']; ?></td>
             <td><?php echo $row['status']; ?></td>
-            <td><a href = "modify.php?id=<?php echo $row['ID']; ?>">Modificar</a></td>
+            <td><a href = "modify.php?id=<?php echo $row['id']; ?>">Modificar</a></td>
             </tr>
             <?php } ?>
       </table>
