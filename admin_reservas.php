@@ -11,44 +11,70 @@
 
   <?php
     include "admin_navbar.php";
+    include "connection.php";
+    include "user_feedback.php";
   ?>
 
   <div id="main-content">
 
-  <h1>Reservas hechas por los clientes</h1>
-  <table>
+  <h1>Reservas</h1>
+  <table class="large-table">
     <tr>
         <th>Fecha</th>
-        <th>Referencia</th>
+        <th>ID</th>
+        <th>Oferta</th>
         <th>Nombre</th>
-        <th>Apellidos</th>
         <th>Correo Electrónico</th>
         <th>Teléfono</th>
-        <th style="width:33%; word-wrap: word-break">Mensaje</th>
+        <th>Mensaje</th>
         <th>Estado</th>
-        <th>Modificar reserva</th>
+        <th>Opciones</th>
         </tr>
         <?php
-          include('connection.php');
-          $query = "SELECT * FROM reservation inner join client on reservation.id_client = client.ID ";
+          $query = "SELECT reservation.id as reservation_id, reservation.timestamp, reservation.message, reservation.status,
+          offer.name as offer_name, firstname, lastname, email, phone FROM reservation
+          INNER JOIN client on reservation.id_client = client.ID INNER JOIN offer on reservation.id_offer = offer.id";
           $result = $connection->query($query);
             while($row = $result->fetch_assoc()){
             ?>
             <tr>
             <td><?php echo $row['timestamp']; ?></td>
-            <td><?php echo $row['ID']; ?></td>
-            <td><?php echo $row['firstname']; ?></td>
-            <td><?php echo $row['lastname']; ?></td>
-            <td><?php echo $row['email']; ?></td>
+            <td><?php echo $row['reservation_id']; ?></td>
+            <td><?php echo $row['offer_name']; ?></td>
+            <td><?php echo($row['firstname'].' '.$row['lastname']); ?></td>
+            <td><a href="mailto:<?php echo $row['email']; ?>"><?php echo $row['email']; ?></a></td>
             <td><?php echo $row['phone']; ?></td>
-            <td><?php echo $row['message']; ?></td>
-            <td><?php echo $row['status']; ?></td>
-            <td><a href = "modify.php?id=<?php echo $row['ID']; ?>">Modificar</a></td>
+            <?php if ($row['message'] != "") {
+              echo('<td class="table-message">'.substr($row['message'], 0, 50).'...'.'</td>');
+            } else {
+              echo ('<td> </td>');
+            }
+            if ($row['status']=="new") {
+              echo('<td class="status-field"><span class="status-new">nueva</span></td>');
+            } elseif ($row['status']=="in progress") {
+              echo('<td class="status-field"><span class="status-in-progress">en&nbsp;proceso</span></td>');
+            } else {
+              echo('<td class="status-field"><span class="status-completed">completada</span></td>');
+            }
+            ?>
+            <td class="reservas-list-options">
+              <a href="admin_reserva_detalle.php?id=<?php echo $row["reservation_id"] ?>"><i class="material-icons icon-action icon-table icon-reservas">edit</i></a><i class="material-icons icon-action icon-table icon-reservas" onclick="askDeleteReservation(<?php echo $row["reservation_id"] ?>)">delete</i>
+            </td>
             </tr>
             <?php } ?>
       </table>
 
           </div>
+
+          <script>
+          function askDeleteReservation(reservationID) {
+              var c = confirm("¿Eliminar esta reserva?");
+              if (c == true) {
+                window.location.replace("admin_delete_reservation.php"+"?id="+reservationID);
+              } else {
+            }
+          }
+          </script>
 
         <?php
           include "usuario_footer.php";

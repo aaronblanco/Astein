@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/EstilosContacUser.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="images\astein_icon.png"/>
 </head>
 <body>
 

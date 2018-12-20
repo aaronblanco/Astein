@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Trabaja con nosotros � Administrador</title>
+  <title>Trabaja con nosotros – Administrador</title>
 </head>
 <body>
 
@@ -42,7 +42,7 @@
         echo '<td>'.$row["email"].'</td>';
         echo '<td>'.$row["phone"].'</td>';
         echo '<td><a href="'.$row["cv"].'" target="_blank">abrir PDF</a></td>';
-        echo '<td class="applicant-message">'.$row["message"].'</td>';
+        echo '<td class="table-message">'.$row["message"].'</td>';
         echo '<td class="table-options"><i class="material-icons icon-action icon-table" onclick="askDeleteApplicant('.$row["ID"].');">delete</i></td>';
         echo '</tr>';
       }

@@ -55,12 +55,6 @@
     </form>
   </div>
 
-  <script>
-  document.getElementById('submit-button').onclick = function() {
-   alert("Empleado editado.");
-  }​;​
-  </script>
-
 </div>
 
 <?php

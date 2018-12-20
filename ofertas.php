@@ -3,11 +3,11 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-
   <link rel="stylesheet" href="css\ofertas.css">
-    <link rel="stylesheet" href="css\EstilosGenerales.css">
+  <link rel="stylesheet" href="css\EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="images\astein_icon.png"/>
 </head>
 <body>
 
