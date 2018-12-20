@@ -12,9 +12,10 @@ $status = 'pendiente';
 $id_offer = 1;
 $id_client;
 
-$query_findUser = $connection->prepare("SELECT * from client where email='?'");
+$query_findUser = $connection->prepare("SELECT * from client where email=?");
 $query_findUser->bind_param("s", $mail);
-$result = $query_findUser->execute();
+$query_findUser->execute();
+$result = $query_findUser->get_result();
 if(mysqli_num_rows($result) > 0 ){
   $row = $result->fetch_assoc();
   $id_client = $row['ID'];
@@ -23,7 +24,8 @@ if(mysqli_num_rows($result) > 0 ){
   $addUser->bind_param("sssi", $name, $lastname, $mail, $phone);
   $addUser->execute();
   $addUser->close();
-  $result = $query_findUser->execute();
+  $query_findUser->execute();
+  $result = $query_findUser->get_result();
   $row =  $result->fetch_assoc();
   $id_client = $row['ID'];
   $query_findUser->close();
