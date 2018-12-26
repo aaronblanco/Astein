@@ -19,7 +19,7 @@
   <p class="subtitle">Aquí puede cambiar la contraseña utilizada de los miembros de su equípo.</p>
 
 <div id="team-password-form">
-  <form class="astein-form" action="/admin_cambio_pass.php" method="post">
+  <form class="astein-form" action="admin_cambio_pass.php" method="post">
       <label>Contraseña</label> <input type="text" class="astein-input" name="password" value="astein2018##"><br>
       <input class="save-changes" type="submit" action="admin_cambio_pass.php" method="post" value="guardar cambios">
   </form>
