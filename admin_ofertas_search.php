@@ -22,7 +22,7 @@
       if($search === ""){
         $query_findOffer = $connection->prepare("SELECT * from offer");
       } else {
-        $query_findOffer = $connection->prepare("SELECT * from offer where type is not null and name = ?");
+        $query_findOffer = $connection->prepare("SELECT * from offer where type is not null and name LIKE CONCAT('%', ?, '%')");
         $query_findOffer->bind_param("s", $search);
       }
     } else {
@@ -30,7 +30,7 @@
       $query_findOffer = $connection->prepare("SELECT * from offer where type=?");
       $query_findOffer->bind_param("s", $type);
     } else {
-      $query_findOffer = $connection->prepare("SELECT * from offer where type=? and name like ?");
+      $query_findOffer = $connection->prepare("SELECT * from offer where type=? and name LIKE CONCAT('%', ?, '%')");
       $query_findOffer->bind_param("ss", $type, $search);
     }
   }

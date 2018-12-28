@@ -38,6 +38,7 @@ function setVars(){
     <tr>
       <th>Código</th>
       <th>Nombre</th>
+      <th>Tipo</th>
       <th>Proveedor</th>
       <th>Precio</th>
       <th style="width:33%; word-wrap: word-break">Descripción</th>
@@ -51,6 +52,7 @@ function setVars(){
       <tr>
       <td><?php echo $row['id']; ?></td>
       <td><?php echo $row['name']; ?></td>
+      <td><?php echo $row['type']; ?></td>
       <td><?php echo $row['provider']; ?></td>
       <td><?php echo $row['price']; ?></td>
       <td><?php echo $row['description']; ?></td>
