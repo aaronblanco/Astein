@@ -593,3 +593,14 @@ tr, th, td {
   padding-left: 12px;
   padding-right: 0px;
 }
+
+/** ---- Offer Search (Admin) ---- */
+.admin-select-button {
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+#admin-search-offers-button {
+  margin-top: 15px;
+  margin-bottom: 40px;
+}

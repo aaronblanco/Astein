@@ -15,8 +15,9 @@
   $search = $_GET['search'];
   ?>
   <div id="main-content">
-    <h1> Resultados de la búsqueda por <?php echo "tipo: '$type' y nombre: '$search'";?></h1>
-  <a href="admin_ofertas.php" target="_self"><i class="material-icons icon-arrow">keyboard_arrow_left</i>Volver</a>
+    <h1> Resultados de búsqueda</h1>
+    <p class="subtitle"><?php echo "<b>Tipo:</b> '$type' <br><b>Nombre:</b> '$search'";?></p>
+  <a href="admin_ofertas.php" target="_self"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
 <?php
     if($type === "Todos"){
       if($search === ""){
