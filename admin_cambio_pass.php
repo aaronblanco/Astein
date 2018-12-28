@@ -1,19 +1,15 @@
 <?php
-	require_once ("safeConnection.php");
-	require_once ("funciones.php");
-$servidor = "localhost:8080";
-$baseDatos = "astein";
-$usuario = "root";
-$clave = "";
 
 $pass = $_POST['password'];
 
 include("connection.php");
+// Falta ver la tabla que actualizará la contraseña de todo el equipo.
+$consulta =  $connection->prepare("UPDATE ` ` SET `password` = ? ");
+$consulta->bind_param("s", $pass);
+$consulta->execute();
+$consulta->close();
 
-$consulta = "UPDATE `administrator` SET `password` = $pass ";
-$result = $connection->exec($consulta);
-
-    header("Location: admin_contrasena.php");
+header("Location: admin_contrasena.php");
 
 
  ?>
