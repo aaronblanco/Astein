@@ -1,11 +1,3 @@
-<!-- <ul class="navbar-desktop">
- <li> <a href="inicio.php"><img id="astein-logo" src="images/astein_white.png"></a> </li>
- <li> <button type="button" onclick="location.href='inicio.php'" class="navtab">Inicio</button></li>
- <li> <button type="button" onclick="location.href='contacto.php'" class="navtab">Contacta con nosotros</button></li>
- <li> <button type="button" onclick="location.href='ofertas.php'" class="navtab">Ofertas</button></li>
- <li> <button type="button" onclick="location.href='equipo.php'" class="navtab">Equipo</button></li>
- <li> <button type="button" onclick="location.href='trabajar.php'" class="navtab">Trabaja con nosotros</button></li>
-</ul> -->
 <div class="topnav" id="myTopnav">
   <a href="inicio.php" class="ignore"><div id="logo-tab"><img id="astein-logo-responsive" src="images/astein_white.png"></div></a>
   <a href="inicio.php" class="active">Inicio</a>
@@ -19,3 +11,15 @@
     </div>
   </a>
 </div>
+
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
