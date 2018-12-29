@@ -73,6 +73,7 @@ ul {
 #main-content {
   padding-top: 2vw;
   padding-left: 5vw;
+  padding-right: 5vw;
   margin-bottom: 100px;
 }
 
@@ -149,6 +150,19 @@ ul {
 .astein-form > input[type=submit]:hover {
   background-color: black;
   cursor: pointer;
+}
+
+select {
+	position: relative;
+	display: block;
+	background-color: #e8e8e8;
+  border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+  height: 40px;
+  font-size: 1em;
+  font-weight: 100;
+  padding-left: 5px;
 }
 
 .submit_button {
@@ -392,21 +406,27 @@ ul {
   background-color: #7FFFBF;
 }
 
-.new {
+.status-new {
+  padding: 4px;
+  border-radius: 5px;
   background-color: #FFB28C;
 }
 
-.in-progress {
+.status-in-progress {
+  padding: 4px;
+  border-radius: 5px;
   background-color: #FFFF80;
 }
 
-.completed {
+.status-completed {
+  padding: 4px;
+  border-radius: 5px;
   background-color: #7FFFBF;
 }
 
 #icon-back-reservas {
-  margin-top: 5px;
-  margin-bottom: 24px;
+  margin-top: -7px;
+  margin-bottom: 20px;
 }
 
 /* ---- Trabaja con Nosotros (Admin) ---- */
@@ -429,10 +449,13 @@ th {
 }
 
 td {
-  height: 50px;
-  min-width: 100px;
+  /* height: 50px; */
+  min-width: 50px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 
 tr {
@@ -514,4 +537,59 @@ tr:nth-child(even) {
 
 .warning-message:hover {
   display: none;
+}
+
+/* ---- Trabaja con Nosotros (Admin) ---- */
+.table-message {
+  max-width: 300px;
+  padding: 10px;
+}
+
+tr, th, td {
+  /* border: 1px solid grey; */
+}
+
+/** ---- Reservas (Admin) ---- */
+.large-table th {
+  height: 45px;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: var(--astein-primary);
+  color: white;
+  /* font-size: 0.9em; */
+}
+
+.large-table td {
+  min-width: 25px;
+  padding: 10px;
+  vertical-align: top;
+  font-size: 0.9em;
+}
+
+.status-field {
+  display: flex;
+  align-items: center;
+}
+
+#reservation-detail-message {
+  max-width: 70vw;
+  margin-top: -0.5em;
+}
+
+#status-change-button {
+  display: inline;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+.reservas-list-options {
+  width: 80px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.icon-reservas {
+  padding-left: 12px;
+  padding-right: 0px;
 }
