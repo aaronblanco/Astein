@@ -7,12 +7,13 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" href="images\astein_icon.png"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Trabjar con nosotros</title>
 </head>
 <body>
 
   <?php
-    include "usuario_navbar.php";
+    include "usuario_navbar_responsive.php";
   ?>
 
 <div id="main-content">

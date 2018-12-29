@@ -661,6 +661,9 @@ This class makes the topnav look good on small screens (display the links vertic
     display: block;
     text-align: left;
   }
+  .logo-tab {
+    float: none;
+  }
 }
 
 #astein-logo-responsive {
@@ -682,7 +685,16 @@ This class makes the topnav look good on small screens (display the links vertic
   width: var(--navbar-height);
 }
 
-#logo-tab {
+.logo-tab-expanded {
+  float: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--navbar-height);
+  width: 180px;
+}
+
+.logo-tab-collapsed {
   float: left;
   display: flex;
   align-items: center;
