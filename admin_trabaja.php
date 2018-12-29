@@ -43,7 +43,7 @@
         echo '<td>'.$row["phone"].'</td>';
         echo '<td><a href="'.$row["cv"].'" target="_blank">abrir PDF</a></td>';
         echo '<td class="table-message">'.$row["message"].'</td>';
-        echo '<td class="table-options"><i class="material-icons icon-action icon-table" onclick="askDeleteApplicant('.$row["ID"].');">delete</i></td>';
+        echo '<td class="table-options"><i class="material-icons icon-action icon-table" onclick="askDeleteApplicant('.$row["id"].');">delete</i></td>';
         echo '</tr>';
       }
     } else {

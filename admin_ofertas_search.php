@@ -15,14 +15,15 @@
   $search = $_GET['search'];
   ?>
   <div id="main-content">
-    <h1> Resultados de la búsqueda por <?php echo "tipo: '$type' y nombre: '$search'";?></h1>
-  <a href="admin_ofertas.php" target="_self"><i class="material-icons icon-arrow">keyboard_arrow_left</i>Volver</a>
+    <h1> Resultados de búsqueda</h1>
+    <p class="subtitle"><?php echo "<b>Tipo:</b> '$type' <br><b>Nombre:</b> '$search'";?></p>
+  <a href="admin_ofertas.php" target="_self"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
 <?php
     if($type === "Todos"){
       if($search === ""){
         $query_findOffer = $connection->prepare("SELECT * from offer");
       } else {
-        $query_findOffer = $connection->prepare("SELECT * from offer where type is not null and name = ?");
+        $query_findOffer = $connection->prepare("SELECT * from offer where type is not null and name LIKE CONCAT('%', ?, '%')");
         $query_findOffer->bind_param("s", $search);
       }
     } else {
@@ -30,7 +31,7 @@
       $query_findOffer = $connection->prepare("SELECT * from offer where type=?");
       $query_findOffer->bind_param("s", $type);
     } else {
-      $query_findOffer = $connection->prepare("SELECT * from offer where type=? and name like ?");
+      $query_findOffer = $connection->prepare("SELECT * from offer where type=? and name LIKE CONCAT('%', ?, '%')");
       $query_findOffer->bind_param("ss", $type, $search);
     }
   }
