@@ -72,7 +72,7 @@ ul {
   margin-bottom: 100px;
 }
 
-#footer {
+.footer {
   height: 40px;
   width: 100vw;
   background-color: var(--astein-primary);
@@ -80,11 +80,12 @@ ul {
   bottom: 0;
   display: flex;
   align-items: center;
+  padding-left: calc(6px + 0.5vw);
 }
 
 .social-media-icon {
   margin-left: 8px;
-  margin-right: -3px;
+  margin-right: calc(6px + 0.5vw);
   height: 30px;
   width: 30px;
 }
@@ -93,9 +94,15 @@ ul {
   color: white;
 }
 
-#footer-icon {
+.footer-icon {
   margin-left: 5vw;
   margin-right: 10px;
+}
+
+.footer-icon-action {
+  margin-left: 5vw;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .footer-text {
@@ -707,4 +714,27 @@ This class makes the topnav look good on small screens (display the links vertic
   color: white;
   text-decoration: none;
   transition: background-color 0.5s;
+}
+
+
+/** ---- Responsive Footer (User and Admin Page) ---- */
+#footer-mobile {
+  display: none;
+}
+
+/* Show mobile footer on small devices */
+@media screen and (max-width: 900px) {
+  #footer-desktop {display: none;}
+  #footer-mobile {display: block;}
+}
+
+.centered-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mobile-icon {
+  margin-left: calc(6px + 0.5vw);
+  margin-right: calc(6px + 0.5vw);
 }

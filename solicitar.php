@@ -13,7 +13,7 @@
 <body>
 
   <?php
-    include "usuario_navbar_responsive.php";
+    include "usuario_navbar.php";
   ?>
 
 <div id="main-content">
