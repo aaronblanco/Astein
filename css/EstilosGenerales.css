@@ -5,6 +5,7 @@
   --astein-primary-dark: #166abd;
   --fullwidth: 100%;
   --width-form: calc(280px + 16vw);
+  --navbar-height: calc(1em + 40px);
 }
 
 body {
@@ -601,3 +602,97 @@ tr, th, td {
 
 
 /** ---- Responsive Navigation Menu (User and Admin Page) ---- */
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: var(--astein-primary);
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a:not(.ignore) {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  height: 1em;
+  transition: background-color 0.5s;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: var(--astein-primary-dark);
+  cursor: pointer;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  /* background-color: var(--astein-primary-dark); */
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .hamburger-icon {
+  display: none;
+}
+
+/* When the screen is less than 900 pixels wide, hide all links, except for the first one ("Home").
+Show the link that contains should open and close the topnav (.hamburger-icon) */
+@media screen and (max-width: 900px) {
+  .topnav a:not(.ignore) {display: none;}
+  .topnav a.hamburger-icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the hamburger-icon.
+This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 900px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.hamburger-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+#astein-logo-responsive {
+    width: 130px;
+    height: 30px;
+    padding-top: 4px;
+}
+
+#navbar-hamburger {
+  display: inline-block;
+  font-size: 28px;
+}
+
+#hamburger-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--navbar-height);
+  width: var(--navbar-height);
+}
+
+#logo-tab {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--navbar-height);
+  width: 180px;
+}
+
+.hamburger-icon {
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.5s;
+}
