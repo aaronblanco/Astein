@@ -7,12 +7,6 @@
   --width-form: calc(280px + 16vw);
 }
 
-@media only screen and (max-device-width : 640px) {
-  html {
-    font-size: 1.8em;
-  }
-}
-
 body {
   font-family: 'Roboto', sans-serif;
   padding: 0;
@@ -604,3 +598,6 @@ tr, th, td {
   margin-top: 15px;
   margin-bottom: 40px;
 }
+
+
+/** ---- Responsive Navigation Menu (User and Admin Page) ---- */
