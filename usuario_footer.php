@@ -22,9 +22,9 @@
   </div>
   <div id="footer-right">
     <i class="material-icons icon-white footer-icon-action" onClick="window.location='tel:<?php echo $phone ?>'">phone</i>
-    <p class="footer-text"><?php echo $phone ?></p>
+    <p class="footer-text"><a href="tel:<?php echo $phone ?>" class="white-link"><?php echo $phone ?></a></p>
     <i class="material-icons icon-white footer-icon-action" onClick="window.location='mailto:<?php echo $email ?>'">email</i>
-    <p class="footer-text"><?php echo $email ?></p>
+    <p class="footer-text"><a href="mailto:<?php echo $email ?>" class="white-link"><?php echo $email ?></a></p>
   </div>
 </div>
 

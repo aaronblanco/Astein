@@ -24,6 +24,11 @@ ul {
     overflow: hidden;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 #astein-logo {
     float: left;
     padding-left: 15px;
@@ -118,6 +123,10 @@ ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.white-link {
+  color: white !important;
 }
 
 .astein-form > input[type=text]{
@@ -737,4 +746,19 @@ This class makes the topnav look good on small screens (display the links vertic
 .mobile-icon {
   margin-left: calc(6px + 0.5vw);
   margin-right: calc(6px + 0.5vw);
+}
+
+/** ---- Responsive Map Size (User) ---- */
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 }

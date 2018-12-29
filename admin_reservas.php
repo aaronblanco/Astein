@@ -78,7 +78,7 @@
           </script>
 
         <?php
-          include "usuario_footer.php";
+          include "admin_footer.php";
         ?>
 
 </body>
