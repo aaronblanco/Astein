@@ -18,7 +18,7 @@ $query->close();
 
 $ftp = ftp_connect("www./test.astein.net");
 
-$login = ftp_login(ftp, "asteinweb", "FtpWeb18");
+$login = ftp_login(ftp, "dpyrmjuf", "1K5g6kfFm3");
 
 if ((!$ftp) || (!$resultado)) {
 		echo "Fallo en la conexión"; die;
