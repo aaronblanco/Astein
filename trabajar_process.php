@@ -16,7 +16,7 @@ $query->close();
 
 //$cv = $_POST['cv']; hay que implementar el subido de archivos pdf
 
-$ftp = ftp_connect("www./test.astein.net");
+$ftp = ftp_connect("s32.profesionalhosting.com");
 
 $login = ftp_login(ftp, "asteinweb", "FtpWeb18");
 
