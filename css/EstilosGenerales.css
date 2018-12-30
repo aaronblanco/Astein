@@ -129,7 +129,7 @@ a {
   color: white !important;
 }
 
-.astein-form > input[type=text]{
+.astein-form > input[type=text] {
 	position: relative;
 	display: block;
 	background-color: #e8e8e8;
@@ -161,6 +161,19 @@ a {
 .astein-form > input[type=submit]:hover {
   background-color: black;
   cursor: pointer;
+}
+
+.astein-form > input[type=file] {
+  margin-top: 10px;
+}
+
+.astein-form > input[type=checkbox] {
+  display: block !important;
+  position: relative !important;
+  float: left !important;
+  margin-right: calc((40px - 1em) / 2);
+  margin-top:  calc((40px - 1em) / 2);
+  font-size: 1em;
 }
 
 select {
@@ -761,4 +774,32 @@ This class makes the topnav look good on small screens (display the links vertic
     height:100%;
     width:100%;
     position:absolute;
+}
+
+/** ---- Create/Edit Offer (Admin) ---- */
+.form-select {
+  margin-bottom: calc((40px - 1em) / 1.5);
+}
+
+.inline-textfield {
+	position: relative;
+	display: inline;
+  float: left;
+	background-color: #e8e8e8;
+  border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+  width: 100px;
+  height: 40px;
+  font-size: 1em;
+  font-weight: 100;
+  padding-left: 5px;
+  margin-right: calc((40px - 1em) / 2);
+}
+
+.legend-label {
+  display: flex;
+  align-items: center;
+  float: left;
+  margin-top: calc((40px - 1em) / 2);
 }

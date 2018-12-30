@@ -61,8 +61,10 @@ function setVars(){
       </tr>
       <?php } ?>
   </table>
-  </div>
 
+  <a href="admin_nueva_oferta.php"><i class="material-icons icon-action plus_icon" id="new-offer">add_box</i></a>
+
+  </div>
 
 <?php
   include "admin_footer.php";
