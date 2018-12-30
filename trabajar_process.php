@@ -16,7 +16,7 @@ $query->close();
 
 //$cv = $_POST['cv']; hay que implementar el subido de archivos pdf
 
-$ftp = ftp_connect("www./test.astein.net");
+$ftp = ftp_connect("s32.profesionalhosting.com");
 
 $login = ftp_login(ftp, "asteinweb", "FtpWeb18");
 
@@ -32,7 +32,7 @@ $local = $_FILES["archivo"]["name"];
 $remoto = $_FILES["archivo"]["tmp_name"];
 $size = $_FILES["archivo"]["size"];
 
-$ruta = "/test.astein.net/cvs" . $local;
+$ruta = "/test.astein.net/cvs/" . $local;
 if (!$tama<=$_POST["MAX_FILE_SIZE"]){
 		echo "Excede el tamaño del archivo...<br />";
 	} else {
