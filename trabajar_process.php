@@ -9,18 +9,18 @@ $message = $_POST['message'];
 
 
 $query = $connection->prepare("INSERT INTO applicant (firstname, lastname, email, phone, message) values (?,?,?,?,?)");
-$query->bind_param("sssis", $name, $lastname, $mail, $phone, $message)
+$query->bind_param("sssis", $name, $lastname, $mail, $phone, $message);
 $query->execute();
 $query->close();
 
 
 //$cv = $_POST['cv']; hay que implementar el subido de archivos pdf
 
-$ftp = ftp_connect("www./test.astein.net");
+$ftp = ftp_connect("s32.profesionalhosting.com");
 
-$login = ftp_login(ftp, "dpyrmjuf", "1K5g6kfFm3");
+$login = ftp_login($ftp, "asteinweb", "FtpWeb18");
 
-if ((!$ftp) || (!$resultado)) {
+if ((!$ftp) || (!$login)) {
 		echo "Fallo en la conexión"; die;
 	} else {
 		echo "Conectado.";
@@ -32,8 +32,8 @@ $local = $_FILES["archivo"]["name"];
 $remoto = $_FILES["archivo"]["tmp_name"];
 $size = $_FILES["archivo"]["size"];
 
-$ruta = "/test.astein.net/cvs/" . $local;
-if (!$tama<=$_POST["MAX_FILE_SIZE"]){
+$ruta = "/cvs" . $local;
+if (!$size<=$_POST["MAX_FILE_SIZE"]){
 		echo "Excede el tamaño del archivo...<br />";
 	} else {
 		// Verificamos si ya se subio el archivo temporal
@@ -50,5 +50,5 @@ if (!$tama<=$_POST["MAX_FILE_SIZE"]){
 	//cerramos la conexión FTP
 	ftp_close($ftp);
 
-header("Location: trabajar.html");
+header("Location: trabajar.php");
 ?>

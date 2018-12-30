@@ -5,7 +5,7 @@ $user = $_POST['user'];
 
 include("connection.php");
 
-$consulta =  $connection->prepare("UPDATE `administrator` SET  'username' = ?, `password` = ? ");
+$consulta =  $connection->prepare("UPDATE administrator SET  username = ?, password = ? ");
 $consulta->bind_param("ss", $user,  $pass);
 $consulta->execute();
 $consulta->close();
