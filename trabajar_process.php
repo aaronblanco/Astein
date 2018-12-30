@@ -32,7 +32,7 @@ $local = $_FILES["archivo"]["name"];
 $remoto = $_FILES["archivo"]["tmp_name"];
 $size = $_FILES["archivo"]["size"];
 
-$ruta = "/test.astein.net/cvs" . $local;
+$ruta = "/test.astein.net/cvs/" . $local;
 if (!$tama<=$_POST["MAX_FILE_SIZE"]){
 		echo "Excede el tamaño del archivo...<br />";
 	} else {
