@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Contraseña – Administrador</title>
 </head>
 <body>
@@ -20,9 +19,9 @@
   <p class="subtitle">Aquí puede cambiar la contraseña utilizada de los miembros de su equípo.</p>
 
 <div id="team-password-form">
-  <form class="astein-form" action="/action_page.php" method="post">
-    <label>Contraseña</label> <input type="text" class="astein-input" name="password" value="astein2018##"><br>
-    <input class="save-changes" type="submit" action="saved_changes.php" method="post" value="guardar cambios">
+  <form class="astein-form" action="admin_cambio_pass.php" method="post">
+      <label>Contraseña</label> <input type="text" class="astein-input" name="password" value="astein2018##"><br>
+      <input class="save-changes" type="submit" action="admin_cambio_pass.php" method="post" value="guardar cambios">
   </form>
 </div>
 

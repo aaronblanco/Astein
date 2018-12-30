@@ -5,15 +5,12 @@
   <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Trabaja con nosotros – Administrador</title>
+  <title>Trabaja con nosotros � Administrador</title>
 </head>
 <body>
 
   <?php
     include "admin_navbar.php";
-    include "connection.php";
-    include "user_feedback.php"
   ?>
 
 <div id="main-content">
@@ -21,47 +18,42 @@
   <h1>Trabaja con nosotros</h1>
   <p class="subtitle">Aquí puede ver la lista de solicitantes.</p>
 
-  <div>
-    <table class="astein-table">
-    <tr>
-      <th>Nombre</th>
-      <th>Correo electrónico</th>
-      <th>Teléfono</th>
-      <th>CV</th>
-      <th>Mensaje</th>
-      <th class="table-options">Opciones</th>
-    </tr>
-
-  <?php
-    $query_findApplicants = "SELECT * from applicant";
-    $result = $connection->query($query_findApplicants);
-
-    if ($result && ($result->num_rows > 0)) {
-      while($row = $result->fetch_assoc()) {
-        echo '<tr>';
-        echo '<td>'.$row["firstname"].' '.$row["lastname"].'</td>';
-        echo '<td>'.$row["email"].'</td>';
-        echo '<td>'.$row["phone"].'</td>';
-        echo '<td><a href="'.$row["cv"].'" target="_blank">abrir PDF</a></td>';
-        echo '<td class="table-message">'.$row["message"].'</td>';
-        echo '<td class="table-options"><i class="material-icons icon-action icon-table" onclick="askDeleteApplicant('.$row["id"].');">delete</i></td>';
-        echo '</tr>';
-      }
-    } else {
-        echo "<tr><td>Todavía no hay ningún solicitante.</td><tr>";
-    }
-  ?>
-
+<div>
+  <table class="astein-table">
+  <tr>
+    <th>Nombre</th>
+    <th>Correo electrónico</th>
+    <th>Teléfono</th>
+    <th>Curriculum Vitae</th>
+    <th class="table-options">Opciones</th>
+  </tr>
+  <tr>
+    <td>Pepito Lopez</td>
+    <td>alguncorreo@gmail.com</td>
+    <td>982221331</td>
+    <td><a href="http://www.eduso.net/orientacion/documentos/ejemplo_cv.pdf" target="_blank">cv_pepito_lopez.pdf</a></td>
+    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="myFunction()">delete</i></td>
+  </tr>
+  <tr>
+    <td>Carolina Pillajo</td>
+    <td>carop1998@gmail.com</td>
+    <td>983881331</td>
+    <td><a href="http://www.eduso.net/orientacion/documentos/ejemplo_cv.pdf" target="_blank">cv_carolina_pillanjo.pdf</a></td>
+    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="myFunction()">delete</i></td>
+  </tr>
+  <tr>
+    <td>Luis Miguel Ramírez de la Cruz</td>
+    <td>lm.ramirez.dlcruz@gmail.com</td>
+    <td>288781331</td>
+    <td><a href="http://www.eduso.net/orientacion/documentos/ejemplo_cv.pdf" target="_blank">cv_luis_ramirez.pdf</a></td>
+    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="myFunction()">delete</i></td>
+  </tr>
 </table>
 </div>
 
 <script>
-function askDeleteApplicant(applicantID) {
-    var c = confirm("¿Eliminar este solicitante?");
-    if (c == true) {
-      window.location.replace("admin_delete_applicant.php"+"?id="+applicantID);
-    } else {
-  }
+function myFunction() {
+    confirm("¿Eliminar este solicitante?");
 }
 </script>
 

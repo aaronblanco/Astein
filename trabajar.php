@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="css/trabajar.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="icon" href="images\astein_icon.png"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Trabjar con nosotros</title>
 </head>
 <body>
@@ -25,7 +23,12 @@
   <input type="text" placeholder="Número de teléfono" required="true">
   <input type="text" placeholder="Correo electrónico" required="true">
   Curriculum Vitae:
-  <input type="file" value="CV" required="true">
+
+
+  <input type="hidden" name="MAX_FILE_SIZE" value="1000">
+  Archivo: <input type="file" name="archivo">
+
+
   <textarea class="mensaje" name="message" placeholder="Mensaje con información adicional (Opcional)"></textarea>
   <input type="submit" value="Enviar">
 </form>
