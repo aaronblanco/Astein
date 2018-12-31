@@ -32,9 +32,9 @@ session_start();
 		$_SESSION['loggedin'] = true;
 		$_SESSION['name'] = $row['username'];
 		$_SESSION['start'] = time();
-		$_SESSION['expire'] = $_SESSION['start'] + (1 * 60) ;
+		$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 
-		echo "<div class='alert alert-success' role='alert'><strong>Welcome!</strong> $row[Name]
+		echo "<div class='alert alert-success' role='alert'><strong>Welcome!</strong> $row[username]
 		<p><a href='edit-profile.php'>Edit Profile</a></p>
 		<p><a href='logout.php'>Logout</a></p></div>";
 
