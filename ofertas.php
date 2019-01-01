@@ -44,13 +44,12 @@ function setVars(){
       while($row = $result->fetch_assoc()){
       ?>
         <div class="offer">
-            <img src="<?php echo $row['photo']?>"> </img>
-            <td><?php echo $row['name']; ?></td>
-            <td><?php echo $row['provider']; ?></td>
-            <td><?php echo $row['price']; ?></td>
-            <td><?php echo $row['description']; ?></td>
+            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo $row['name']; ?></a>
+            <p><?php echo $row['price']; ?></p>
         </div>
       <?php } ?>
+
+      </script>
   </div>
 
 <?php

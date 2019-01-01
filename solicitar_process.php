@@ -9,7 +9,7 @@ $lastname = $_POST['lastname'];
 $phone = $_POST['phone'];
 $mail = $_POST['mail'];
 $status = 'pendiente';
-$id_offer = 1;
+$id_offer = $_POST['id'];
 $id_client;
 
 $query_findUser = $connection->prepare("SELECT * from client where email=?");
