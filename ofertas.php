@@ -12,7 +12,7 @@
 <body>
 
   <?php
-    include "admin_navbar.php";
+    include "usuario_navbar.php";
     include("connection.php");
   ?>
 

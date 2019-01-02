@@ -10,9 +10,9 @@
 </head>
 <body>
 
-  <?php
-    include "usuario_navbar.php";
-  ?>
+<?php
+include "usuario_navbar.php";
+?>
 
 <div id="main-content">
 

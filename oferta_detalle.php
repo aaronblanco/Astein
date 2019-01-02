@@ -30,15 +30,27 @@ $row = $result->fetch_assoc()
 <table>
   <tr>
     <td>Precio</td>
-    <td><?php echo $row['price'];?></td>
+    <td><?php echo $row['price'];?>€/<?php echo $row['priceType']?></td>
   </tr>
   <tr>
     <td>Datos</td>
-    <td><?php echo $row['data'];?></td>
+    <td><?php echo $row['data']; echo' '; echo $row['dataUnit'];?></td>
   </tr>
   <tr>
     <td>Proveedor</td>
     <td><?php echo $row['provider'];?></td>
+  </tr>
+  <tr>
+    <td>Llamadas</td>
+    <td><?php echo $row['calls'];?></td>
+  </tr>
+  <tr>
+    <td>Fibre</td>
+    <td><?php echo $row['fibre'];?></td>
+  </tr>
+  <tr>
+    <td>Descripción</td>
+    <td><?php echo $row['description'];?></td>
   </tr>
 </table>
 
