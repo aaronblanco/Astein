@@ -9,13 +9,8 @@ session_start();
 	$password = $_POST['password'];
 
 
-  $query_findCompany = "SELECT * from company where ID='$company_id'";
-  $result = $connection->query($query_findCompany);
 
-
-
-
-	$query = "SELECT username, password FROM administrator WHERE username = '$username' && password = '$password' ");
+	$query = "SELECT username, password FROM administrator WHERE (username = '$username' and password = '$password') ";
   $result = $connection->query($query);
 
   $row = mysqli_fetch_assoc($result);
