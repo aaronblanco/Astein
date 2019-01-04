@@ -22,6 +22,7 @@
   <table class="large-table">
     <tr>
         <th>Fecha</th>
+        <th>ID</th>
         <th>Oferta</th>
         <th>Nombre</th>
         <th>Correo Electrónico</th>
@@ -40,6 +41,7 @@
             ?>
             <tr onclick="window.location='admin_reserva_detalle.php?id=<?php echo $row["reservation_id"]?>';">
             <td><?php echo date_format(new DateTime($row['timestamp']), 'd/m/Y H:i'); ?></td>
+            <td><?php echo $row['reservation_id']; ?></td>
             <td><?php echo $row['offer_name']; ?></td>
             <td><?php echo($row['firstname'].' '.$row['lastname']); ?></td>
             <td><a href="mailto:<?php echo $row['email']; ?>"><?php echo $row['email']; ?></a></td>
