@@ -51,7 +51,7 @@ session_start();
 
 <div id="reserva-details">
 <p>
-<b>Fecha y hora:</b>  <?php echo $row['timestamp'] ?><br><br>
+<b>Fecha y hora:</b>  <?php echo date_format(new DateTime($row['timestamp']), 'd/m/Y H:i'); ?> <br><br>
 <b>Nombre de oferta:</b>  <?php echo $row['offer_name'] ?><br>
 <b>Código de oferta:</b>  <?php echo $row['offer_id'] ?><br>
 <br>
