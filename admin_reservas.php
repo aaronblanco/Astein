@@ -39,7 +39,7 @@
           $result = $connection->query($query);
             while($row = $result->fetch_assoc()){
             ?>
-            <tr onclick="window.location='admin_reserva_detalle.php?id=<?php echo $row["reservation_id"]?>';">
+            <tr>
             <td><?php echo date_format(new DateTime($row['timestamp']), 'd/m/Y H:i'); ?></td>
             <td><?php echo $row['reservation_id']; ?></td>
             <td><?php echo $row['offer_name']; ?></td>
@@ -51,7 +51,7 @@
                 echo('<td class="table-message">'.$row['message'].'</td>');
               }
               else {
-                echo('<td class="table-message">'.substr($row['message'], 0, 75).'...'.'</td>');
+                echo('<td class="table-message"><a href="admin_reserva_detalle.php?id='.$row["reservation_id"].'">'.substr($row['message'], 0, 75).'...'.'</a></td>');
               }
             } else {
               echo ('<td> </td>');
