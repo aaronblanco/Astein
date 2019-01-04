@@ -9,33 +9,23 @@ session_start();
 	$password = $_POST['password'];
 
 
+		$query =  "SELECT * FROM administrator WHERE username = '$username' AND password ='$password' ";
 
-	$query = "SELECT username, password FROM administrator WHERE (username = '$username' and password = '$password') ";
-  $result = $connection->query($query);
 
-  $row = mysqli_fetch_assoc($result);
+		$result = $connection->query($query);
+		if(mysqli_num_rows($result) == 1 )
+	 {
 
-  	$hash = $row['password'];
+			$_SESSION['loggedin'] = true;
+			$_SESSION['name'] = $row['username'];
+			$_SESSION['start'] = time();
+			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
+			header("Location: admin_inicio.php");
 
-	/*
-	password_Verify() function verify if the password entered by the user
-	match the password hash on the database. If everything is ok the session
-	is created for one minute. Change 1 on $_SESSION[start] to 5 for a 5 minutes session.
-	*/
-	if (password_verify($_POST['password'], $hash)) {
 
-		$_SESSION['loggedin'] = true;
-		$_SESSION['name'] = $row['username'];
-		$_SESSION['start'] = time();
-		$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
+		} else {
+			echo "<div class='alert alert-danger' role='alert'>Usuario o contraseña incorrectos.
+			<p><a href='admin_login.php'><strong>Prueba de nuevo.</strong></a></p></div>";
 
-		echo "<div class='alert alert-success' role='alert'><strong>Bienvenido administrador.</strong> $row[username]
-		<p><a href='admin_inicio.php'>Admin inicio</a></p>
-		<p><a href='logout.php'>Logout</a></p></div>";
-
-	} else {
-		echo "<div class='alert alert-danger' role='alert'>Usuario o contraseña son erroneos.
-		<p><a href='admin_login.php'><strong>Por favor, intenta de nuevo.</strong></a></p></div>";
-
-	}
+		}
 ?>
