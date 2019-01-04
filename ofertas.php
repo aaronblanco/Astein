@@ -14,6 +14,7 @@
 
   <?php
     include "admin_navbar.php";
+    include("user_feedback.php");
     include("connection.php");
   ?>
 

@@ -1,14 +1,12 @@
 <?php
 include("connection.php");
-if ($connection->connect_error){
-  die("Connection failed: " . $connection->connect_error);
-}
+session_start();
 $message = $_POST['message'];
 $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 $phone = $_POST['phone'];
 $mail = $_POST['mail'];
-$status = 'pendiente';
+$status = 'new';
 $id_offer = $_POST['id'];
 $id_client;
 
@@ -34,5 +32,6 @@ $query = $connection->prepare("INSERT INTO reservation (status, message, id_offe
 $query->bind_param("ssii", $status, $message, $id_offer, $id_client);
 $query->execute();
 $query->close();
+$_SESSION["message-success"] = "Tu solicitud ha sido enviado con éxito.";
 header("Location: ofertas.php");
  ?>

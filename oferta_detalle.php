@@ -42,7 +42,7 @@ $row = $result->fetch_assoc()
   </tr>
 </table>
 
-<button type="button" onclick="location.href='solicitar.php?id=<?php echo $id?>'" class="navtab">Solicitar</button>
+<button type="button" class="submit_button" onclick="location.href='solicitar.php?id=<?php echo $id?>'" class="navtab">Solicitar</button>
 
 </div>
 

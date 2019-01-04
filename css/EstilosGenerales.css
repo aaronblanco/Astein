@@ -129,7 +129,7 @@ a {
   color: white !important;
 }
 
-.astein-form > input[type=text] {
+.astein-form > input[type=text], .astein-form > input[type=email] {
 	position: relative;
 	display: block;
 	background-color: #e8e8e8;
@@ -201,10 +201,12 @@ select {
   justify-content: center;
   align-items: center;
   padding-left, padding-right: 30px;
+  margin-top: 40px;
 }
 
 .submit_button:hover {
   background-color: black;
+  cursor: pointer;
 }
 
 .astein-form > label {
@@ -483,11 +485,20 @@ td {
 }
 
 tr {
-  background-color: #EBEBEB;
+  background-color: #e1e1e1;
+  transition: background-color 0.2s ease-in;
 }
 
 tr:nth-child(even) {
   background-color: #F9F9F9;
+}
+
+tr:hover {
+  background-color: #d7d7d7;
+}
+
+tr:nth-child(even):hover {
+  background-color: #efefef;
 }
 
 .icon-table {

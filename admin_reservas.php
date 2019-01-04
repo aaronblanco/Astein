@@ -22,7 +22,6 @@
   <table class="large-table">
     <tr>
         <th>Fecha</th>
-        <th>ID</th>
         <th>Oferta</th>
         <th>Nombre</th>
         <th>Correo Electrónico</th>
@@ -34,19 +33,24 @@
         <?php
           $query = "SELECT reservation.id as reservation_id, reservation.timestamp, reservation.message, reservation.status,
           offer.name as offer_name, firstname, lastname, email, phone FROM reservation
-          INNER JOIN client on reservation.id_client = client.ID INNER JOIN offer on reservation.id_offer = offer.id";
+          INNER JOIN client on reservation.id_client = client.ID INNER JOIN offer on reservation.id_offer = offer.id
+          ORDER BY reservation.timestamp DESC";
           $result = $connection->query($query);
             while($row = $result->fetch_assoc()){
             ?>
-            <tr>
-            <td><?php echo $row['timestamp']; ?></td>
-            <td><?php echo $row['reservation_id']; ?></td>
+            <tr onclick="window.location='admin_reserva_detalle.php?id=<?php echo $row["reservation_id"]?>';">
+            <td><?php echo date_format(new DateTime($row['timestamp']), 'd/m/Y H:i'); ?></td>
             <td><?php echo $row['offer_name']; ?></td>
             <td><?php echo($row['firstname'].' '.$row['lastname']); ?></td>
             <td><a href="mailto:<?php echo $row['email']; ?>"><?php echo $row['email']; ?></a></td>
             <td><?php echo $row['phone']; ?></td>
             <?php if ($row['message'] != "") {
-              echo('<td class="table-message">'.substr($row['message'], 0, 50).'...'.'</td>');
+              if(strlen($row['message']) <= 75) {
+                echo('<td class="table-message">'.$row['message'].'</td>');
+              }
+              else {
+                echo('<td class="table-message">'.substr($row['message'], 0, 75).'...'.'</td>');
+              }
             } else {
               echo ('<td> </td>');
             }
