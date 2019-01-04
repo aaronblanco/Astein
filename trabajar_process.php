@@ -35,7 +35,7 @@ if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
 			if(@ftp_chdir($conn_id,$ruta))
 			{
 				# Subimos el fichero
-				if(@ftp_put($conn_id,$_FILES["archivo"]["name"],$_FILES["archivo"]["tmp_name"],FTP_BINARY))
+				if(@ftp_put($conn_id,$_FILES["archivo"]["name"],$_FILES["archivo"]["tmp_name"],FTP_BINARY)) {
 					echo "Fichero subido correctamente";
 					write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
                              "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
@@ -44,7 +44,7 @@ if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
                              $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
                              $_SERVER['REQUEST_URI'],"INFO");
 
-				else
+				} else
 					echo "No ha sido posible subir el fichero";
 			}else
 				echo "No existe el directorio especificado";
