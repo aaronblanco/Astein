@@ -1,6 +1,6 @@
 <?php
 include("connection.php");
-include("log_funcion");
+include("log_funcion.php");
 $name = strip_tags($_POST['name']);
 $lastname = $_POST['lastname'];
 $mail = $_POST['mail'];
