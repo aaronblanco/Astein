@@ -1,7 +1,7 @@
 <?php
 include("connection.php");
 include("log_funcion");
-$name = $_POST['name'];
+$name = strip_tags($_POST['name']);
 $lastname = $_POST['lastname'];
 $mail = $_POST['mail'];
 
@@ -37,6 +37,7 @@ if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
 				# Subimos el fichero
 				if(@ftp_put($conn_id,$_FILES["archivo"]["name"],$_FILES["archivo"]["tmp_name"],FTP_BINARY))
 					echo "Fichero subido correctamente";
+
 					write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
                              "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
                              ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
