@@ -1,8 +1,4 @@
 <?php
-session_start();
-?>
-
-<?php
   include("connection.php");
   $company_id = 1;
   $query_findCompany = "SELECT * from company where ID='$company_id'";
