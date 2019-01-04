@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +9,7 @@
 <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Editar Empleado – Administrador</title>
 </head>
 <body>
@@ -54,12 +59,6 @@
       <input class="save-changes save-changes-admin" id="submit-button" type="submit" value="guardar cambios">
     </form>
   </div>
-
-  <script>
-  document.getElementById('submit-button').onclick = function() {
-   alert("Empleado editado.");
-  }​;​
-  </script>
 
 </div>
 

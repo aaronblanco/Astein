@@ -5,12 +5,7 @@
   --astein-primary-dark: #166abd;
   --fullwidth: 100%;
   --width-form: calc(280px + 16vw);
-}
-
-@media only screen and (max-device-width : 640px) {
-  html {
-    font-size: 1.8em;
-  }
+  --navbar-height: calc(1em + 40px);
 }
 
 body {
@@ -27,6 +22,11 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
 
 #astein-logo {
@@ -73,10 +73,11 @@ ul {
 #main-content {
   padding-top: 2vw;
   padding-left: 5vw;
+  padding-right: 5vw;
   margin-bottom: 100px;
 }
 
-#footer {
+.footer {
   height: 40px;
   width: 100vw;
   background-color: var(--astein-primary);
@@ -84,11 +85,12 @@ ul {
   bottom: 0;
   display: flex;
   align-items: center;
+  padding-left: calc(6px + 0.5vw);
 }
 
 .social-media-icon {
   margin-left: 8px;
-  margin-right: -3px;
+  margin-right: calc(6px + 0.5vw);
   height: 30px;
   width: 30px;
 }
@@ -97,9 +99,15 @@ ul {
   color: white;
 }
 
-#footer-icon {
+.footer-icon {
   margin-left: 5vw;
   margin-right: 10px;
+}
+
+.footer-icon-action {
+  margin-left: 5vw;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .footer-text {
@@ -115,6 +123,10 @@ ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.white-link {
+  color: white !important;
 }
 
 .astein-form > input[type=text]{
@@ -149,6 +161,19 @@ ul {
 .astein-form > input[type=submit]:hover {
   background-color: black;
   cursor: pointer;
+}
+
+select {
+	position: relative;
+	display: block;
+	background-color: #e8e8e8;
+  border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+  height: 40px;
+  font-size: 1em;
+  font-weight: 100;
+  padding-left: 5px;
 }
 
 .submit_button {
@@ -392,21 +417,27 @@ ul {
   background-color: #7FFFBF;
 }
 
-.new {
+.status-new {
+  padding: 4px;
+  border-radius: 5px;
   background-color: #FFB28C;
 }
 
-.in-progress {
+.status-in-progress {
+  padding: 4px;
+  border-radius: 5px;
   background-color: #FFFF80;
 }
 
-.completed {
+.status-completed {
+  padding: 4px;
+  border-radius: 5px;
   background-color: #7FFFBF;
 }
 
 #icon-back-reservas {
-  margin-top: 5px;
-  margin-bottom: 24px;
+  margin-top: -7px;
+  margin-bottom: 20px;
 }
 
 /* ---- Trabaja con Nosotros (Admin) ---- */
@@ -429,10 +460,13 @@ th {
 }
 
 td {
-  height: 50px;
-  min-width: 100px;
+  /* height: 50px; */
+  min-width: 50px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 
 tr {
@@ -514,4 +548,217 @@ tr:nth-child(even) {
 
 .warning-message:hover {
   display: none;
+}
+
+/* ---- Trabaja con Nosotros (Admin) ---- */
+.table-message {
+  max-width: 300px;
+  padding: 10px;
+}
+
+tr, th, td {
+  /* border: 1px solid grey; */
+}
+
+/** ---- Reservas (Admin) ---- */
+.large-table th {
+  height: 45px;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: var(--astein-primary);
+  color: white;
+  /* font-size: 0.9em; */
+}
+
+.large-table td {
+  min-width: 25px;
+  padding: 10px;
+  vertical-align: top;
+  font-size: 0.9em;
+}
+
+.status-field {
+  display: flex;
+  align-items: center;
+}
+
+#reservation-detail-message {
+  max-width: 70vw;
+  margin-top: -0.5em;
+}
+
+#status-change-button {
+  display: inline;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+.reservas-list-options {
+  width: 80px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.icon-reservas {
+  padding-left: 12px;
+  padding-right: 0px;
+}
+
+/** ---- Offer Search (Admin) ---- */
+.admin-select-button {
+  margin-bottom: 15px;
+  margin-top: -10px;
+}
+
+#admin-search-offers-button {
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+
+/** ---- Responsive Navigation Menu (User and Admin Page) ---- */
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: var(--astein-primary);
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a:not(.ignore) {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  height: 1em;
+  transition: background-color 0.5s;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: var(--astein-primary-dark);
+  cursor: pointer;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  /* background-color: var(--astein-primary-dark); */
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .hamburger-icon {
+  display: none;
+}
+
+/* When the screen is less than 900 pixels wide, hide all links, except for the first one ("Home").
+Show the link that contains should open and close the topnav (.hamburger-icon) */
+@media screen and (max-width: 900px) {
+  .topnav a:not(.ignore) {display: none;}
+  .topnav a.hamburger-icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the hamburger-icon.
+This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 900px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.hamburger-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .logo-tab {
+    float: none;
+  }
+}
+
+#astein-logo-responsive {
+    width: 130px;
+    height: 30px;
+    padding-top: 4px;
+}
+
+#navbar-hamburger {
+  display: inline-block;
+  font-size: 28px;
+}
+
+#hamburger-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--navbar-height);
+  width: var(--navbar-height);
+}
+
+.logo-tab-expanded {
+  float: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--navbar-height);
+  width: 180px;
+}
+
+.logo-tab-collapsed {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--navbar-height);
+  width: 180px;
+}
+
+.hamburger-icon {
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.5s;
+}
+
+
+/** ---- Responsive Footer (User and Admin Page) ---- */
+#footer-mobile {
+  display: none;
+}
+
+/* Show mobile footer on small devices */
+@media screen and (max-width: 900px) {
+  #footer-desktop {display: none;}
+  #footer-mobile {display: block;}
+}
+
+.centered-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mobile-icon {
+  margin-left: calc(6px + 0.5vw);
+  margin-right: calc(6px + 0.5vw);
+}
+
+/** ---- Responsive Map Size (User) ---- */
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 }

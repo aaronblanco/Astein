@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,11 +9,13 @@
     <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Equipo  Administrador</title>
 </head>
 <body>
 
   <?php
+include("seguridad.php");
     include("user_feedback.php");
     include "admin_navbar.php";
     include("connection.php");
@@ -33,8 +39,8 @@
     while($row = $result->fetch_assoc()) {
       echo '<div class="admin-inicio-image admin-equipo">';
       echo '<p class="inicio-imagename employee-name">'.$row["name"]." ".$row["lastname"].'</p>';
-      echo '<a href="admin_empleado.php?id='.$row["ID"].'"><i class="material-icons icon-action">edit</i></a>';
-      echo '<i class="material-icons icon-action" onclick="askDeleteEmployee('.$row["ID"].');">delete</i>';
+      echo '<a href="admin_empleado.php?id='.$row["id"].'"><i class="material-icons icon-action">edit</i></a>';
+      echo '<i class="material-icons icon-action" onclick="askDeleteEmployee('.$row["id"].');">delete</i>';
       echo '<i class="material-icons icon-arrow">keyboard_arrow_up</i>';
       echo '<i class="material-icons icon-arrow">keyboard_arrow_down</i>';
       echo '</div>';

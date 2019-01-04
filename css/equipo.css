@@ -30,6 +30,5 @@ table {
   padding-bottom: calc(30px + 2vw) !important;
 }
 #employee-table tr, th, td {
-  /* border: 1px solid grey; */
   padding: 0px;
 }
