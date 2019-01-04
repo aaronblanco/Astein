@@ -16,11 +16,14 @@ session_start();
 
   <?php
     include "admin_navbar.php";
-    include("seguridad.php");
+
   ?>
 
 <div id="main-content">
 
+<?php
+include("seguridad.php");
+?>
   <h1>Inicio</h1>
   <p class="subtitle">Aquí puede cambiar los imagenes que aparecen en la página de inicio.</p>
 
