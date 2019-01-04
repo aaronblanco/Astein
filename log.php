@@ -51,14 +51,7 @@
   <td>Hola, este tarifa...</td>
 </tr>
 
-<tr>
-  <td>00823638</td>
-  <td>12/10/2018 22:12</td>
-  <td>Digi 100</td>
-  <td>Marta Garcia</td>
-  <td>marta1992@gmail.com</td>
-  <td>663162789</td>
-</tr>
+
 </table>
 
 
