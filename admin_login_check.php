@@ -17,7 +17,7 @@
 	 {
 
 			$_SESSION['loggedin'] = true;
-			$_SESSION['admin'] = $row['username'];
+			$_SESSION['name'] = $row['username'];
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 			session_start();
@@ -33,7 +33,7 @@
 						$_SESSION['start'] = time();
 						$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 						session_start();
-						
+
 						header("Location: inicio.php");
 						exit();
 		}
