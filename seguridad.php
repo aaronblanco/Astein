@@ -1,7 +1,10 @@
 <?php
 	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['name'] != "administrador")
 	{
-	} else {
+		
+	}
+
+	else {
 			echo "<div class='alert alert-danger' role='alert'>
 			<h4>Necesitas estar conectado para acceder aquí.</h4>
 			<p><a href='admin_login.php'>Iniciar sesion</a></p></div>";
