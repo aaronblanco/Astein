@@ -1,6 +1,6 @@
 <?php
 session_start();
-session_unset($_SESSION['name']);
+session_unset($_SESSION['admin']);
 session_destroy();
-header("Location: admin_login");
+header("Location: admin_login.php");
 ?>

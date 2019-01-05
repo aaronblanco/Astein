@@ -15,14 +15,16 @@ session_start();
 <body>
 
   <?php
-include("seguridad.php");
+
     include("user_feedback.php");
     include "admin_navbar.php";
     include("connection.php");
   ?>
 
 <div id="main-content">
-
+    <?php
+  include("seguridad.php");
+    ?>
   <h1>Equipo</h1>
   <p class="subtitle">Aquí puede cambiar las informaciones sobre sus empleados.</p>
 
