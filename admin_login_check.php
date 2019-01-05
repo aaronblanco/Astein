@@ -17,7 +17,7 @@ session_start();
 	 {
 
 			$_SESSION['loggedin'] = true;
-			$_SESSION['name'] = "administrador";
+			$_SESSION['name'] = $row['username'];
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 			header("Location: admin_inicio.php");

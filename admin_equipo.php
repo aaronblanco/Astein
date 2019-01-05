@@ -22,7 +22,9 @@ include("seguridad.php");
   ?>
 
 <div id="main-content">
-
+    <?php
+  include("seguridad.php");
+    ?>
   <h1>Equipo</h1>
   <p class="subtitle">Aquí puede cambiar las informaciones sobre sus empleados.</p>
 
