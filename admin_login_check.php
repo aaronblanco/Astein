@@ -24,15 +24,17 @@ session_start();
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 			header("Location: admin_inicio.php");
+			exit();
 
 		}
-		else if(mysqli_num_rows($result2) == 1 ){
+		else if(mysqli_num_rows($result2) > 0 ){
 
 						$_SESSION['loggedin'] = true;
 						$_SESSION['name'] = $row['username'];
 						$_SESSION['start'] = time();
 						$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 						header("Location: inicio.php");
+						exit();
 		}
 
 

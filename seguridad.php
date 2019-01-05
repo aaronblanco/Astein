@@ -1,5 +1,5 @@
 <?php
-	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SESSION['Admin']) )
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SESSION['admin']) )
 	{
 
 	}
