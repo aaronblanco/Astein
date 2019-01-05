@@ -1,7 +1,7 @@
 <?php
 // Esto es una libreria de funciones para el acceso a la base de datos
 //funcion para conectar
-function conecta_bd(&$bd, $servidor, $baseDatos, $usuario, $clave){ //&bd = Es una variable que por ella hacemos referencia al valor de al funcion que esta fuera
+function conecta_bd( $servidor, $baseDatos, $usuario, $clave){ //&bd = Es una variable que por ella hacemos referencia al valor de al funcion que esta fuera
 try{
 $bd = new PDO('mysql:host=' . $servidor . ';dbname=' . $baseDatos,
 				$usuario, $clave,
@@ -12,7 +12,7 @@ $bd = new PDO('mysql:host=' . $servidor . ';dbname=' . $baseDatos,
 }
 }
 //cierra la base de datos
-function cierra_bd (&$bd){
+function cierra_bd ($bd){
 	$bd = null;
 }
 ?>

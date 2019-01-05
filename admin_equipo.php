@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +15,7 @@
 <body>
 
   <?php
+include("seguridad.php");
     include("user_feedback.php");
     include "admin_navbar.php";
     include("connection.php");

@@ -29,8 +29,6 @@ function displayMessage(feedback) {
 
 <?php
 
-session_start();
-
 echo('<div class="feedback-message" id="feedback-success"><i class="material-icons feedback-icon">check_circle</i><p id="feedback-success-message">...</div></div>');
 echo('<div class="feedback-message" id="feedback-info"><i class="material-icons feedback-icon">info</i><p id="feedback-info-message">...</div></div>');
 echo('<div class="feedback-message" id="feedback-warning"><i class="material-icons feedback-icon">error_outline</i><p id="feedback-warning-message">...</div></div>');

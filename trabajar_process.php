@@ -1,5 +1,6 @@
 <?php
 include("connection.php");
+include("log_funcion");
 $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 $mail = $_POST['mail'];
@@ -9,46 +10,51 @@ $message = $_POST['message'];
 
 
 $query = $connection->prepare("INSERT INTO applicant (firstname, lastname, email, phone, message) values (?,?,?,?,?)");
-$query->bind_param("sssis", $name, $lastname, $mail, $phone, $message)
+$query->bind_param("sssss", $name, $lastname, $mail, $phone, $message);
 $query->execute();
 $query->close();
 
 
-//$cv = $_POST['cv']; hay que implementar el subido de archivos pdf
+if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
+{
+	# Definimos las variables
+	$host="s32.profesionalhosting.com";
+	$port=21;
+	$user="asteinweb";
+	$password="FtpWeb18";
+	$ruta="cvs";
 
-$ftp = ftp_connect("s32.profesionalhosting.com");
+	# Realizamos la conexion con el servidor
+	$conn_id=@ftp_connect($host,$port);
+	if($conn_id)
+	{
+		# Realizamos el login con nuestro usuario y contraseña
+		if(@ftp_login($conn_id,$user,$password))
+		{
+			# Canviamos al directorio especificado
+			if(@ftp_chdir($conn_id,$ruta))
+			{
+				# Subimos el fichero
+				if(@ftp_put($conn_id,$_FILES["archivo"]["name"],$_FILES["archivo"]["tmp_name"],FTP_BINARY)) {
+					echo "Fichero subido correctamente";
+					write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                             "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                             ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                             $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                             $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                             $_SERVER['REQUEST_URI'],"INFO");
 
-$login = ftp_login(ftp, "asteinweb", "FtpWeb18");
-
-if ((!$ftp) || (!$resultado)) {
-		echo "Fallo en la conexión"; die;
-	} else {
-		echo "Conectado.";
-	}
-ftp_pasv ($ftp, true) ;
-ftp_chdir($ftp, "cvs");
-
-$local = $_FILES["archivo"]["name"];
-$remoto = $_FILES["archivo"]["tmp_name"];
-$size = $_FILES["archivo"]["size"];
-
-$ruta = "/test.astein.net/cvs/" . $local;
-if (!$tama<=$_POST["MAX_FILE_SIZE"]){
-		echo "Excede el tamaño del archivo...<br />";
-	} else {
-		// Verificamos si ya se subio el archivo temporal
-		if (is_uploaded_file($remoto)){
-			// copiamos el archivo temporal, del directorio de temporales de nuestro servidor a la ruta que creamos
-			copy($remoto, $ruta);
-		}
-		// Sino se pudo subir el temporal
-		else {
-			echo "no se pudo subir el archivo " . $local;
-		}
-	}
-	echo "Ruta: " . $ruta;
-	//cerramos la conexión FTP
-	ftp_close($ftp);
-
-header("Location: trabajar.html");
+				} else
+					echo "No ha sido posible subir el fichero";
+			}else
+				echo "No existe el directorio especificado";
+		}else
+			echo "El usuario o la contraseña son incorrectos";
+		# Cerramos la conexion ftp
+		ftp_close($conn_id);
+	}else
+		echo "No ha sido posible conectar con el servidor";
+}else{
+   echo "Selecciona un archivo...";
+}
 ?>

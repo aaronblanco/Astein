@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +26,7 @@
       $phone = $row['phone'];
       $address = $row['address'];
       $email = $row['email'];
-      //echo($email.$phone.$address);
+      //echo($email.$phone.$address)
     } else {
         printf("No hay ninguna empresa en la base de datos. </br> Error: %s\n", $connection->error);
     }
