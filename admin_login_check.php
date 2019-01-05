@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 
 <?php
 	include("connection.php");
@@ -23,6 +20,8 @@ session_start();
 			$_SESSION['admin'] = $row['username'];
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
+			session_start();
+
 			header("Location: admin_inicio.php");
 			exit();
 
@@ -33,6 +32,8 @@ session_start();
 						$_SESSION['name'] = $row['username'];
 						$_SESSION['start'] = time();
 						$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
+						session_start();
+						
 						header("Location: inicio.php");
 						exit();
 		}
