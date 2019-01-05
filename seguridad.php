@@ -1,5 +1,5 @@
 <?php
-	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['name'] != "administrador")
 	{
 	} else {
 			echo "<div class='alert alert-danger' role='alert'>
