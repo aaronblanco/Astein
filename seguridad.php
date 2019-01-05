@@ -1,7 +1,7 @@
 <?php
-	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SESSION['admin']) )
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true    )
 	{
-
+#   && isset($_SESSION['admin'])
 	}
 
 	else {
