@@ -1,11 +1,6 @@
 <?php
 
-
-session_start();
-if (!isset($_SESSION['admin']))
-	header("location:admin_login.php");
-/*session_start();
-	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true   && isset($_SESSION['admin'])  )
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true   )
 	{
 
 	}
@@ -25,5 +20,5 @@ if (!isset($_SESSION['admin']))
 					<h4>Tu sesion ha terminado.</h4>
 					<p><a href='admin_login.php'>Iniciar sesion</a></p></div>";
 					exit;
-			}*/
+			}
 	?>
