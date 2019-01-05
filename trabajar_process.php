@@ -35,7 +35,7 @@ if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
 			if(@ftp_chdir($conn_id,$ruta))
 			{
 				# Subimos el fichero
-				if(@ftp_put($conn_id,$_FILES["archivo"]["name"],$_FILES["archivo"]["tmp_name"],FTP_BINARY)){
+				if(@ftp_put($conn_id,$_FILES["archivo"][".date("Y-m-d")" ."name"],$_FILES["archivo"]["tmp_name"],FTP_BINARY)){
 
 					echo "Fichero subido correctamente";
 
@@ -58,7 +58,9 @@ if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
 		ftp_close($conn_id);
 	}else
 		echo "No ha sido posible conectar con el servidor";
-}else{
+}
+else
+{
    echo "Selecciona un archivo...";
 }
 ?>
