@@ -9,7 +9,7 @@ session_start();
   <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Trabaja con nosotros � Administrador</title>
+  <title>Trabaja con nosotros – Administrador</title>
 </head>
 <body>
 
@@ -36,27 +36,27 @@ session_start();
     <td>alguncorreo@gmail.com</td>
     <td>982221331</td>
     <td><a href="http://www.eduso.net/orientacion/documentos/ejemplo_cv.pdf" target="_blank">cv_pepito_lopez.pdf</a></td>
-    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="myFunction()">delete</i></td>
+    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="deleteEmployeeFunction()">delete</i></td>
   </tr>
   <tr>
     <td>Carolina Pillajo</td>
     <td>carop1998@gmail.com</td>
     <td>983881331</td>
     <td><a href="http://www.eduso.net/orientacion/documentos/ejemplo_cv.pdf" target="_blank">cv_carolina_pillanjo.pdf</a></td>
-    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="myFunction()">delete</i></td>
+    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="deleteEmployeeFunction()">delete</i></td>
   </tr>
   <tr>
     <td>Luis Miguel Ramírez de la Cruz</td>
     <td>lm.ramirez.dlcruz@gmail.com</td>
     <td>288781331</td>
     <td><a href="http://www.eduso.net/orientacion/documentos/ejemplo_cv.pdf" target="_blank">cv_luis_ramirez.pdf</a></td>
-    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="myFunction()">delete</i></td>
+    <td class="table-options"><i class="material-icons icon-action icon-table" onclick="deleteEmployeeFunction()">delete</i></td>
   </tr>
 </table>
 </div>
 
 <script>
-function myFunction() {
+function deleteEmployeeFunction() {
     confirm("¿Eliminar este solicitante?");
 }
 </script>

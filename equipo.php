@@ -32,7 +32,7 @@
         <img src=<?php echo $row['photo'];?>>
       </figure>
     </td>
-      <td><div class="employee-list-name"><?php echo $row['name']; echo " "; echo $row['lastname'];?></div><?php echo $row['activity'];?><br><br><?php echo $row['description']?></td>
+      <td><div class="employee-list-name"><?php echo $row['username']; echo " "; echo $row['lastname'];?></div><?php echo $row['activity'];?><br><br><?php echo $row['description']?></td>
     </tr>
   <?php } ?>
 </table>

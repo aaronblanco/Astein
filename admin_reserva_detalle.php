@@ -17,7 +17,6 @@ session_start();
   <?php
     include "admin_navbar.php";
     include "connection.php";
-    session_start();
 
     $reserva_id = $_GET['id'];
 

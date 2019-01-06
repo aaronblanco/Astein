@@ -4,10 +4,10 @@ session_start();
 
 $id = $_GET['id'];
 
-$deleteEmployee = $connection->prepare("DELETE FROM reservation WHERE ID = ?");
-$deleteEmployee->bind_param("i", $id);
-$deleteEmployee->execute();
-$deleteEmployee->close();
+$deleteReservation = $connection->prepare("DELETE FROM reservation WHERE ID = ?");
+$deleteReservation->bind_param("i", $id);
+$deleteReservation->execute();
+$deleteReservation->close();
 
 $_SESSION["message-success"] = "Reserva borrada.";
 header("Location: admin_reservas.php");
