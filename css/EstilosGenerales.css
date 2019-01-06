@@ -924,3 +924,8 @@ This class makes the topnav look good on small screens (display the links vertic
     width: 80vw;
   }
 }
+
+/** ---- Aviso Legal (Usuario) ---- */
+.aviso-legal {
+  width: 90vw;
+}

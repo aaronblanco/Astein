@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" href="images\astein_icon.png"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Aviso legal</title>
 </head>
 <body>
@@ -15,6 +16,8 @@
   ?>
 
 <div id="main-content">
+
+<div class="aviso-legal">
 
 <h1>Aviso legal</h1>
 
@@ -82,6 +85,8 @@
   En todo caso las cookies tienen un carácter temporal con la única finalidad de hacer más eficaz su transmisión ulterior. En ningún caso se utilizará cookies para recoger información de carácter personal.
 
 </p>
+
+</div>
 
 </div>
 
