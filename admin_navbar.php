@@ -7,7 +7,7 @@
   <a href="admin_contrasena.php">Contraseña</a>
   <a href="admin_ofertas.php">Ofertas</a>
   <a href="admin_reservas.php">Reservas</a>
-  <a href="admin_trabaja.php">Trabajo</a>
+  <a href="admin_solicitantes.php">Trabajo</a>
   <a href="javascript:void(0);" class="hamburger-icon ignore" onclick="myFunction()">
     <div id="hamburger-tab">
       <i class="material-icons" id="navbar-hamburger">menu</i>
