@@ -18,7 +18,7 @@ session_start();
     include "admin_navbar.php";
     include "connection.php";
     include "user_feedback.php";
-    include ("seguridadEmpleado.php");
+    include("seguridadEmpleado.php");
   ?>
 
   <div id="main-content">
