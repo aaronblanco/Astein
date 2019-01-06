@@ -42,8 +42,6 @@
 
 
 		else {
-			echo "<div class='alert alert-danger' role='alert'>Usuario o contraseña incorrectos.
-			<p><a href='admin_login.php'><strong>Prueba de nuevo.</strong></a></p></div>";
-
+			header("Location: inicio.php");
 		}
 ?>

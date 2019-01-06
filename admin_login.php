@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +22,9 @@
 
   <h1>Login</h1>
   <p class="subtitle">Inicie una nueva sesión con su correo electrónico y contraseña.</p>
-
+  <?php
+  printf($_SESSION['name']);
+  ?>
 <div id="login-form">
   <form class="astein-form" action="admin_login_check.php" method="post">
     <label>Usuario</label> <input type="text" class="astein-input" name="usuario"><br>
