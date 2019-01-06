@@ -35,7 +35,7 @@
 						$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 
 
-						header("Location: inicio.php");
+						header("Location: admin_reservas.php");
 						exit();
 		}
 
