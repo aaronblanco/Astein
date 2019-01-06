@@ -862,3 +862,50 @@ This class makes the topnav look good on small screens (display the links vertic
   margin-top: 0.2em;
   margin-right: 10px;
 }
+
+/* Ofertas (usuario) */
+.ofertas-container {
+    display: flex;
+    margin-left: 0px !important;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.offer{
+  background: var(--astein-primary);
+  width: calc(70px + 7vw);
+  height: calc(70px + 7vw);
+  display: inline-block;
+  float: left;
+  margin-right: 5vw;
+  margin-top: 5vw;
+  padding: 30px;
+  overflow: hidden;
+  border-radius: 5px;
+  /* transition: background-color 0.2s ease-in; */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Mobile page */
+@media screen and (max-width: 450px) {
+  .offer {
+    width: 90%;
+    height: calc(80vw - 60px);
+    margin-left: 5vw;
+    margin-right: 5vw !important;
+    margin-top: 10vw;
+  }
+}
+
+.offer:hover{
+  /* background: var(--astein-primary-dark); */
+  cursor: pointer;
+  transform: scale(1.08);
+}
+
+.offer a{
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
