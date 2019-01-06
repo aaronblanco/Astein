@@ -3,7 +3,6 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-  <link rel="stylesheet" href="css\ofertas.css">
   <link rel="stylesheet" href="css\EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -38,7 +37,7 @@ function setVars(){
 }
 </script>
 
-
+<div class="ofertas-container">
   <?php
     $query = "SELECT * from offer";
     $result = $connection->query($query);
@@ -53,6 +52,7 @@ function setVars(){
 
       </script>
   </div>
+</div>
 
 <?php
   include "usuario_footer.php";
