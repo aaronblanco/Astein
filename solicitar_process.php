@@ -34,5 +34,5 @@ $query = $connection->prepare("INSERT INTO reservation (status, message, id_offe
 $query->bind_param("ssii", $status, $message, $id_offer, $id_client);
 $query->execute();
 $query->close();
-header("Location: solicitar.php");
+header("Location: ofertas.php");
  ?>

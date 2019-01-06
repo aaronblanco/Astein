@@ -1,8 +1,6 @@
 <?php
 include("connection.php");
-if ($connection->connect_error){
-  die("Connection failed: " . $connection->connect_error);
-}
+session_start();
 
 $email = $_POST['email'];
 $name = $_POST['name'];
@@ -15,12 +13,13 @@ if(!$result || mysqli_num_rows($result) == 0 ){
     $addEmployee->bind_param("sss", $email, $name, $lastname);
     $addEmployee->execute();
     $addEmployee->close();
+    $_SESSION["message-success"] = "Nuevo empleado $name $lastname creado.";
     header("Location: admin_equipo.php");
   } else {
     printf("Error: %s\n", $connection->error);
   }
 } else {
-  echo "Este empleado ya existe.";
-  header( "refresh:1; url=admin_nuevo_empleado.php" );
+  $_SESSION["message-info"] = "Existe ya un empleado con email $email.";
+  header("Location: admin_nuevo_empleado.php");
 }
 ?>

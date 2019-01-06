@@ -1,8 +1,6 @@
 <?php
 include("connection.php");
-if ($connection->connect_error){
-  die("Connection failed: " . $connection->connect_error);
-}
+session_start();
 
 $id = $_GET['id'];
 
@@ -10,7 +8,7 @@ $deleteEmployee = $connection->prepare("DELETE FROM employee WHERE id = ?");
 $deleteEmployee->bind_param("i", $id);
 $deleteEmployee->execute();
 $deleteEmployee->close();
-echo "Empleado borrado.";
-header( "refresh:1; url=admin_equipo.php" );
 
+$_SESSION["message-success"] = "Empleado borrado.";
+header("Location: admin_equipo.php");
 ?>

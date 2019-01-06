@@ -23,7 +23,12 @@ include "usuario_navbar.php";
   <input type="text" placeholder="Número de teléfono" required="true">
   <input type="text" placeholder="Correo electrónico" required="true">
   Curriculum Vitae:
-  <input type="file" value="CV" required="true">
+
+
+  <input type="hidden" name="MAX_FILE_SIZE" value="1000">
+  Archivo: <input type="file" name="archivo">
+
+
   <textarea class="mensaje" name="message" placeholder="Mensaje con información adicional (Opcional)"></textarea>
   <input type="submit" value="Enviar">
 </form>
