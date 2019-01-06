@@ -18,7 +18,7 @@
 
 		 		session_start();
 				$_SESSION['loggedin'] = true;
-				$_SESSION['name'] = $row['username'];
+				$_SESSION['name'] = "Admin";
 				$_SESSION['start'] = time();
 				$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
 
