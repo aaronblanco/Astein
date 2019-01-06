@@ -5,6 +5,7 @@
   <a href="ofertas.php">Ofertas</a>
   <a href="equipo.php">Equipo</a>
   <a href="trabajar.php">Trabaja con nosotros</a>
+  <a href="aviso_legal.php">Aviso legal</a>
   <a href="javascript:void(0);" class="hamburger-icon ignore" onclick="myFunction()">
     <div id="hamburger-tab">
       <i class="material-icons" id="navbar-hamburger">menu</i>
