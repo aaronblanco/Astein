@@ -16,23 +16,24 @@
 		if(mysqli_num_rows($result) == 1 )
 	 {
 
-			$_SESSION['loggedin'] = true;
-			$_SESSION['name'] = $row['username'];
-			$_SESSION['start'] = time();
-			$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
-			session_start();
+		 		session_start();
+				$_SESSION['loggedin'] = true;
+				$_SESSION['name'] = $row['username'];
+				$_SESSION['start'] = time();
+				$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
+
 
 			header("Location: admin_inicio.php");
 			exit();
 
 		}
 		else if(mysqli_num_rows($result2) > 0 ){
-
+						session_start();
 						$_SESSION['loggedin'] = true;
 						$_SESSION['name'] = $row['username'];
 						$_SESSION['start'] = time();
 						$_SESSION['expire'] = $_SESSION['start'] + (5 * 60) ;
-						session_start();
+
 
 						header("Location: inicio.php");
 						exit();
@@ -42,6 +43,6 @@
 
 
 		else {
-			header("Location: inicio.php");
+			header("Location: admin_inicio.php");
 		}
 ?>
