@@ -22,7 +22,7 @@
       if($search === ""){
         $query_findOffer = $connection->prepare("SELECT * from offer");
       } else {
-        $query_findOffer = $connection->prepare("SELECT * from offer where type is not null and name = ?");
+        $query_findOffer = $connection->prepare("SELECT * from offer where type is not null and name LIKE CONCAT('%', ?, '%')");
         $query_findOffer->bind_param("s", $search);
       }
     } else {
@@ -30,7 +30,7 @@
       $query_findOffer = $connection->prepare("SELECT * from offer where type=?");
       $query_findOffer->bind_param("s", $type);
     } else {
-      $query_findOffer = $connection->prepare("SELECT * from offer where type=? and name like ?");
+      $query_findOffer = $connection->prepare("SELECT * from offer where type=? and name LIKE CONCAT('%', ?, '%')");
       $query_findOffer->bind_param("ss", $type, $search);
     }
   }
@@ -49,15 +49,11 @@
 
       while($row = $result->fetch_assoc()){
       ?>
-      <tr>
-      <td><?php echo $row['id']; ?></td>
-      <td><?php echo $row['name']; ?></td>
-      <td><?php echo $row['provider']; ?></td>
-      <td><?php echo $row['price']; ?></td>
-      <td><?php echo $row['description']; ?></td>
-      </tr>
-      <?php } ?>
-  </table>
-</div>
+      <div class="offer">
+           <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo $row['name']; ?></a>
+           <p><?php echo $row['price']; ?></p>
+       </div>
+     <?php } ?>
+ </div>
 <?php include "usuario_footer.php"; ?>
 </html>

@@ -14,6 +14,7 @@
 
   <?php
     include "usuario_navbar.php";
+    include("user_feedback.php");
     include("connection.php");
   ?>
 
@@ -46,11 +47,10 @@ function setVars(){
       ?>
         <div class="offer">
             <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo $row['name']; ?></a>
-            <p><?php echo $row['price']; ?></p>
+            <p><?php echo $row['price']; echo '€';?></p>
         </div>
       <?php } ?>
 
-      </script>
   </div>
 
 <?php
