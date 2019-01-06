@@ -45,8 +45,7 @@ function setVars(){
       while($row = $result->fetch_assoc()){
       ?>
         <div class="offer">
-            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo $row['name']; ?></a>
-            <p><?php echo $row['price']; ?></p>
+            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo '<img class="offer-image" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';?></a>
         </div>
       <?php } ?>
 
