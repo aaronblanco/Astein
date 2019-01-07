@@ -12,7 +12,7 @@
         $query_admin->execute();
         $result_admin = $query_admin->get_result();
         	if ($result_admin and (mysqli_num_rows($result_admin) == 1)){
-            $para      = "test@astein.net";
+            $para      = $email;
             $titulo    = 'Recuperar contraseña';
             $mensaje   = 'Hola, tu contraseña es ' .$row['password'];
             $cabeceras = 'From: administracion@astein.net' . "\r\n" .
