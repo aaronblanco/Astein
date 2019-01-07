@@ -12,16 +12,17 @@
         $query_admin->execute();
         $result_admin = $query_admin->get_result();
         	if ($result_admin and (mysqli_num_rows($result_admin) == 1)){
-            $para      = $_POST['email'];
+            $para      = $email;
             $titulo    = 'Recuperar contraseña';
-            $mensaje   = 'Hola';
+            $mensaje   = 'Hola, tu contraseña es ' .$row['password'];
             $cabeceras = 'From: administracion@astein.net' . "\r\n" .
-                'Reply-To: ' .$_POST['email'] . "\r\n" .
+                'Reply-To: ' .$email . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
 
             mail($para, $titulo, $mensaje, $cabeceras);
-
+						echo "Se ha enviado un correo a la direccion " .$email;
             }
+
           else
 			       echo  "La direccion de correo electronico no existe";
 
