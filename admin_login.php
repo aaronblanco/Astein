@@ -25,7 +25,7 @@ session_start();
 
 <div id="login-form">
   <form class="astein-form" action="admin_login_check.php" method="post">
-    <label>Usuario</label> <input type="text" class="astein-input" name="usuario"><br>
+    <label>Correo electrónico</label> <input type="text" class="astein-input" name="email"><br>
     <label>Contraseña</label> <input type="text" class="astein-input" name="password"><br>
     <input class="save-changes" type="submit" action="admin_login_check.php" method="post" tabindex=1 value="login">
     <input class="light-button" id="button-forgot-password" type="button" action="forgot-password.php" method="post" tabindex=2 value="he olvidado mi contraseña">
