@@ -2,42 +2,28 @@
 	require 'connection.php';
 	include 'log_funcion.php';
 
-	session_start();
 
-	if(isset($_SESSION["name"])){
-		header("Location: admin_inicio.php");
-	}
-
-	$errors = array();
 
 	if(!empty($_POST))
 	{
-		$email = $mysqli->real_escape_string($_POST['email']);
+	     	$email = real_escape_string($_POST['email']);
+    		$query_admin = $connection->prepare("SELECT * from administrator where email=? ");
+    		$query_admin->bind_param("s", $email);
+        $query_admin->execute();
+        $result_admin = $query_admin->get_result();
+        	if ($result_admin and (mysqli_num_rows($result_admin) == 1)){
+            $para      = $_POST['email'];
+            $titulo    = 'Recuperar contraseña';
+            $mensaje   = 'Hola';
+            $cabeceras = 'From: administracion@astein.net' . "\r\n" .
+                'Reply-To: ' .$_POST['email'] . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
 
-		if(!isEmail($email))
-		{
-			$errors[] = "Debe ingresar un correo electronico valido";
-		}
+            mail($para, $titulo, $mensaje, $cabeceras);
 
-		if(emailExiste($email))
-		{
-			$user_id = getValor('id', 'correo', $email);
-			$nombre = getValor('nombre', 'correo', $email);
+            }
+          else
+			       echo  "La direccion de correo electronico no existe";
 
-			$token = generaTokenPass($user_id);
-
-			$url = 'http://'.$_SERVER["SERVER_NAME"].'/login/cambia_pass.php?user_id='.$user_id.'&token='.$token;
-
-			$asunto = 'Recuperar Password - Sistema de Usuarios';
-			$cuerpo = "Hola $nombre: <br /><br />Se ha solicitado un reinicio de contrase&ntilde;a. <br/><br/>Para restaurar la contrase&ntilde;a, visita la siguiente direcci&oacute;n: <a href='$url'>$url</a>";
-
-			if(enviarEmail($email, $nombre, $asunto, $cuerpo)){
-				echo "Hemos enviado un correo electronico a las direcion $email para restablecer tu password.<br />";
-				echo "<a href='index.php' >Iniciar Sesion</a>";
-				exit;
-			}
-			} else {
-			$errors[] = "La direccion de correo electronico no existe";
-		}
 	}
 ?>
