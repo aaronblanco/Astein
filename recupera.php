@@ -15,7 +15,7 @@
   <?php
     include "admin_navbar.php";
     include "user_feedback.php";
-    session_start();
+
   ?>
 
 <div id="main-content">
@@ -29,15 +29,13 @@
 
   <div style="margin-top:10px" class="form-group">
     <div class="col-sm-12 controls">
-      <button id="btn-login" type="submit" class="btn btn-success">Enviar</a>
+      <button id="btn-login" type="submit" class="astein-form" value="Recuperar contraseña">Enviar</a>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-md-12 control">
-      <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-        No tiene una cuenta! <a href="registro.php">Registrate aquí</a>
-      </div>
+
     </div>
   </div>
 </form>
