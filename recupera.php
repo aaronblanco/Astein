@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Login – Administrador</title>
+  <title>Recuperar contraseña – Administrador</title>
 </head>
 <body>
 
@@ -22,26 +20,25 @@
 
 
 
-  <div style="margin-bottom: 25px" class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    <input id="email" type="email" class="form-control" name="email" placeholder="email" required>
+    <div id="login-form">
+
+<form class="astein-form" action="recupera_pass.php" method="post">
+
+  <div style="margin-bottom: 25px">
+    <input type="email"  class="astein-input" name="email" placeholder="email" required>
   </div>
 
-  <div style="margin-top:10px" class="form-group">
-    <div class="col-sm-12 controls">
-      <button id="btn-login" type="submit" class="astein-form" value="Recuperar contraseña">Enviar</a>
-    </div>
+  <div style="margin-top:10px" >
+
+      <button  class="save-changes" type="submit" method="post" tabindex=1 value="recuperar contraseña">Enviar</a>
+
   </div>
 
-  <div class="form-group">
-    <div class="col-md-12 control">
 
-    </div>
-  </div>
 </form>
 
 
-
+</div>
 
 </div>
 
