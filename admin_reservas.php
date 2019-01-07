@@ -15,7 +15,6 @@
     include "admin_navbar.php";
     require 'connection.php';
     include "user_feedback.php";
-    include("seguridadEmpleado.php");
   ?>
 
   <div id="main-content">

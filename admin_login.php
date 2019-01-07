@@ -12,6 +12,8 @@
 
   <?php
     include "admin_navbar.php";
+    include "user_feedback.php";
+    session_start();
   ?>
 
 <div id="main-content">

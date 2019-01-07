@@ -13,6 +13,7 @@
   <?php
     require 'seguridadEmpleado.php'; // Acceso para admin y empleados
     include 'admin_navbar.php';
+    include 'user_feedback.php';
   ?>
 
 <div id="main-content">

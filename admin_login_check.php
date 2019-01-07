@@ -1,7 +1,7 @@
 <?php
 
 		require 'connection.php';
-		include("log_funcion.php");
+		include "log_funcion.php";
 
 		header('Content-type: text/plain; charset=utf-8');
 
@@ -32,6 +32,7 @@
 				$_SESSION['start'] = time();
 				$_SESSION['expire'] = $_SESSION['start'] + 1800;
 
+				$_SESSION['message-success'] = "Sesión de administrador iniciada.";
 				header("Location: admin_inicio.php");
 				exit();
 		}
@@ -40,19 +41,18 @@
 		{
 			session_start();
 			$_SESSION['loggedin'] = true;
-			$row = $result_worker->fetch_assoc();
-			while ($row = mysqli_fetch_assoc($result_worker)) {
-        $_SESSION['name'] = $row['firstname'];
-    	}
+			$row = mysqli_fetch_assoc($result_worker);
+      $_SESSION['name'] = $row['firstname'];
 			$_SESSION['start'] = time();
 			$_SESSION['expire'] = $_SESSION['start'] + 1800;
 
-			header("Location: admin_reservas.php");
+			$_SESSION['message-success'] = "Sesión de empleado iniciada.";
+
+			header("Location: admin_inicio.php");
 			exit();
 		}
 
 		else {
-			echo "Employee not found";
-			header("Location: admin_inicio.php");
+			header("Location: admin_login.php");
 		}
 ?>
