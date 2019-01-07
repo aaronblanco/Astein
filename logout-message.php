@@ -17,5 +17,5 @@ echo '<!DOCTYPE html>
 </html>';
 sleep(2);
 // header("Location: admin_login.php");
-header( "refresh:1.5; url=admin_login.php" );
+header( "refresh:1; url=admin_login.php" );
 ?>

@@ -1,6 +1,5 @@
 <?php
-  // require 'seguridad.php'; // Acceso para el admin
-  // require 'seguridadEmpleado.php'; // Acceso para los empleados
+  // require 'seguridadEmpleado.php'; // Acceso para admin y empleados
   require 'connection.php';
 
   header('Content-type: text/plain; charset=utf-8');

@@ -10,8 +10,7 @@
 </head>
 <body>
   <?php
-    require 'seguridad.php'; // Acceso para el admin
-    require 'seguridadEmpleado.php'; // Acceso para los empleados
+    require 'seguridadEmpleado.php'; // Acceso para admin y empleados
     require 'connection.php';
     include "admin_navbar.php";
 

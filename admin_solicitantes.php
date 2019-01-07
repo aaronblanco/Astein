@@ -11,7 +11,7 @@
 <body>
 
   <?php
-    require 'seguridad.php'; // Acceso para el admin
+    require 'seguridad.php'; // Acceso solo para el admin
     include "admin_navbar.php";
     require 'connection.php';
     include "user_feedback.php";

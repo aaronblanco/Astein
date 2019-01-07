@@ -1,6 +1,6 @@
 <?php
 // require 'seguridad.php'; // Acceso solo para el admin
-// require 'connection.php';
+require 'connection.php';
 
 header('Content-type: text/plain; charset=utf-8');
 

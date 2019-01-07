@@ -1,4 +1,5 @@
 <?php
+
 		require 'connection.php';
 		include("log_funcion.php");
 
@@ -7,40 +8,51 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$admin =  "SELECT * FROM administrator WHERE email = '$email' AND password ='$password' ";
+		$query_admin = $connection->prepare("SELECT * from administrator where email=? AND password=?");
+		$query_admin->bind_param("ss", $email, $password);
 
-		$worker =  "SELECT * FROM employee WHERE email = '$email' ";
+		$query_worker = $connection->prepare("SELECT * FROM employee WHERE email =? ");
+		$query_worker->bind_param("s", $email);
 
-		$team_pw =  "SELECT * FROM company WHERE team_password = '$password' "";
+		$query_team = $connection->prepare("SELECT * FROM company WHERE team_password=? ");
+		$query_team->bind_param("s", $password);
 
-		$result = $connection->query($admin);
-		$result2 = $connection->query($worker);
-		$result3 = $connection->query($team_pw);
+		$query_admin->execute();
+	  $result_admin = $query_admin->get_result();
+		$query_worker->execute();
+	  $result_worker = $query_worker->get_result();
+		$query_team->execute();
+	  $result_team = $query_team->get_result();
 
-		if (mysqli_num_rows($result) == 1 )
+		if ($result_admin and (mysqli_num_rows($result_admin) == 1))
 		{
 		 		session_start();
 				$_SESSION['loggedin'] = true;
 				$_SESSION['name'] = "Admin";
 				$_SESSION['start'] = time();
-				$_SESSION['expire'] = $_SESSION['start'] + 300;
+				$_SESSION['expire'] = $_SESSION['start'] + 1800;
 
 				header("Location: admin_inicio.php");
 				exit();
 		}
 
-		else if ((mysqli_num_rows($result2) > 0) || (mysqli_num_rows($result3) == 1)) {
-						session_start();
-						$_SESSION['loggedin'] = true;
-						$_SESSION['name'] = $row['firstname'];
-						$_SESSION['start'] = time();
-						$_SESSION['expire'] = $_SESSION['start'] + 300;
+		else if (($result_worker and (mysqli_num_rows($result_worker) > 0)) and ($result_team and (mysqli_num_rows($result_team) > 0)))
+		{
+			session_start();
+			$_SESSION['loggedin'] = true;
+			$row = $result_worker->fetch_assoc();
+			while ($row = mysqli_fetch_assoc($result_worker)) {
+        $_SESSION['name'] = $row['firstname'];
+    	}
+			$_SESSION['start'] = time();
+			$_SESSION['expire'] = $_SESSION['start'] + 1800;
 
-						header("Location: admin_reservas.php");
-						exit();
+			header("Location: admin_reservas.php");
+			exit();
 		}
 
 		else {
+			echo "Employee not found";
 			header("Location: admin_inicio.php");
 		}
 ?>
