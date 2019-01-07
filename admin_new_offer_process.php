@@ -13,6 +13,7 @@ $data = $_POST['data'];
 $dataUnit = $_POST['dataUnit'];
 $calls = $_POST['calls'];
 $fiber = $_POST['fiber'];
+$image = $_POST['image'];
 $description = $_POST['description'];
 
 $query_findOffer = "SELECT * from offer where name='$name'";

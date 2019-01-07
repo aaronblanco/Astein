@@ -61,7 +61,7 @@
         <input type="number" class="astein-input inline-textfield" min="0" id="fiber" name="fiber" onfocus="manageTextbox(this)">
         <label class="legend-label">Mb</label>
       </div><br><br><br>
-      <label>Imagen</label><input type="file" class"file-upload" name="imagen"><br><br><br>
+      <label>Imagen</label><input type="file" class"file-upload" name="image" accept="image/*"><br><br><br>
       <label>Descripción</label>
       <textarea class="admin-textarea" id="description" name="description"></textarea>
       <input class="save-changes new-employee-admin" type="submit" method="post" value="Crear oferta">
