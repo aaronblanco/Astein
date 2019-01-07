@@ -6,7 +6,7 @@
 
 	if(!empty($_POST))
 	{
-	     	$email = real_escape_string($_POST['email']);
+	     	$email = strip_tags($_POST['email']);
     		$query_admin = $connection->prepare("SELECT * from administrator where email=? ");
     		$query_admin->bind_param("s", $email);
         $query_admin->execute();
