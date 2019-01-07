@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,19 +11,18 @@ session_start();
 <body>
 
   <?php
-    include "admin_navbar.php";
-
+    require 'seguridad.php'; // Acceso para el admin
+    require 'seguridadEmpleado.php'; // Acceso para los empleados
+    include 'admin_navbar.php';
   ?>
 
 <div id="main-content">
 
 <?php
-include("seguridad.php");
-if(isset($_SESSION['name'])) {
   $name = $_SESSION['name'];
-}
+  echo "<h1>¡Bienvenido, ".$name."!</h1>";
 ?>
-  <?php echo "<h1>¡Bienvenido, ".$name."!</h1>"; ?>
+
   <p class="subtitle">Elige un enlace del menu para acceder a las funciones diferentes.</p>
 
 </div>

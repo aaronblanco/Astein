@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+require 'connection.php';
 session_start();
 $message = $_POST['message'];
 $name = $_POST['name'];

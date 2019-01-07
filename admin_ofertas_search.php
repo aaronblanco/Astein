@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +10,11 @@ session_start();
 </head>
 <body>
   <?php
-  include "admin_navbar.php";
-  include "connection.php";
+    require 'seguridad.php'; // Acceso para el admin
+    require 'seguridadEmpleado.php'; // Acceso para los empleados
+    require 'connection.php';
+    include "admin_navbar.php";
+
   $type = $_GET['type'];
   $search = $_GET['search'];
   ?>

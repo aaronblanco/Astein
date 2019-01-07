@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+require 'connection.php';
 include("log_funcion.php");
 include("user_feedback.php");
 

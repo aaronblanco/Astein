@@ -14,7 +14,7 @@
   <?php
     include "usuario_navbar.php";
     include("user_feedback.php");
-    include("connection.php");
+    require 'connection.php';
   ?>
 
   <div id="main-content">

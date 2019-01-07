@@ -11,6 +11,8 @@
 <body>
 
   <?php
+    require 'seguridad.php'; // Acceso para el admin
+    require 'seguridadEmpleado.php'; // Acceso para los empleados
     include "admin_navbar.php";
     include "user_feedback.php";
   ?>

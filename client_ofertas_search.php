@@ -10,7 +10,7 @@
 <body>
   <?php
   include "usuario_navbar.php";
-  include "connection.php";
+  require 'connection.php';
   $type = $_GET['type'];
   $search = $_GET['search'];
   ?>

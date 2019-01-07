@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +11,10 @@ session_start();
 <body>
 
   <?php
+    require 'seguridad.php'; // Acceso para el admin
+    require 'seguridadEmpleado.php'; // Acceso para los empleados
     include "admin_navbar.php";
-    include "connection.php";
+    require 'connection.php';
 
     $reserva_id = $_GET['id'];
 

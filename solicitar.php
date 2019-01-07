@@ -13,7 +13,7 @@
 
   <?php
     include "usuario_navbar.php";
-    include "connection.php";
+    require 'connection.php';
     $id = $_GET['id'];
   ?>
 

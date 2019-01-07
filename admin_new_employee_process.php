@@ -1,6 +1,8 @@
 <?php
-include("connection.php");
-session_start();
+// require 'seguridad.php'; // Acceso para el admin
+// require 'connection.php';
+
+header('Content-type: text/plain; charset=utf-8');
 
 $email = $_POST['email'];
 $name = $_POST['name'];

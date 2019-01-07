@@ -11,9 +11,9 @@
 <body>
 
   <?php
-    if(!isset($_SESSION)){session_start();}
+    require 'seguridad.php'; // Acceso para el admin
     include "admin_navbar.php";
-    include "connection.php";
+    require 'connection.php';
     include "user_feedback.php";
   ?>
 

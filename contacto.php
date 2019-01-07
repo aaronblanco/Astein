@@ -13,7 +13,7 @@
 
   <?php
     include "usuario_navbar.php";
-    include "connection.php";
+    require 'connection.php';
 
     $company_id = 1;
     $query_findCompany = "SELECT * from company where ID='$company_id'";

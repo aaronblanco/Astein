@@ -17,7 +17,7 @@
 
 <h1>Detalles de la oferta selectada</h1>
 <?php
-include "connection.php";
+require 'connection.php';
 $id = $_GET['id'];
 
 $query_getDetails = $connection->prepare("SELECT * from offer where id = ?");

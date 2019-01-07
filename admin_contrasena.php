@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +10,7 @@ session_start();
 <body>
 
   <?php
+    require 'seguridad.php'; // Acceso solo para el admin
     include "admin_navbar.php";
   ?>
 

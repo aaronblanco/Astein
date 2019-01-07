@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +11,8 @@ session_start();
 <body>
 
   <?php
-    include "admin_navbar.php";
-
+    require 'seguridad.php'; // Acceso solo para el admin
+    include 'admin_navbar.php';
   ?>
 
 <div id="main-content">
@@ -24,7 +20,7 @@ session_start();
 <?php
 include("seguridad.php");
 ?>
-  <h1>Inicio</h1>
+  <h1>Imágenes</h1>
   <p class="subtitle">Aquí puede cambiar los imagenes que aparecen en la página de inicio.</p>
 
 <div id="admin-inicio-image-list">

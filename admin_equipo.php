@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +11,10 @@ session_start();
 <body>
 
   <?php
-
-    include("user_feedback.php");
+    require 'seguridad.php'; // Acceso solo para el admin
     include "admin_navbar.php";
-    include("connection.php");
+    include("user_feedback.php");
+    require 'connection.php';
   ?>
 
 <div id="main-content">

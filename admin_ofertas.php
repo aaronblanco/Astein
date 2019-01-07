@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +11,11 @@ session_start();
 <body>
 
   <?php
+    require 'seguridad.php'; // Acceso para el admin
+    require 'seguridadEmpleado.php'; // Acceso para los empleados
     include "admin_navbar.php";
     include "user_feedback.php";
-    include("connection.php");
+    require 'connection.php';
   ?>
 
   <div id="main-content">

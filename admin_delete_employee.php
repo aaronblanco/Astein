@@ -1,6 +1,8 @@
 <?php
-include("connection.php");
-session_start();
+// require 'seguridad.php'; // Acceso solo para el admin
+// require 'connection.php';
+
+header('Content-type: text/plain; charset=utf-8');
 
 $id = $_GET['id'];
 

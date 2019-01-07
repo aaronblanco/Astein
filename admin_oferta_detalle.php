@@ -11,9 +11,10 @@
 <body>
 
   <?php
-
+    require 'seguridad.php'; // Acceso para el admin
+    require 'seguridadEmpleado.php'; // Acceso para los empleados
+    require 'connection.php';
     include "admin_navbar.php";
-    include "connection.php";
 
     $id = $_GET['id'];
 

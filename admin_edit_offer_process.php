@@ -1,6 +1,9 @@
 <?php
-include("connection.php");
-session_start();
+// require 'seguridad.php'; // Acceso para el admin
+// require 'seguridadEmpleado.php'; // Acceso para los empleados
+require 'connection.php';
+
+header('Content-type: text/plain; charset=utf-8');
 
 $name = $_POST['name'];
 $provider = $_POST['provider'];

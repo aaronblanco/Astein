@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +11,10 @@ session_start();
 <body>
 
   <?php
+    require 'seguridad.php'; // Acceso para el admin
     include("admin_navbar.php");
     include("user_feedback.php");
-    include("connection.php");
+    require 'connection.php';
 
     $employee_id = $_GET['id'];
     $query_findEmployee = "SELECT * from employee where ID='$employee_id'";
