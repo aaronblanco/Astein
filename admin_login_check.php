@@ -2,13 +2,13 @@
 <?php
 	include("connection.php");
 	include("log_funcion.php");
-	$username = $_POST['usuario'];
+	$email = $_POST['email'];
 	$password = $_POST['password'];
 
 
-		$admin =  "SELECT * FROM administrator WHERE username = '$username' AND password ='$password' ";
+		$admin =  "SELECT * FROM administrator WHERE email = '$email' AND password ='$password' ";
 
-		$worker =  "SELECT * FROM employee WHERE username = '$username' AND password ='$password' ";
+		$worker =  "SELECT * FROM employee WHERE email = '$email' AND password ='$password' ";
 
 
 		$result = $connection->query($admin);
