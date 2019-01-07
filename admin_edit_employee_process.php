@@ -15,7 +15,7 @@ $description = $_POST['description'];
 
 $query_findEmployee = "SELECT * from employee where id='$id'";
 $result = $connection->query($query_findEmployee);
-if($editEmployee = $connection->prepare("UPDATE employee SET email=?, name=?, lastname=?, activity=?, description=? WHERE `id`=? ")) {
+if($editEmployee = $connection->prepare("UPDATE employee SET email=?, firstname=?, lastname=?, activity=?, description=? WHERE `id`=? ")) {
   $editEmployee->bind_param("sssssi", $email, $name, $lastname, $activity, $description, $id);
   $editEmployee->execute();
   $editEmployee->close();

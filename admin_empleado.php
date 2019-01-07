@@ -25,7 +25,7 @@ session_start();
     if(mysqli_num_rows($result) > 0 ){
       $row = $result->fetch_assoc();
       $email = $row['email'];
-      $name = $row['name'];
+      $name = $row['firstname'];
       $lastname = $row['lastname'];
       $description = $row['description'];
       $activity = $row['activity'];

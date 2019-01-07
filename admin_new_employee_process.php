@@ -9,7 +9,7 @@ $lastname = $_POST['lastname'];
 $query_findEmployee = "SELECT * from employee where email='$email'";
 $result = $connection->query($query_findEmployee);
 if(!$result || mysqli_num_rows($result) == 0 ){
-  if($addEmployee = $connection->prepare("INSERT INTO employee (email, name, lastname) values (?, ?, ?)")) {
+  if($addEmployee = $connection->prepare("INSERT INTO employee (email, firstname, lastname) values (?, ?, ?)")) {
     $addEmployee->bind_param("sss", $email, $name, $lastname);
     $addEmployee->execute();
     $addEmployee->close();

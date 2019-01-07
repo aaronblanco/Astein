@@ -40,7 +40,7 @@ session_start();
   if ($result && ($result->num_rows > 0)) {
     while($row = $result->fetch_assoc()) {
       echo '<div class="admin-inicio-image admin-equipo">';
-      echo '<p class="inicio-imagename employee-name">'.$row["name"]." ".$row["lastname"].'</p>';
+      echo '<p class="inicio-imagename employee-name">'.$row["firstname"]." ".$row["lastname"].'</p>';
       echo '<a href="admin_empleado.php?id='.$row["id"].'"><i class="material-icons icon-action">edit</i></a>';
       echo '<i class="material-icons icon-action" onclick="askDeleteEmployee('.$row["id"].');">delete</i>';
       echo '<i class="material-icons icon-arrow">keyboard_arrow_up</i>';
