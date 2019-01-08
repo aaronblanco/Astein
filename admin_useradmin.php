@@ -10,7 +10,7 @@
 <body>
 
   <?php
-    // require 'seguridad.php'; // Acceso para el admin (--> no tiene sentido en esta página)
+    require 'seguridad.php'; // Acceso para el admin (--> no tiene sentido en esta página, lo hacemos de todas formas)
     include "admin_navbar.php";
   ?>
 

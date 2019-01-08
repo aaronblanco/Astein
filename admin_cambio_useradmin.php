@@ -2,8 +2,8 @@
 
 header('Content-type: text/plain; charset=utf-8');
 
-$pass = $_POST['password'];
-$user = $_POST['user'];
+$pass = strip_tags($_POST['password']);
+$user = strip_tags($_POST['user']);
 
 require 'connection.php';
 

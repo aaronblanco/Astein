@@ -4,10 +4,10 @@ include("log_funcion.php");
 include("user_feedback.php");
 
 $name = strip_tags($_POST['name']);
-$lastname = $_POST['lastname'];
-$mail = $_POST['mail'];
-$phone = $_POST['phone'];
-$message = $_POST['message'];
+$lastname = strip_tags($_POST['lastname']);
+$mail = strip_tags($_POST['mail']);
+$phone = strip_tags($_POST['phone']);
+$message = strip_tags($_POST['message']);
 
 $query = $connection->prepare("INSERT INTO applicant (firstname, lastname, email, phone, message) values (?,?,?,?,?)");
 $query->bind_param("sssss", $name, $lastname, $mail, $phone, $message);

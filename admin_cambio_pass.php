@@ -3,7 +3,7 @@ require 'seguridad.php'; // Acceso para el admin
 
 header('Content-type: text/plain; charset=utf-8');
 
-$pass = $_POST['password'];
+$pass = strip_tags($_POST['password']);
 
 require 'connection.php';
 // Falta ver la tabla que actualizará la contraseña de todo el equipo.

@@ -1,19 +1,20 @@
 <?php
-  // require 'seguridadEmpleado.php'; // Acceso para admin y empleados
+  require 'seguridadEmpleado.php'; // Acceso para admin y empleados
   require 'connection.php';
 
   header('Content-type: text/plain; charset=utf-8');
 
-$name = $_POST['name'];
-$provider = $_POST['provider'];
-$type = $_POST['type'];
-$price = $_POST['price'];
-$priceType = $_POST['priceType'];
-$data = $_POST['data'];
-$dataUnit = $_POST['dataUnit'];
-$calls = $_POST['calls'];
-$fiber = $_POST['fiber'];
-$description = $_POST['description'];
+$name = strip_tags($_POST['name']);
+$provider = strip_tags($_POST['provider']);
+$type = strip_tags($_POST['type']);
+$price = strip_tags($_POST['price']);
+$priceType = strip_tags($_POST['priceType']);
+$data = strip_tags($_POST['data']);
+$dataUnit = strip_tags($_POST['dataUnit']);
+$calls = strip_tags($_POST['calls']);
+$fiber = strip_tags($_POST['fiber']);
+$image = strip_tags($_POST['image']);
+$description = strip_tags($_POST['description']);
 
 $query_findOffer = "SELECT * from offer where name='$name'";
 $result = $connection->query($query_findOffer);

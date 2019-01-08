@@ -14,7 +14,7 @@
   <?php
     include "usuario_navbar.php";
     require 'connection.php';
-    $id = $_GET['id'];
+    $id = strip_tags($_GET['id']);
   ?>
 
 <div id="main-content">

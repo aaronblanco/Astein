@@ -49,7 +49,6 @@ function setVars(){
         </div>
       <?php } ?>
 
-      </script>
   </div>
 </div>
 
