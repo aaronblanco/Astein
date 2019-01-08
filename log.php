@@ -14,7 +14,7 @@
     include "usuario_navbar.php";
   ?>
 
-<h1>&nbsp;Log de reservas </h1>
+<h1>Log de reservas </h1>
 
 <div id="main-content">
   <table id="tabla">
@@ -24,7 +24,6 @@
   <td><strong>Fecha</strong></td>
   <td><strong>Oferta</strong></td>
   <td><strong>Nombre</strong></td>
-
   <td><strong>E-mail</strong></td>
   <td><strong>Teléfono</strong></td>
   <td><strong>Mensaje</strong></td>
