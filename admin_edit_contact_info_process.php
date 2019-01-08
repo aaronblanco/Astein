@@ -15,6 +15,7 @@ if($editCompany = $connection->prepare("UPDATE company SET email=?, phone=?, add
   $editCompany->bind_param("sssi", $email, $phone, $address, $id);
   $editCompany->execute();
   $editCompany->close();
+  write_log("Cambiado datos de la compañía $id a Correo electrónico: $email, Teléfono: $phone, Dirección: $address.");
   $_SESSION["message-success"] = "Datos de contacto editados.";
   header("Location: admin_contacta.php");
 } else {

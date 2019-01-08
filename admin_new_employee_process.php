@@ -16,7 +16,7 @@ if(!$result || mysqli_num_rows($result) == 0 ){
     $addEmployee->bind_param("sss", $email, $name, $lastname);
     $addEmployee->execute();
     $addEmployee->close();
-    write_log("Inserted new employee $firstname $lastname with email $email."); // --> Log DB operation
+        write_log("Insertado nuevo empleado $firstname $lastname con correo electrónico $email."); // --> Log DB operation
     $_SESSION["message-success"] = "Nuevo empleado $name $lastname creado.";
     header("Location: admin_equipo.php");
   } else {

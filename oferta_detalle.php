@@ -46,7 +46,7 @@ $row = $result->fetch_assoc()
     <td><?php if (!empty($row['calls'])){echo $row['calls']; echo ' Minutos';}else{echo "/";}?></td>
   </tr>
   <tr>
-    <td>Fibre</td>
+    <td>Fibra</td>
     <td><?php if (!empty($row['fiber'])){echo $row['fiber']; echo ' GB';}else{echo "/";}?></td>
   </tr>
   <tr>
