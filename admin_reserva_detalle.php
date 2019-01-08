@@ -11,9 +11,9 @@
 <body>
 
   <?php
+    require 'seguridadEmpleado.php'; // Acceso para admin y empleados
     include "admin_navbar.php";
-    include "connection.php";
-    session_start();
+    require 'connection.php';
 
     $reserva_id = $_GET['id'];
 
@@ -47,7 +47,7 @@
 
 <div id="reserva-details">
 <p>
-<b>Fecha y hora:</b>  <?php echo $row['timestamp'] ?><br><br>
+<b>Fecha y hora:</b>  <?php echo date_format(new DateTime($row['timestamp']), 'd/m/Y H:i'); ?> <br><br>
 <b>Nombre de oferta:</b>  <?php echo $row['offer_name'] ?><br>
 <b>Código de oferta:</b>  <?php echo $row['offer_id'] ?><br>
 <br>

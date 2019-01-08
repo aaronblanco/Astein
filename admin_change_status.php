@@ -1,8 +1,7 @@
 <?php
+// require 'seguridadEmpleado.php'; // Acceso para admin y empleados
+require 'connection.php';
 
-session_start();
-
-include("connection.php");
 header('Content-type: text/plain; charset=utf-8');
 
 $reservation_id = $_POST['reservation_id'];

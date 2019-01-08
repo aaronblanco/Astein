@@ -10,9 +10,10 @@
 <body>
 
   <?php
-    include("admin_navbar.php");
+    require 'seguridad.php'; // Acceso solo para el admin
+    include('admin_navbar.php');
     include("user_feedback.php");
-    include("connection.php");
+    require 'connection.php';
 
     $company_id = 1;
     $query_findCompany = "SELECT * from company where ID='$company_id'";
@@ -22,7 +23,7 @@
       $phone = $row['phone'];
       $address = $row['address'];
       $email = $row['email'];
-      //echo($email.$phone.$address);
+      //echo($email.$phone.$address)
     } else {
         printf("No hay ninguna empresa en la base de datos. </br> Error: %s\n", $connection->error);
     }

@@ -13,7 +13,7 @@
 
   <?php
     include "usuario_navbar.php";
-    include "connection.php";
+    require 'connection.php';
 
     $company_id = 1;
     $query_findCompany = "SELECT * from company where ID='$company_id'";
@@ -29,15 +29,15 @@
   ?>
 
 <div id="main-content">
-  <h2> Contacta con nosotros </h2>
+  <h1> Contacta con nosotros </h1>
 
 <div class="map-responsive">
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.573428477337!2d-2.4418152488259004!3d36.87662807099434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7a9e4815b768b9%3A0xd7da0b3b9a1ad95b!2zQ3RyYS4gQWxtZXLDrWEsIDg2LCBPZmljaW5hIDUsIDA0MjMwIEh1w6lyY2FsIGRlIEFsbWVyw61hLCBBbG1lcsOtYQ!5e0!3m2!1ses!2ses!4v1542121839201" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div>
 
-<p class="contact-info"><i class="material-icons icon-black" id="icon">location_on</i><?php echo $address ?></p>
-<p class="contact-info"><i class="material-icons icon-black" id="icon">phone</i><a href="tel:<?php echo $phone ?>"><?php echo $phone ?></a></p>
-<p class="contact-info"><i class="material-icons icon-black" id="icon">email</i><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></p>
+<div class="contact-info"><i class="material-icons icon-black icon-contacta" id="icon">location_on</i><?php echo $address ?></div>
+<div class="contact-info"><i class="material-icons icon-black icon-contacta" id="icon">phone</i><a href="tel:<?php echo $phone ?>"><?php echo $phone ?></a></div>
+<div class="contact-info"><i class="material-icons icon-black icon-contacta" id="icon">email</i><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></div>
 
 </div>
 

@@ -1,8 +1,7 @@
 <?php
+// require 'seguridad.php'; // Acceso para el admin
+require 'connection.php';
 
-session_start();
-
-include("connection.php");
 header('Content-type: text/plain; charset=utf-8');
 
 $id = $_GET['id'];
@@ -15,7 +14,7 @@ $description = $_POST['description'];
 
 $query_findEmployee = "SELECT * from employee where id='$id'";
 $result = $connection->query($query_findEmployee);
-if($editEmployee = $connection->prepare("UPDATE employee SET email=?, name=?, lastname=?, activity=?, description=? WHERE `ID`=? ")) {
+if($editEmployee = $connection->prepare("UPDATE employee SET email=?, firstname=?, lastname=?, activity=?, description=? WHERE `id`=? ")) {
   $editEmployee->bind_param("sssssi", $email, $name, $lastname, $activity, $description, $id);
   $editEmployee->execute();
   $editEmployee->close();

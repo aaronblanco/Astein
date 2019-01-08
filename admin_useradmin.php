@@ -10,13 +10,14 @@
 <body>
 
   <?php
+    // require 'seguridad.php'; // Acceso para el admin (--> no tiene sentido en esta página)
     include "admin_navbar.php";
   ?>
 
 <div id="main-content">
 
   <h1>Usuario y contraseña</h1>
-  <p class="subtitle">Aquí puede cambiar el nombre de usuario y contraseña.</p>
+  <p class="subtitle">Aquí puede cambiar el nombre de usuario y contraseña del administrador.</p>
 
 <div id="team-password-form">
   <form class="astein-form" action="admin_cambio_useradmin.php" method="post">

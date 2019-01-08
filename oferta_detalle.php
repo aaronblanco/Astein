@@ -18,7 +18,7 @@
 
 <h1>Detalles de la oferta selectada</h1>
 <?php
-include "connection.php";
+require 'connection.php';
 $id = $_GET['id'];
 
 $query_getDetails = $connection->prepare("SELECT * from offer where id = ?");
@@ -58,7 +58,7 @@ $row = $result->fetch_assoc()
   <img src="<?php echo $row['photo']?>">
 </div>
 
-<button type="button" onclick="location.href='solicitar.php?id=<?php echo $id?>'" class="navtab">Solicitar</button>
+<button type="button" class="submit_button" onclick="location.href='solicitar.php?id=<?php echo $id?>'" class="navtab">Solicitar</button>
 
 </div>
 

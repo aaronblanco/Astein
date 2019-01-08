@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +14,7 @@
 <body>
 
   <?php
+    require 'seguridad.php'; // Acceso para el admin
     include "admin_navbar.php";
     include "user_feedback.php";
   ?>

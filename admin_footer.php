@@ -1,5 +1,5 @@
 <?php
-  include("connection.php");
+  require 'connection.php';
   $company_id = 1;
   $query_findCompany = "SELECT * from company where ID='$company_id'";
   $result = $connection->query($query_findCompany);

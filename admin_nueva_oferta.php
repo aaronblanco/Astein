@@ -11,6 +11,7 @@
 <body>
 
   <?php
+    require 'seguridadEmpleado.php'; // Acceso para admin y empleados
     include "admin_navbar.php";
     include "user_feedback.php";
   ?>
@@ -27,41 +28,43 @@
       <label>Proveedor</label> <input type="text" class="astein-input" name="provider" required><br>
       <label>Tipo</label>
       <select name="type" class="form-select" style="display: inline;">
-        <option value="in progress">particulares</option>
-        <option value="new">empresas</option>
+        <option value="particulares">particulares</option>
+        <option value="empresas">empresas</option>
       </select><br>
       <label>Precio</label>
       <div>
-        <input type="number" class="astein-input inline-textfield" min="0" step="0.01" name="price">
+        <input type="number" class="astein-input inline-textfield" min="0" step="0.01" name="price" required>
         <select name="priceType" class="form-select" style="display: inline;">
-          <option value="in progress">/ mes</option>
-          <option value="new">/ año</option>
+          <option value="mes">/ mes</option>
+          <option value="año">/ año</option>
         </select><br>
       </div>
       <label>Datos</label>
-      <input type="checkbox" name="data_included" id="data_included" value="data_included" onchange="manageCheckbox(this)">
+      <input type="checkbox" id="data_included" name="data_included" value="data_included" onchange="manageCheckbox(this)">
       <div>
         <input type="number" class="astein-input inline-textfield" min="0" id="data" name="data" onfocus="manageTextbox(this)">
         <select name="dataUnit" class="form-select" style="display: inline;">
-          <option value="in progress">GB</option>
-          <option value="new">MB</option>
-        </select><br>
+          <option value="GB">GB</option>
+          <option value="MB">MB</option>
+        </select>
+        <input type="checkbox" class="inline-checkbox" id="data_unlimited" name="data_unlimited" value="data_unlimited" onchange="manageCheckboxUnlimited(this)">ilimitados<br>
       </div>
       <label>Llamadas</label>
-      <input type="checkbox" name="calls_included" id="calls_included" value="calls_included" onchange="manageCheckbox(this)">
+      <input type="checkbox" id="calls_included" name="calls_included" value="calls_included" onchange="manageCheckbox(this)">
       <div>
-        <input type="number" class="astein-input inline-textfield" min="0" id="calls" name="calls" onfocus="manageTextbox(this)">
-      </div><br><br><br>
+        <input type="number" class="astein-input inline-textfield" min="0" id="calls" name="calls" onfocus="manageTextbox(this)">minutos
+        <input type="checkbox" class="inline-checkbox" id="calls_unlimited" name="calls_unlimited" value="calls_unlimited" onchange="manageCheckboxUnlimited(this)">ilimitadas<br>
+      </div><br><br>
       <label>Fibra</label>
-      <input type="checkbox" name="fiber_included" id="fiber_included" value="fiber_included" onchange="manageCheckbox(this)">
+      <input type="checkbox" id="fiber_included" name="fiber_included" value="fiber_included" onchange="manageCheckbox(this)">
       <div>
         <input type="number" class="astein-input inline-textfield" min="0" id="fiber" name="fiber" onfocus="manageTextbox(this)">
         <label class="legend-label">Mb</label>
       </div><br><br><br>
-      <label>Imagen</label><input type="file" class"file-upload" name="imagen"><br><br><br>
+      <label>Imagen</label><input type="file" class"file-upload" name="image" accept="image/*"><br><br><br>
       <label>Descripción</label>
-      <textarea class="admin-textarea" name="description"></textarea>
-      <input class="save-changes new-employee-admin" type="submit" action="saved_changes.php" method="post" value="crear oferta">
+      <textarea class="admin-textarea" id="description" name="description"></textarea>
+      <input class="save-changes new-employee-admin" type="submit" method="post" value="Crear oferta">
     </form>
   </div>
 
@@ -72,12 +75,26 @@
     } else {
       if (checkbox.id == "data_included") {
         document.getElementById("data").value = "";
+        document.getElementById("data_unlimited").checked = false;
       }
       if (checkbox.id == "calls_included") {
         document.getElementById("calls").value = "";
+        document.getElementById("calls_unlimited").checked = false;
       }
       if (checkbox.id == "fiber_included") {
         document.getElementById("fiber").value = "";
+      }
+      }
+    }
+    function manageCheckboxUnlimited(checkbox) {
+    if (checkbox.checked) {
+      if (checkbox.id == "data_unlimited") {
+        document.getElementById("data").value = "";
+        document.getElementById("data_included").checked = true;
+      }
+      if (checkbox.id == "calls_unlimited") {
+        document.getElementById("calls").value = "";
+        document.getElementById("calls_included").checked = true;
       }
       }
     }

@@ -65,7 +65,7 @@
 
   <?php
     include "usuario_navbar.php";
-    include "connection.php";
+    require 'connection.php';
   ?>
 
 <div id="main-content">
@@ -74,17 +74,17 @@
 <div id="table-container">
   <table id="employee-table">
     <?php
-    $query = "SELECT * from employee";
+    $query = "SELECT id, firstname, lastname, activity, description from employee";
     $result = $connection->query($query);
       while($row = $result->fetch_assoc()){
       ?>
     <tr>
     <td>
       <figure>
-        <img src=<?php echo $row['photo'];?>>
+        <img src="admin_display_employee_image.php?id=<?php echo $row['id'];?>">
       </figure>
     </td>
-      <td><div class="employee-list-name"><?php echo $row['name']; echo " "; echo $row['lastname'];?></div><?php echo $row['activity'];?><br><br><?php echo $row['description']?></td>
+      <td><div class="employee-list-name"><?php echo $row['firstname']; echo " "; echo $row['lastname'];?></div><?php echo $row['activity'];?><br><br><?php echo $row['description']?></td>
     </tr>
   <?php } ?>
 </table>

@@ -3,7 +3,6 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-  <link rel="stylesheet" href="css\ofertas.css">
   <link rel="stylesheet" href="css\EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,7 +14,11 @@
   <?php
     include "usuario_navbar.php";
     include("user_feedback.php");
+<<<<<<< HEAD
     include("connection.php");
+=======
+    require 'connection.php';
+>>>>>>> ede8e2138b75e1f6ce3406b593339a99afcedb32
   ?>
 
   <div id="main-content">
@@ -38,7 +41,7 @@ function setVars(){
 }
 </script>
 
-
+<div class="ofertas-container">
   <?php
     $query = "SELECT * from offer";
     $result = $connection->query($query);
@@ -46,12 +49,17 @@ function setVars(){
       while($row = $result->fetch_assoc()){
       ?>
         <div class="offer">
+<<<<<<< HEAD
             <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo $row['name']; ?></a>
             <p><?php echo $row['price']; echo '€';?></p>
+=======
+            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo '<img class="offer-image" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';?></a>
+>>>>>>> ede8e2138b75e1f6ce3406b593339a99afcedb32
         </div>
       <?php } ?>
 
   </div>
+</div>
 
 <?php
   include "usuario_footer.php";

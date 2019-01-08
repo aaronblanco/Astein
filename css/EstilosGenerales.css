@@ -75,6 +75,7 @@ a {
   padding-left: 5vw;
   padding-right: 5vw;
   margin-bottom: 100px;
+  /* background-color: grey; */
 }
 
 .footer {
@@ -129,7 +130,7 @@ a {
   color: white !important;
 }
 
-.astein-form > input[type=text] {
+.astein-form input[type=text], input[type=tel], input[type=email] {
 	position: relative;
 	display: block;
 	background-color: #e8e8e8;
@@ -141,6 +142,7 @@ a {
   font-size: 1em;
   font-weight: 100;
   padding-left: 5px;
+	margin-top: 5px;
 }
 
 .astein-form > input[type=submit]{
@@ -176,6 +178,30 @@ a {
   font-size: 1em;
 }
 
+.astein-form > textarea {
+  font-family: 'Roboto', sans-serif;
+	display: block;
+	background-color: #e8e8e8;
+  border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+  min-width: calc(300px + 15vw);
+  min-height: 100px;
+  font-size: 1em;
+  padding: 5px;
+	margin-top: 5px;
+}
+
+/* Forms on mobile devices */
+@media screen and (max-width: 900px) {
+  .astein-form input[type=text], input[type=tel], input[type=email] {
+    width: 90vw !important;
+  }
+  .astein-form > textarea {
+    min-width: 90vw !important;
+  }
+}
+
 select {
 	position: relative;
 	display: block;
@@ -201,10 +227,12 @@ select {
   justify-content: center;
   align-items: center;
   padding-left, padding-right: 30px;
+  margin-top: 40px;
 }
 
 .submit_button:hover {
   background-color: black;
+  cursor: pointer;
 }
 
 .astein-form > label {
@@ -298,7 +326,7 @@ select {
 
 /* ---- Equípo (Admin) ---- */
 .admin-equipo {
-  width: 535px;
+  width: 480px;
 }
 
 /* ---- Editar Empleado (Admin) ---- */
@@ -312,7 +340,7 @@ select {
   min-width: calc(300px + 15vw);
   min-height: 100px;
   font-size: 1em;
-  font-weight: 100;
+  /* font-weight: 100; */
   padding: 5px;
 }
 
@@ -483,11 +511,20 @@ td {
 }
 
 tr {
-  background-color: #EBEBEB;
+  background-color: #e1e1e1;
+  transition: background-color 0.1s ease-in;
 }
 
 tr:nth-child(even) {
   background-color: #F9F9F9;
+}
+
+tr:hover {
+  background-color: #d7d7d7;
+}
+
+tr:nth-child(even):hover {
+  background-color: #efefef;
 }
 
 .icon-table {
@@ -540,6 +577,7 @@ tr:nth-child(even) {
     padding-top: 20px;
     padding-bottom: 20px;
     box-shadow: -5px 5px 15px 2px rgba(0,0,0,0.2);
+    z-index: 1000;
 }
 
 #feedback-success {
@@ -565,7 +603,7 @@ tr:nth-child(even) {
 
 /* ---- Trabaja con Nosotros (Admin) ---- */
 .table-message {
-  max-width: 300px;
+  max-width: 200px;
   padding: 10px;
 }
 
@@ -581,7 +619,7 @@ tr, th, td {
   padding-right: 10px;
   background-color: var(--astein-primary);
   color: white;
-  /* font-size: 0.9em; */
+  font-size: 0.9em;
 }
 
 .large-table td {
@@ -802,4 +840,97 @@ This class makes the topnav look good on small screens (display the links vertic
   align-items: center;
   float: left;
   margin-top: calc((40px - 1em) / 2);
+}
+
+/* Crear oferta (Administrador) */
+.inline-checkbox {
+  display: inline;
+  margin-left: calc((60px - 1em) / 2);
+  margin-right: 10px;
+  font-size: 1em;
+  margin-top: calc((40px - 1em) / 2);
+}
+
+/* Contacta con nosotros (usuario)*/
+.contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.icon-contacta {
+  margin-top: 0.2em;
+  margin-right: 10px;
+}
+
+/* Ofertas (usuario) */
+.ofertas-container {
+    display: flex;
+    margin-left: 0px !important;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.offer{
+  /* background: var(--astein-primary); */
+  width: calc(100px + 7vw);
+  height: calc(100px + 7vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5vw;
+  margin-top: 5vw;
+  /* transition: background-color 0.2s ease-in; */
+  transition: all 0.2s ease-in-out;
+}
+
+.offer:hover{
+  /* background: var(--astein-primary-dark); */
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.offer a{
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.offer-image {
+  width: calc(100px + 7vw);
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  /* border: 1px solid var(--astein-primary-dark); */
+  transition: all 0.2s ease-in-out;
+}
+
+.offer-image:hover {
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.2);
+}
+
+/* Mobile page */
+@media screen and (max-width: 450px) {
+  .offer {
+    width: 90%;
+    height: 80vw;
+    margin-left: 5vw;
+    margin-right: 5vw !important;
+    margin-top: 10vw;
+  }
+  .offer-image {
+    width: 80vw;
+  }
+}
+
+/** ---- Aviso Legal (Usuario) ---- */
+.aviso-legal {
+  width: 90vw;
+}
+
+/* Lista de Solicitantes (Admin) */
+.open-link {
+  text-decoration: underline;
 }
