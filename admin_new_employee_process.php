@@ -1,6 +1,7 @@
 <?php
 // require 'seguridad.php'; // Acceso para el admin
 require 'connection.php';
+include 'log_funcion.php'; // --> Enable logging
 
 header('Content-type: text/plain; charset=utf-8');
 
@@ -15,6 +16,7 @@ if(!$result || mysqli_num_rows($result) == 0 ){
     $addEmployee->bind_param("sss", $email, $name, $lastname);
     $addEmployee->execute();
     $addEmployee->close();
+    write_log("Inserted new employee $firstname $lastname with email $email."); // --> Log DB operation
     $_SESSION["message-success"] = "Nuevo empleado $name $lastname creado.";
     header("Location: admin_equipo.php");
   } else {

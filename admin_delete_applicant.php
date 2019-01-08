@@ -12,5 +12,5 @@ $deleteEmployee->execute();
 $deleteEmployee->close();
 
 $_SESSION["message-success"] = "Solicitante borrado.";
-header("Location: admin_trabaja.php");
+header("Location: admin_solicitantes.php");
 ?>

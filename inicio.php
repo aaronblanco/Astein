@@ -14,6 +14,9 @@
 
   <?php
     include "usuario_navbar.php";
+
+    session_start();
+    include "user_feedback.php";
   ?>
 
 <div id="main-content">

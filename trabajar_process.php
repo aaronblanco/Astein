@@ -1,64 +1,61 @@
 <?php
 require 'connection.php';
 include("log_funcion.php");
-include("user_feedback.php");
+session_start();
 
-$name = strip_tags($_POST['name']);
+$firstname = strip_tags($_POST['name']);
 $lastname = $_POST['lastname'];
 $mail = $_POST['mail'];
 $phone = $_POST['phone'];
 $message = $_POST['message'];
 
-$query = $connection->prepare("INSERT INTO applicant (firstname, lastname, email, phone, message) values (?,?,?,?,?)");
-$query->bind_param("sssss", $name, $lastname, $mail, $phone, $message);
-$query->execute();
-$query->close();
+// get file
+$file = $_FILES["fileToUpload"]["tmp_name"];
 
+// get file type (Integer)
+$imageFileType = exif_imagetype($file);
+echo "$imageFileType";
 
-if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
-{
-	# Definimos las variables
-	$host="s32.profesionalhosting.com";
-	$port=21;
-	$user="asteinweb";
-	$password="FtpWeb18";
-	$ruta="cvs";
+$fileInfo = finfo_open(FILEINFO_MIME_TYPE);
+$imageFileType = finfo_file($fileInfo, $file);
 
-	# Realizamos la conexion con el servidor
-	$conn_id=@ftp_connect($host,$port);
-	if($conn_id)
-	{
-		# Realizamos el login con nuestro usuario y contraseña
-		if(@ftp_login($conn_id,$user,$password))
-		{
-			# Canviamos al directorio especificado
-			if(@ftp_chdir($conn_id,$ruta))
-			{
-				# Subimos el fichero
-				if(@ftp_put($conn_id,$_FILES["archivo"]["name"],$_FILES["archivo"]["tmp_name"],FTP_BINARY)) {
-
-					write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
-                             "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
-                             ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
-                             $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
-                             $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
-                             $_SERVER['REQUEST_URI'],"INFO");
-
-				}
-
-				else
-					echo "No ha sido posible subir el fichero";
-			}else
-				echo "No existe el directorio especificado";
-		}else
-			echo "El usuario o la contraseña son incorrectos";
-		# Cerramos la conexion ftp
-		ftp_close($conn_id);
-	}else
-		echo "No ha sido posible conectar con el servidor";
+// Check if CV was submitted
+if (!isset($_FILES["fileToUpload"])) {
+	$_SESSION["message-warning"] = "Por favor, no olvides subir tu curriculum vitae.";
+	echo $_SESSION["message-warning"];
+	// header("Location: trabajar.php");
 }
-else
-{
-   echo "Selecciona un archivo...";
+
+// Check file size (maximum file size 2mb)
+elseif ($_FILES["fileToUpload"]["size"] > 2000000) {
+    $_SESSION["message-warning"] = "El archivo es demasiado grande. Máximo: 2MB";
+		echo $_SESSION["message-warning"];
+		// header("Location: trabajar.php");
 }
+
+// // Allow certain mime types (Integer value: 1=IMAGETYPE_GIF, 2=IMAGETYPE_JPEG, 3=IMAGETYPE_PNG)
+elseif($imageFileType != 'application/pdf') {
+  $_SESSION["message-warning"] = "Por favor, sube tu curriculum vitae como PDF.";
+	echo $_SESSION["message-warning"];
+	// header("Location: trabajar.php");
+}
+
+// Si todo está bien, el archivo puede ser subido en la base de datos.
+else {
+
+  $cv = file_get_contents($file);
+
+  if ($addApplicant = $connection->prepare("INSERT INTO applicant (firstname, lastname, email, phone, message, cv) values (?,?,?,?,?,?)")) {
+		$addApplicant->bind_param("ssssss", $firstname, $lastname, $mail, $phone, $message, $cv);
+    $addApplicant->execute();
+    $addApplicant->close();
+
+    $_SESSION["message-success"] = "Gracias $firstname, tus datos han sido enviados con éxito. ";
+    header("Location: inicio.php");
+
+  } else {
+    printf("Error: %s\n", $connection->error . $addApplicant);
+  }
+}
+
 ?>
