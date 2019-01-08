@@ -16,7 +16,7 @@
     include("user_feedback.php");
     require 'connection.php';
 
-    $employee_id = $_GET['id'];
+    $employee_id = strip_tags($_GET['id']);
     $query_findEmployee = "SELECT email, firstname, lastname, description, activity from employee where ID='$employee_id'";
     $result = $connection->query($query_findEmployee);
     if(mysqli_num_rows($result) > 0 ){

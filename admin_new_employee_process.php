@@ -4,9 +4,9 @@ require 'connection.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
-$email = $_POST['email'];
-$name = $_POST['name'];
-$lastname = $_POST['lastname'];
+$email = strip_tags($_POST['email']);
+$name = strip_tags($_POST['name'])
+$lastname = strip_tags($_POST['lastname']);
 
 $query_findEmployee = "SELECT * from employee where email='$email'";
 $result = $connection->query($query_findEmployee);

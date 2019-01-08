@@ -4,7 +4,7 @@ require 'connection.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
-$id = $_GET['id'];
+$id = strip_tags($_GET['id']);
 
 $deleteEmployee = $connection->prepare("DELETE FROM applicant WHERE ID = ?");
 $deleteEmployee->bind_param("i", $id);

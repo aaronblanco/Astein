@@ -2,7 +2,7 @@
 session_start();
 require 'connection.php';
 
-$id = $_GET['id'];
+$id = strip_tags($_GET['id']);
 
 $findEmployee = $connection->prepare("SELECT image FROM employee WHERE ID = ?");
 $findEmployee->bind_param("i", $id);

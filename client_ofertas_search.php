@@ -11,8 +11,8 @@
   <?php
   include "usuario_navbar.php";
   require 'connection.php';
-  $type = $_GET['type'];
-  $search = $_GET['search'];
+  $type = strip_tags($_GET['type']);
+  $search = strip_tags($_GET['search']);
   ?>
   <div id="main-content">
     <h1> Resultados de búsqueda</h1>
