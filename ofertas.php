@@ -14,11 +14,7 @@
   <?php
     include "usuario_navbar.php";
     include("user_feedback.php");
-<<<<<<< HEAD
-    include("connection.php");
-=======
     require 'connection.php';
->>>>>>> ede8e2138b75e1f6ce3406b593339a99afcedb32
   ?>
 
   <div id="main-content">
@@ -49,12 +45,7 @@ function setVars(){
       while($row = $result->fetch_assoc()){
       ?>
         <div class="offer">
-<<<<<<< HEAD
-            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo $row['name']; ?></a>
-            <p><?php echo $row['price']; echo '€';?></p>
-=======
             <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo '<img class="offer-image" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';?></a>
->>>>>>> ede8e2138b75e1f6ce3406b593339a99afcedb32
         </div>
       <?php } ?>
 

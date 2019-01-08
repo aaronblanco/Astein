@@ -13,23 +13,15 @@
 
   <?php
     include "usuario_navbar.php";
-<<<<<<< HEAD
-    include "connection.php";
-=======
     require 'connection.php';
     $id = $_GET['id'];
->>>>>>> ede8e2138b75e1f6ce3406b593339a99afcedb32
   ?>
 
 <div id="main-content">
 
 <h1>Reserva tu oferta ahora</h1>
 <form class="astein-form" action="solicitar_process.php" method="POST">
-<<<<<<< HEAD
-<input type="number" name="id" value="<?php $id = $_GET['id']; echo $id?>" readonly="true">
-=======
 <input type="hidden" name="id" value="<?php echo $id?>">
->>>>>>> ede8e2138b75e1f6ce3406b593339a99afcedb32
 <input type="text" name="name" placeholder="Nombre" required="true">
 <input type="text" name="lastname" placeholder="Apellidos" required="true">
 <input type="email" name="mail" placeholder="Correo electrónico" required="true">

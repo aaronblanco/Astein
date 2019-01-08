@@ -11,16 +11,10 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-<?php
-include "usuario_navbar.php";
-?>
-=======
   <?php
     include "usuario_navbar.php";
     include "user_feedback.php";
   ?>
->>>>>>> ede8e2138b75e1f6ce3406b593339a99afcedb32
 
 <div id="main-content">
 
