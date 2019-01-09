@@ -4,7 +4,7 @@
   <a href="admin_imagenes.php">Imágenes</a>
   <a href="admin_contacta.php">Contacto</a>
   <a href="admin_equipo.php">Equipo</a>
-  <a href="admin_contrasena.php">Contraseña</a>
+  <a href="admin_gestion_contrasenas.php">Contraseñas</a>
   <a href="admin_ofertas.php">Ofertas</a>
   <a href="admin_reservas.php">Reservas</a>
   <a href="admin_solicitantes.php">Trabajo</a>

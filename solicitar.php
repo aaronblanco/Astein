@@ -27,7 +27,7 @@
 <input type="email" name="mail" placeholder="Correo electrónico" required="true">
 <input type="tel" name="phone" placeholder="Telefono" required="true">
 <textarea name="message" maxlength="500" placeholder="Mensaje con información adicional (opcional)"></textarea>
-<input type="submit" value="Solicitar ahora">
+<input type="submit" id="button-solicitar" value="Solicitar ahora">
 </form>
 <p>Solo envias una solicitud. No tienes que pagar ningún coste.</p>
 </div>

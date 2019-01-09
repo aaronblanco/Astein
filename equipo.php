@@ -31,7 +31,7 @@
       <figure>
         <?php
         if($row["image"]!='') {
-          echo '<img src="admin_display_employee_image.php?id='.$row['id'].'">';
+          echo '<img src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/>';
         } else {
           echo '<img src="images/profile_icon.png">';
         }

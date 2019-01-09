@@ -43,11 +43,18 @@ function setVars(){
     $result = $connection->query($query);
 
       while($row = $result->fetch_assoc()){
-      ?>
-        <div class="offer">
-            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo '<img class="offer-image" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';?></a>
-        </div>
-      <?php } ?>
+        $image = $row["image"];
+        $id = $row["id"];
+        if($image!='') {
+          echo '<div class="offer"><a href="oferta_detalle.php?id='.$id.'"><img alt="'.$row['name'].'" title="'.$row['name'].'" class="offer-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/></a></div>';
+        } else {
+          $url = "'oferta_detalle.php?id=$id'";
+          echo '<div class="offer-no-image-user-thumbnail" onclick="location.href='.$url.';">
+            <p class="offer-headline-user-thumbnail">'.$row['name'].'<p>
+            <p class="offer-price-user-thumbnail">'.$row['price'].'€'.'/'.$row['priceType'].'<p>
+          </div>';
+        }
+      } ?>
 
       </script>
   </div>

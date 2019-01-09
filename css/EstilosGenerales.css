@@ -138,7 +138,7 @@ a {
   color: white !important;
 }
 
-.astein-form input[type=text], input[type=tel], input[type=email] {
+.astein-form input[type=text], input[type=tel], input[type=email], input[type=password] {
 	position: relative;
 	display: block;
 	background-color: #e8e8e8;
@@ -199,7 +199,7 @@ a {
   min-height: 100px;
   font-size: 1em;
   padding: 5px;
-	margin-top: 5px;
+	margin-top: 8px;
 }
 
 /* Forms on mobile devices */
@@ -243,6 +243,10 @@ select {
 .submit_button:hover {
   background-color: black;
   cursor: pointer;
+}
+
+#button-solicitar {
+  margin-bottom: 20px;
 }
 
 .astein-form > label {
@@ -361,6 +365,7 @@ select {
   margin-top: -45px;
   border-radius: 50%;
   /* overflow: hidden; */
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.2);
 }
 
 .icon-back {
@@ -872,20 +877,21 @@ This class makes the topnav look good on small screens (display the links vertic
 .ofertas-container {
     display: flex;
     margin-left: 0px !important;
+    margin-top: 30px;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
 }
 
-.offer{
+.offer {
   /* background: var(--astein-primary); */
-  width: calc(100px + 7vw);
-  height: calc(100px + 7vw);
+  width: calc(120px + 10vw);
+  height: calc(120px + 10vw);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 5vw;
-  margin-top: 5vw;
+  margin-top: 0.5vw;
   /* transition: background-color 0.2s ease-in; */
   transition: all 0.2s ease-in-out;
 }
@@ -903,12 +909,41 @@ This class makes the topnav look good on small screens (display the links vertic
 }
 
 .offer-image {
-  width: calc(100px + 7vw);
+  width: calc(120px + 10vw);
   height: auto;
   object-fit: cover;
   border-radius: 5px;
   /* border: 1px solid var(--astein-primary-dark); */
   transition: all 0.2s ease-in-out;
+}
+
+.offer-image-admin {
+  width: calc(200px + 10vw);
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  /* border: 1px solid var(--astein-primary-dark); */
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.2);
+  margin-top: -35px;
+}
+
+.offer-image-user {
+  width: calc(400px + 10vw);
+  margin-top: 10px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  /* border: 1px solid var(--astein-primary-dark); */
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.2);
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 450px) {
+  .offer-image-user {
+    width: 90vw;
+    margin-left: -5px !important;
+    margin-right: 5vw !important;
+  }
 }
 
 .offer-image:hover {
@@ -947,4 +982,102 @@ This class makes the topnav look good on small screens (display the links vertic
 }
 .delete-image {
   float: left;
+}
+
+/** ---- No Offer Image (Admin and User) ---- */
+
+.offer-no-image-admin {
+  background-color: #80bdeb;
+  width: calc(200px + 10vw);
+  height: calc((220px + 10vw) * 0.6) !important;
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-top: -35px;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.offer-no-image-user-thumbnail {
+  background-color: #80bdeb;
+  height: calc((120px + 10vw) * 0.7);
+  width: calc(120px + 10vw);
+  margin-right: 5vw;
+  margin-top: calc((((100px + 7vw) * 0.3) / 2) + 0.5vw);
+  margin-bottom: calc(((100px + 7vw) * 0.7) / 2);
+  /* margin-top: 5vw; */
+  /* height: calc(100px + 7vw); */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.5s;
+  border-radius: 5px;
+}
+
+.offer-no-image-user-thumbnail:hover{
+  /* background: var(--astein-primary-dark); */
+  cursor: pointer;
+  background-color: var(--astein-primary);
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.2);
+}
+
+.offer-headline {
+  color: white;
+  font-weight: bold;
+  font-size: 1.8em;
+  margin-bottom: -5px;
+}
+
+.offer-price {
+  color: white;
+  font-size: 1.2em;
+}
+
+.offer-headline-user-thumbnail {
+  color: white;
+  font-weight: bold;
+  font-size: calc(1.3em - 0.3vw);
+  margin-bottom: -7px;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.offer-price-user-thumbnail {
+  color: white;
+  font-size: calc(1em - 0.2vw);
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+/* Mobile page */
+@media screen and (max-width: 450px) {
+  .offer-no-image-user-thumbnail {
+    width: 90vw;
+    height: 55vw;
+    margin-left: 5vw;
+    margin-right: 5vw !important;
+    margin-top: 10vw;
+  }
+  .offer-headline-user-thumbnail {
+    font-size: 1.7em;
+    margin-bottom: -2px;
+  }
+  .offer-price-user-thumbnail {
+    font-size: 1.2em;
+  }
+}
+
+/** ---- Oferta Detalle (User) ---- */
+
+#user-offer-info {
+  margin-top: -10px;
+  width: 70vw;
+}
+
+@media screen and (max-width: 450px) {
+  #user-offer-info {
+    width: 85vw;
+    margin-left: 0vw !important;
+  }
+}
+
+#offer-description {
+  margin-top: -10px;
 }

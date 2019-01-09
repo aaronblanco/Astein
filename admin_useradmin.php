@@ -10,7 +10,7 @@
 <body>
 
   <?php
-    // require 'seguridad.php'; // Acceso para el admin (--> no tiene sentido en esta página)
+    require 'seguridad.php'; // Acceso solo para el admin
     include "admin_navbar.php";
   ?>
 
@@ -19,6 +19,9 @@
   <h1>Usuario y contraseña</h1>
   <p class="subtitle">Aquí puede cambiar el nombre de usuario y contraseña del administrador.</p>
 
+  <a href="admin_gestion_contrasenas.php"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
+  <br>
+  
 <div id="team-password-form">
   <form class="astein-form" action="admin_cambio_useradmin.php" method="post">
       <label>Usuario</label> <input type="text" class="astein-input" name="user" value="admin"><br>
