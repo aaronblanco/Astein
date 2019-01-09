@@ -12,8 +12,7 @@
   <?php
     require 'seguridad.php'; // Acceso solo para el admin
     include "admin_navbar.php";
-     if(!$_SESSION['name'] == "Admin")
-     echo "No tienes permiso para estar aquí";
+
   ?>
 
 <div id="main-content">
