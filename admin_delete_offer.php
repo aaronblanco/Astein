@@ -30,4 +30,5 @@ $deleteOffer->close();
 
 $_SESSION["message-success"] = "Oferta borrada.";
 header("Location: admin_ofertas.php");
+
 ?>
