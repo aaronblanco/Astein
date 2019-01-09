@@ -8,7 +8,7 @@ $pass = strip_tags($_POST['password']);
 $password = md5($pass);
 
 $consulta = $connection->prepare("UPDATE company SET team_password = ? ");
-$consulta->bind_param("s", $pass);
+$consulta->bind_param("s", $password);
 $consulta->execute();
 $consulta->close();
 
