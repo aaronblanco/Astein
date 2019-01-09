@@ -17,7 +17,7 @@
     <img class="social-media-icon" src="images/facebook_icon.png" href="facebook.com">
     <img class="social-media-icon" src="images/instagram_icon.png" href="instagram.com">
     <i class="material-icons icon-white footer-icon-action" onClick="window.location='inicio.php'">person</i>
-    <p class="footer-text"><a href="inicio.php" id="link-admin-page">página de usuario</a></p>
+    <p class="footer-text"><a href="inicio.php" class="white-link">página de usuario</a></p>
   </div>
   <div id="footer-right">
     <i class="material-icons icon-white footer-icon">phone</i>
