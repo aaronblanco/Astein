@@ -33,6 +33,11 @@ a {
   text-decoration: none;
 }
 
+.social-media {
+  margin-top: 0px;
+  margin-bottom: -3px;
+}
+
 #astein-logo {
     float: left;
     padding-left: 15px;
@@ -1090,4 +1095,11 @@ This class makes the topnav look good on small screens (display the links vertic
 
 #offer-description {
   margin-top: -10px;
+}
+
+/** ---- Editar Imagen de Inicio (Admin) ---- */
+.save-inicio-image {
+  margin-right: 20px;
+  margin-top: 0px;
+  float: left;
 }
