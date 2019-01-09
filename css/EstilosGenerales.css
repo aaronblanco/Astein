@@ -160,6 +160,7 @@ a {
 .astein-form > input[type=submit]{
   -webkit-appearance: none;
   -webkit-border-radius:0;
+  font-family: 'Roboto', sans-serif;
   height: 40px;
   min-width: 150px;
 	background-color: #303030;
@@ -208,7 +209,7 @@ a {
 
 /* Forms on mobile devices */
 @media screen and (max-width: 900px) {
-  .astein-form input[type=text], input[type=tel], input[type=email] {
+  .astein-form input[type=text], input[type=tel], input[type=email], input[type=password] {
     width: 90vw !important;
   }
   .astein-form > textarea {
@@ -230,6 +231,7 @@ select {
 }
 
 .submit_button {
+  font-family: 'Roboto', sans-serif;
   height: 40px;
   min-width: 150px;
 	background-color: #303030;
@@ -254,6 +256,7 @@ select {
 }
 
 .astein-form > label {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   align-items: center;
   float: left;
@@ -349,6 +352,7 @@ select {
 
 /* ---- Editar Empleado (Admin) ---- */
 .admin-textarea {
+  font-family: 'Roboto', sans-serif;
 	position: relative;
 	display: block;
 	background-color: #e8e8e8;
@@ -388,6 +392,7 @@ select {
 }
 
 .light-button {
+  font-family: 'Roboto', sans-serif;
   height: 40px;
   min-width: 150px;
 	background-color: #cccccc;
@@ -421,6 +426,7 @@ select {
 }
 
 .light-icon-button {
+  font-family: 'Roboto', sans-serif;
   height: 40px;
   min-width: 206px;
   background-color: #cccccc;

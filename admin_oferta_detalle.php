@@ -98,7 +98,7 @@
       </div><br><br><br>
       <label>Descripción</label>
       <textarea class="admin-textarea" id="description" name="description"><?php echo $row["description"]?></textarea>
-      <input class="save-changes new-employee-admin" type="submit" method="post" value="Guardar cambios">
+      <input class="save-changes new-employee-admin" type="submit" method="post" value="guardar cambios">
     </form>
 
   </div>
