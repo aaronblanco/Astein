@@ -17,12 +17,12 @@
 <div id="main-content">
 
   <h1>Usuario y contraseña</h1>
-  <p class="subtitle">Aquí puede cambiar el nombre de usuario y contraseña del administrador.</p>
+  <p class="subtitle">Aquí puede cambiar el email y contraseña del administrador.</p>
 
 <div id="team-password-form">
   <form class="astein-form" action="admin_cambio_useradmin.php" method="post">
-      <label>Usuario</label> <input type="text" class="astein-input" name="user" value="admin"><br>
-      <label>Contraseña</label> <input type="text" class="astein-input" name="password" value="astein2018##"><br>
+      <label>Usuario</label> <input type="text" class="astein-input" name="email"  placeholder="email" required ><br>
+      <label>Contraseña</label> <input type="password" class="astein-input" name="password"   placeholder="contraseña" required>><br>
       <input class="save-changes" type="submit" action="admin_cambio_useradmin.php" method="post" value="guardar cambios">
   </form>
 </div>
