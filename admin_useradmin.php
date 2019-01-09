@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Contraseña – Administrador</title>
+  <title>Email y contraseña – Administrador</title>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
 
 <div id="main-content">
 
-  <h1>Usuario y contraseña</h1>
+  <h1>Email y contraseña</h1>
   <p class="subtitle">Aquí puede cambiar el email y contraseña del administrador.</p>
 
 <div id="team-password-form">
