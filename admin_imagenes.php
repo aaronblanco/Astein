@@ -19,8 +19,8 @@
 
 <div id="main-content">
 
-  <h1>Imágenes</h1>
-  <p class="subtitle">Aquí puede cambiar los imagenes que aparecen en la página de inicio.</p>
+  <h1>Galería</h1>
+  <p class="subtitle">Aquí puede cambiar los imágenes de la galería de inicio.</p>
 
   <div class="ofertas-container inicio-images">
     <?php

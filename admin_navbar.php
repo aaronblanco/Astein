@@ -1,7 +1,7 @@
 <div class="topnav" id="myAdminTopnav">
   <a href="admin_inicio.php" class="ignore"><div id="logoTab" class="logo-tab-collapsed"><img id="astein-logo-responsive" src="images/astein_white.png"></div></a>
   <a href="admin_inicio.php">Inicio</a>
-  <a href="admin_imagenes.php">Imágenes</a>
+  <a href="admin_imagenes.php">Galería</a>
   <a href="admin_contacta.php">Contacto</a>
   <a href="admin_equipo.php">Equipo</a>
   <a href="admin_gestion_contrasenas.php">Contraseñas</a>

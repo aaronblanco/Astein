@@ -27,8 +27,8 @@
     $findImage->execute();
     $result = $findImage->get_result();
     if(!$result or mysqli_num_rows($result) == 0 ) {
-      $_SESSION["message-warning"] = "PDF no encontrado.";
-      header("Location: admin_solicitantes.php");
+      $_SESSION["message-warning"] = "Imagen no encontrado.";
+      header("Location: admin_imagenes.php");
     } else {
       $row = $result->fetch_assoc();
       $image = $row['image'];
