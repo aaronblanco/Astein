@@ -59,7 +59,7 @@
 
 			}
 			else {
-				echo "Correo no valido."
+				echo "Correo no valido.";
 			}
 
 
