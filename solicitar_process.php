@@ -1,13 +1,13 @@
 <?php
-include("connection.php");
+require 'connection.php';
 session_start();
-$message = $_POST['message'];
-$name = $_POST['name'];
-$lastname = $_POST['lastname'];
-$phone = $_POST['phone'];
-$mail = $_POST['mail'];
+$message = strip_tags($_POST['message']);
+$name = strip_tags($_POST['name']);
+$lastname = strip_tags($_POST['lastname']);
+$phone = strip_tags($_POST['phone']);
+$mail = strip_tags($_POST['mail']);
 $status = 'new';
-$id_offer = $_POST['id'];
+$id_offer = strip_tags($_POST['id']);
 $id_client;
 
 $query_findUser = $connection->prepare("SELECT * from client where email=?");

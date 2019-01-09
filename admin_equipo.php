@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +11,16 @@ session_start();
 <body>
 
   <?php
-include("seguridad.php");
-    include("user_feedback.php");
+    require 'seguridad.php'; // Acceso solo para el admin
     include "admin_navbar.php";
-    include("connection.php");
+    include("user_feedback.php");
+    require 'connection.php';
   ?>
 
 <div id="main-content">
-
+    <?php
+  include("seguridad.php");
+    ?>
   <h1>Equipo</h1>
   <p class="subtitle">Aquí puede cambiar las informaciones sobre sus empleados.</p>
 
@@ -32,17 +30,17 @@ include("seguridad.php");
 
 <?php
 
-  $query_findEmployees = "SELECT * from employee";
+  $query_findEmployees = "SELECT id, email, firstname, lastname from employee";
   $result = $connection->query($query_findEmployees);
 
   if ($result && ($result->num_rows > 0)) {
     while($row = $result->fetch_assoc()) {
       echo '<div class="admin-inicio-image admin-equipo">';
-      echo '<p class="inicio-imagename employee-name">'.$row["name"]." ".$row["lastname"].'</p>';
+      echo '<p class="inicio-imagename employee-name">'.$row["firstname"]." ".$row["lastname"].'</p>';
       echo '<a href="admin_empleado.php?id='.$row["id"].'"><i class="material-icons icon-action">edit</i></a>';
       echo '<i class="material-icons icon-action" onclick="askDeleteEmployee('.$row["id"].');">delete</i>';
-      echo '<i class="material-icons icon-arrow">keyboard_arrow_up</i>';
-      echo '<i class="material-icons icon-arrow">keyboard_arrow_down</i>';
+      // echo '<i class="material-icons icon-arrow">keyboard_arrow_up</i>';
+      // echo '<i class="material-icons icon-arrow">keyboard_arrow_down</i>';
       echo '</div>';
     }
   } else {

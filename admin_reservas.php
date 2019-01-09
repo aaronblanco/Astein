@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +11,9 @@ session_start();
 <body>
 
   <?php
+    require 'seguridadEmpleado.php'; // Acceso para admin y empleados
     include "admin_navbar.php";
-    include "connection.php";
+    require 'connection.php';
     include "user_feedback.php";
   ?>
 

@@ -1,8 +1,10 @@
 <?php
-include("connection.php");
-session_start();
+require 'seguridad.php'; // Acceso solo para el admin
+require 'connection.php';
 
-$id = $_GET['id'];
+header('Content-type: text/plain; charset=utf-8');
+
+$id = strip_tags($_GET['id']);
 
 $deleteEmployee = $connection->prepare("DELETE FROM employee WHERE id = ?");
 $deleteEmployee->bind_param("i", $id);

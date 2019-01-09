@@ -14,7 +14,7 @@
     include "usuario_navbar.php";
   ?>
 
-<h1>&nbsp;Log de reservas </h1>
+<h1>Log de reservas </h1>
 
 <div id="main-content">
   <table id="tabla">
@@ -24,7 +24,6 @@
   <td><strong>Fecha</strong></td>
   <td><strong>Oferta</strong></td>
   <td><strong>Nombre</strong></td>
-
   <td><strong>E-mail</strong></td>
   <td><strong>Teléfono</strong></td>
   <td><strong>Mensaje</strong></td>
@@ -51,14 +50,7 @@
   <td>Hola, este tarifa...</td>
 </tr>
 
-<tr>
-  <td>00823638</td>
-  <td>12/10/2018 22:12</td>
-  <td>Digi 100</td>
-  <td>Marta Garcia</td>
-  <td>marta1992@gmail.com</td>
-  <td>663162789</td>
-</tr>
+
 </table>
 
 

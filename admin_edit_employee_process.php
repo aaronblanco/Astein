@@ -1,21 +1,20 @@
 <?php
+require 'seguridad.php'; // Acceso para el admin
+require 'connection.php';
 
-session_start();
-
-include("connection.php");
 header('Content-type: text/plain; charset=utf-8');
 
-$id = $_GET['id'];
-$email = $_POST['email'];
-$name = $_POST['name'];
-$lastname = $_POST['lastname'];
-$activity = $_POST['activity'];
-$description = $_POST['description'];
+$id = strip_tags($_GET['id']);
+$email = strip_tags($_POST['email']);
+$name = strip_tags($_POST['name']);
+$lastname = strip_tags($_POST['lastname']);
+$activity = strip_tags($_POST['activity']);
+$description = strip_tags($_POST['description']);
 // --> Missing: foto (ftp-upload --> link to photo location in file system)
 
 $query_findEmployee = "SELECT * from employee where id='$id'";
 $result = $connection->query($query_findEmployee);
-if($editEmployee = $connection->prepare("UPDATE employee SET email=?, name=?, lastname=?, activity=?, description=? WHERE `ID`=? ")) {
+if($editEmployee = $connection->prepare("UPDATE employee SET email=?, firstname=?, lastname=?, activity=?, description=? WHERE `id`=? ")) {
   $editEmployee->bind_param("sssssi", $email, $name, $lastname, $activity, $description, $id);
   $editEmployee->execute();
   $editEmployee->close();

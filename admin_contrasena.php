@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +10,7 @@ session_start();
 <body>
 
   <?php
+    require 'seguridad.php'; // Acceso solo para el admin
     include "admin_navbar.php";
   ?>
 
@@ -24,7 +21,7 @@ session_start();
 
 <div id="team-password-form">
   <form class="astein-form" action="admin_cambio_pass.php" method="post">
-      <label>Contraseña</label> <input type="text" class="astein-input" name="password" value="astein2018##"><br>
+      <label>Contraseña</label> <input type="text" class="astein-input" name="password" placeholder="contraseña" required><br>
       <input class="save-changes" type="submit" action="admin_cambio_pass.php" method="post" value="guardar cambios">
   </form>
 </div>

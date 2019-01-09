@@ -1,13 +1,13 @@
 <?php
-include("connection.php");
-include("log_funcion");
-$name = $_POST['name'];
-$lastname = $_POST['lastname'];
-$mail = $_POST['mail'];
+require 'connection.php';
+include("log_funcion.php");
+include("user_feedback.php");
 
-$phone = $_POST['phone'];
-$message = $_POST['message'];
-
+$name = strip_tags($_POST['name']);
+$lastname = strip_tags($_POST['lastname']);
+$mail = strip_tags($_POST['mail']);
+$phone = strip_tags($_POST['phone']);
+$message = strip_tags($_POST['message']);
 
 $query = $connection->prepare("INSERT INTO applicant (firstname, lastname, email, phone, message) values (?,?,?,?,?)");
 $query->bind_param("sssss", $name, $lastname, $mail, $phone, $message);
@@ -36,7 +36,7 @@ if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
 			{
 				# Subimos el fichero
 				if(@ftp_put($conn_id,$_FILES["archivo"]["name"],$_FILES["archivo"]["tmp_name"],FTP_BINARY)) {
-					echo "Fichero subido correctamente";
+
 					write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
                              "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
                              ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
@@ -44,7 +44,9 @@ if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
                              $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
                              $_SERVER['REQUEST_URI'],"INFO");
 
-				} else
+				}
+
+				else
 					echo "No ha sido posible subir el fichero";
 			}else
 				echo "No existe el directorio especificado";
@@ -54,7 +56,9 @@ if(is_uploaded_file($_FILES["archivo"]["tmp_name"]))
 		ftp_close($conn_id);
 	}else
 		echo "No ha sido posible conectar con el servidor";
-}else{
+}
+else
+{
    echo "Selecciona un archivo...";
 }
 ?>

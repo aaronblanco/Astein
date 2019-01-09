@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +11,10 @@ session_start();
 <body>
 
   <?php
+    require 'seguridadEmpleado.php'; // Acceso para admin y empleados
     include "admin_navbar.php";
-    include("connection.php");
+    include "user_feedback.php";
+    require 'connection.php';
   ?>
 
   <div id="main-content">
@@ -43,11 +42,12 @@ function setVars(){
     <tr>
       <th>Código</th>
       <th>Nombre</th>
-      <th>Tipo</th>
       <th>Proveedor</th>
+      <th>Tipo</th>
       <th>Precio</th>
-      <th style="width:33%; word-wrap: word-break">Descripción</th>
-      </tr>
+      <!-- <th style="width:33%; word-wrap: word-break">Descripción</th> -->
+      <th>Opciones</th>
+    </tr>
   <?php
     $query = "SELECT * from offer";
     $result = $connection->query($query);
@@ -57,10 +57,13 @@ function setVars(){
       <tr>
       <td><?php echo $row['id']; ?></td>
       <td><?php echo $row['name']; ?></td>
-      <td><?php echo $row['type']; ?></td>
       <td><?php echo $row['provider']; ?></td>
-      <td><?php echo $row['price'].'€'; ?></td>
-      <td><?php echo $row['description']; ?></td>
+      <td><?php echo $row['type']; ?></td>
+      <td><?php echo $row['price'].'€'.'/'.$row['priceType']; ?></td>
+      <!-- <td><?php echo $row['description']; ?></td> -->
+      <td class="reservas-list-options">
+        <a href="admin_oferta_detalle.php?id=<?php echo $row["id"] ?>"><i class="material-icons icon-action icon-table icon-reservas">edit</i></a><i class="material-icons icon-action icon-table icon-reservas" onclick="askDeleteOffer(<?php echo $row["id"] ?>)">delete</i>
+      </td>
       </tr>
       <?php } ?>
   </table>
@@ -68,6 +71,16 @@ function setVars(){
   <a href="admin_nueva_oferta.php"><i class="material-icons icon-action plus_icon" id="new-offer">add_box</i></a>
 
   </div>
+
+  <script>
+  function askDeleteOffer(offerID) {
+      var c = confirm("¿Eliminar esta oferta?");
+      if (c == true) {
+        window.location.replace("admin_delete_offer.php"+"?id="+offerID);
+      } else {
+    }
+  }
+  </script>
 
 <?php
   include "admin_footer.php";

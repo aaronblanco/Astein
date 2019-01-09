@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +11,11 @@ session_start();
 <body>
 
   <?php
+    require 'seguridadEmpleado.php'; // Acceso para admin y empleados
     include "admin_navbar.php";
-    include "connection.php";
-    session_start();
+    require 'connection.php';
 
-    $reserva_id = $_GET['id'];
+    $reserva_id = strip_tags($_GET['id']);
 
     $query_findReserva = "SELECT reservation.id as reservation_id, reservation.timestamp, reservation.message, reservation.status,
     offer.name as offer_name, offer.id as offer_id, firstname, lastname, email, phone FROM reservation

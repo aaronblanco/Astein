@@ -1,14 +1,13 @@
 <?php
+require 'seguridad.php'; // Acceso para el admin
+require 'connection.php';
 
-session_start();
-
-include("connection.php");
 header('Content-type: text/plain; charset=utf-8');
 
-$id = $_POST['company_id'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
+$id = strip_tags($_POST['company_id']);
+$email = strip_tags($_POST['email']);
+$phone = strip_tags($_POST['phone']);
+$address = strip_tags($_POST['address']);
 
 $query_findCompany = "SELECT * from company where id='$id'";
 $result = $connection->query($query_findEmployee);

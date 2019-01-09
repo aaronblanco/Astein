@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,21 +11,21 @@ session_start();
 <body>
 
   <?php
+    require 'seguridad.php'; // Acceso para el admin
     include("admin_navbar.php");
     include("user_feedback.php");
-    include("connection.php");
+    require 'connection.php';
 
-    $employee_id = $_GET['id'];
-    $query_findEmployee = "SELECT * from employee where ID='$employee_id'";
+    $employee_id = strip_tags($_GET['id']);
+    $query_findEmployee = "SELECT email, firstname, lastname, description, activity from employee where ID='$employee_id'";
     $result = $connection->query($query_findEmployee);
     if(mysqli_num_rows($result) > 0 ){
       $row = $result->fetch_assoc();
       $email = $row['email'];
-      $name = $row['name'];
+      $name = $row['firstname'];
       $lastname = $row['lastname'];
       $description = $row['description'];
       $activity = $row['activity'];
-      $photo = $row['photo'];
       //echo($email.$name.$lastname.$description.$activity);
     } else {
         printf("Este Empleado no existe. </br> Error: %s\n", $connection->error);
@@ -46,7 +42,7 @@ session_start();
     <form class="astein-form" action="admin_edit_employee_process.php?id=<?php echo $employee_id ?>" method="post">
       <label id="image-label"></label><br>
       <div id="employee-image-container">
-        <img class="employee-image" src="<?php echo $photo ?>">
+        <img class="employee-image" src="admin_display_employee_image.php?id=<?php echo $employee_id ?>">
         <button class="light-icon-button"><i class="material-icons button-icon">cloud_upload</i>cambiar imagen</button>
         <button class="light-icon-button" id="delete-image"><i class="material-icons button-icon">delete</i>borrar imagen</button>
       </div>

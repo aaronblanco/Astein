@@ -3,7 +3,6 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-  <link rel="stylesheet" href="css\ofertas.css">
   <link rel="stylesheet" href="css\EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,9 +12,9 @@
 <body>
 
   <?php
-    include "admin_navbar.php";
+    include "usuario_navbar.php";
     include("user_feedback.php");
-    include("connection.php");
+    require 'connection.php';
   ?>
 
   <div id="main-content">
@@ -38,7 +37,7 @@ function setVars(){
 }
 </script>
 
-
+<div class="ofertas-container">
   <?php
     $query = "SELECT * from offer";
     $result = $connection->query($query);
@@ -46,13 +45,12 @@ function setVars(){
       while($row = $result->fetch_assoc()){
       ?>
         <div class="offer">
-            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo $row['name']; ?></a>
-            <p><?php echo $row['price']; ?></p>
+            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo '<img class="offer-image" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';?></a>
         </div>
       <?php } ?>
 
-      </script>
   </div>
+</div>
 
 <?php
   include "usuario_footer.php";

@@ -7,7 +7,9 @@
   --width-form: calc(280px + 16vw);
 }
 
-.offer{
+.offer{  
+  float:right;
+  position:relative;
   background: var(--astein-primary);
   width: 15%;
   display: inline-block;
@@ -24,4 +26,13 @@
   font-weight: bold;
   text-decoration: none;
   color: white;
+}
+
+.offer:hover a{
+  text-decoration: underline;
+}
+
+.offer_photo_container{
+  position:relative;
+  float:left;
 }

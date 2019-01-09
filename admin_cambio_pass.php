@@ -1,8 +1,11 @@
 <?php
+require 'seguridad.php'; // Acceso para el admin
 
-$pass = $_POST['password'];
+header('Content-type: text/plain; charset=utf-8');
 
-include("connection.php");
+$pass = strip_tags($_POST['password']);
+
+require 'connection.php';
 // Falta ver la tabla que actualizará la contraseña de todo el equipo.
 $consulta =  $connection->prepare("UPDATE employee SET password = ? ");
 $consulta->bind_param("s", $pass);

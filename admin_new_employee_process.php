@@ -1,15 +1,17 @@
 <?php
-include("connection.php");
-session_start();
+require 'seguridad.php'; // Acceso para el admin
+require 'connection.php';
 
-$email = $_POST['email'];
-$name = $_POST['name'];
-$lastname = $_POST['lastname'];
+header('Content-type: text/plain; charset=utf-8');
+
+$email = strip_tags($_POST['email']);
+$name = strip_tags($_POST['name'])
+$lastname = strip_tags($_POST['lastname']);
 
 $query_findEmployee = "SELECT * from employee where email='$email'";
 $result = $connection->query($query_findEmployee);
 if(!$result || mysqli_num_rows($result) == 0 ){
-  if($addEmployee = $connection->prepare("INSERT INTO employee (email, name, lastname) values (?, ?, ?)")) {
+  if($addEmployee = $connection->prepare("INSERT INTO employee (email, firstname, lastname) values (?, ?, ?)")) {
     $addEmployee->bind_param("sss", $email, $name, $lastname);
     $addEmployee->execute();
     $addEmployee->close();
