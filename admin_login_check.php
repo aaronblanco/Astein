@@ -6,7 +6,8 @@
 		header('Content-type: text/plain; charset=utf-8');
 
 		$email = strip_tags($_POST['email']);
-		$password = strip_tags($_POST['password']);
+		$pass = strip_tags($_POST['password']);
+		$password = md5($pass);
 			if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 				$query_admin = $connection->prepare("SELECT * from administrator where email=? AND password=?");
 				$query_admin->bind_param("ss", $email, $password);

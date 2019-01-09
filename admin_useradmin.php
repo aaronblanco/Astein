@@ -21,7 +21,7 @@
 
   <a href="admin_gestion_contrasenas.php"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
   <br>
-  
+
 <div id="team-password-form">
   <form class="astein-form" action="admin_cambio_useradmin.php" method="post">
       <label>Usuario</label> <input type="text" class="astein-input" name="email"  placeholder="email" required ><br>
