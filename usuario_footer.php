@@ -17,8 +17,10 @@
   <div class="footer">
     <img class="social-media-icon" src="images/facebook_icon.png" href="facebook.com">
     <img class="social-media-icon" src="images/instagram_icon.png" href="instagram.com">
+    <i class="material-icons icon-white footer-icon-action" onClick="window.location='aviso_legal.php'">info</i>
+    <p class="footer-text"><a href="aviso_legal.php" class="white-link">aviso legal</a></p>
     <i class="material-icons icon-white footer-icon-action" onClick="window.location='admin_inicio.php'">build</i>
-    <p class="footer-text"><a href="admin_login.php" id="link-admin-page">página de administrador</a></p>
+    <p class="footer-text"><a href="admin_login.php" class="white-link">página de administrador</a></p>
   </div>
   <div id="footer-right">
     <i class="material-icons icon-white footer-icon-action" onClick="window.location='tel:<?php echo $phone ?>'">phone</i>
@@ -32,6 +34,7 @@
   <div class="footer centered-footer">
     <img class="social-media-icon mobile-icon" src="images/facebook_icon.png" href="facebook.com">
     <img class="social-media-icon mobile-icon" src="images/instagram_icon.png" href="instagram.com">
+    <p class="footer-text"><a href="aviso_legal.php" class="white-link link-margin mobile-aviso-legal">aviso legal</a></p>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='admin_inicio.php'">build</i>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='tel:<?php echo $phone ?>'">phone</i>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='mailto:<?php echo $email ?>'">email</i>

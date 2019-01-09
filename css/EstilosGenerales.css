@@ -61,9 +61,13 @@ a {
   cursor: pointer;
 }
 
-#link-admin-page {
+.white-link {
   color: white;
   text-decoration: none;
+}
+
+.link-margin {
+  margin-left: 15px;
 }
 
 .active {
@@ -106,9 +110,13 @@ a {
 }
 
 .footer-icon-action {
-  margin-left: 5vw;
+  margin-left: 3vw;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.mobile-aviso-legal {
+  margin-right: 15px;
 }
 
 .footer-text {
