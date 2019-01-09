@@ -3,7 +3,6 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-  <link rel="stylesheet" href="css\inicio.css">
   <link rel="stylesheet" href="css\EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,23 +13,35 @@
 
   <?php
     include "usuario_navbar.php";
-
-    session_start();
     include "user_feedback.php";
+    require 'connection.php';
   ?>
 
-<div id="main-content">
+  <div class="inicio-container">
 
+    <?php
+      $query = "SELECT * from photoinicio";
+      $result = $connection->query($query);
 
-<h1> Inicio <h\>
+        while($row = $result->fetch_assoc()){
+          $image = $row["image"];
+          $id_offer = $row["id_offer"];
+          if ($id_offer == '') {
+            echo "<img class='slides' src='data:image/jpeg;base64,".base64_encode($image)."'/>";
+          } else {
+            echo "<a href='oferta_detalle.php?id=$id_offer'><img class='slides' src='data:image/jpeg;base64,".base64_encode($image)."'/></a>";
+          }
+        }
+    ?>
 
+    </div>
 
-  <img class="mySlides" src="images\oferta2.jpg">
-  <img class="mySlides" src="images\oferta4.png">
-  <img class="mySlides" src="images\love-orange.png">
+    <br>
 
-  <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+    <div class="arrows-container">
+      <i class="material-icons icon-inicio" onclick="plusDivs(-1);">keyboard_arrow_left</i>
+      <i class="material-icons icon-inicio" onclick="plusDivs(1);">keyboard_arrow_right</i>
+    </div>
 
 <script>
 var slideIndex = 1; /*Establecemos el indice en la primera imagen*/
@@ -42,13 +53,13 @@ function plusDivs(n) { /*cuando el usuario hace click se convierte en plusDivs*/
 
 function showDivs(n) {
     var i;
-    var x = document.getElementsByClassName("mySlides");
+    var x = document.getElementsByClassName("slides");
     if (n > x.length) {slideIndex = 1}
     if (n < 1) {slideIndex = x.length} ;/*Si el slideIndex es menor que 1,
     se establece en número de elementos (x.length)*/
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";/*La función showDiv() oculta(display="none")
-        todos los elementos con el nombre de clase "mySlides", y muestra
+        todos los elementos con el nombre de clase "slides", y muestra
         ( display = "block" ) el elemento con el slideIndex dado*/
     }
     x[slideIndex-1].style.display = "block";
@@ -61,7 +72,7 @@ function showDivs(n) {
 
     function carousel() {
         var i;
-        var x = document.getElementsByClassName("mySlides");
+        var x = document.getElementsByClassName("slides");
         for (i = 0; i < x.length; i++) {
            x[i].style.display = "none";
         }
@@ -70,12 +81,11 @@ function showDivs(n) {
           myIndex = 1
         }
         x[myIndex-1].style.display = "block";
-        setTimeout(carousel, 3000); // Change image every 2 seconds
+        setTimeout(carousel, 3000); // Change image every 3 seconds
+        // setTimeout(carousel, 100000); // Change image every 100 seconds
     }
 
 </script>
-
-</div>
 
 <?php
   include "usuario_footer.php";

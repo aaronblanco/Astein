@@ -31,8 +31,8 @@
           $image = $row["image"];
           $id = $row["id"];
           echo '<div class="offer"><a href="admin_edit_inicio_image.php?id='.$id.'"><img class="offer-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/></a></div>';
-        } ?>
-
+        }
+    ?>
   </div>
 
 <div>
