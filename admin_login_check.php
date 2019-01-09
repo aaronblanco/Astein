@@ -55,9 +55,12 @@
 				else {
 					header("Location: admin_login.php");
 				}
-				else {
-					echo "Correo no valido."
-				}
+
+
 			}
+			else {
+				echo "Correo no valido."
+			}
+
 
 ?>
