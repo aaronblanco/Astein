@@ -76,7 +76,11 @@ Todos los productos y servicios de estas páginas que NO son propiedad de Astein
 
 </p>
 
+<<<<<<< HEAD
 <h1>Politica de Cookies</h1>
+=======
+<h1>Politica de Cookies</h1>
+>>>>>>> 432dcf4b5e32ac66c4b29855d4582010c66636e5
 <p align= "centered">
   Astein por su propia cuenta o la de un tercero contratado para prestación de servicios de medición, pueden utilizar cookies cuando el usuario navega por el sitio web. Las cookies son ficheros enviados al navegador por medio de un servicio web con la finalidad de registrar las actividades del usuario durante su tiempo de navegación.
 <br/>
