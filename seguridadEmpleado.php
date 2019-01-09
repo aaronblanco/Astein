@@ -5,6 +5,8 @@ if (!isset($_SESSION)) {
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {
 
 } else {
-	header("location: admin_login.php");
+
+  
+  echo "No tienes permiso para estar aquí";
 }
 ?>
