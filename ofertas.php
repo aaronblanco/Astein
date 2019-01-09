@@ -56,7 +56,6 @@ function setVars(){
         }
       } ?>
 
-      </script>
   </div>
 </div>
 
