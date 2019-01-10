@@ -15,7 +15,7 @@
     include "admin_navbar.php";
     require 'connection.php';
 
-    $reserva_id = $_GET['id'];
+    $reserva_id = strip_tags($_GET['id']);
 
     $query_findReserva = "SELECT reservation.id as reservation_id, reservation.timestamp, reservation.message, reservation.status,
     offer.name as offer_name, offer.id as offer_id, firstname, lastname, email, phone FROM reservation

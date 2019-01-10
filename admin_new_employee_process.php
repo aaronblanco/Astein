@@ -1,13 +1,13 @@
 <?php
-// require 'seguridad.php'; // Acceso para el admin
+require 'seguridad.php'; // Acceso para el admin
 require 'connection.php';
 include 'log_funcion.php'; // --> Enable logging
 
 header('Content-type: text/plain; charset=utf-8');
 
-$email = $_POST['email'];
-$name = $_POST['name'];
-$lastname = $_POST['lastname'];
+$email = strip_tags($_POST['email']);
+$name = strip_tags($_POST['name'])
+$lastname = strip_tags($_POST['lastname']);
 
 $query_findEmployee = "SELECT * from employee where email='$email'";
 $result = $connection->query($query_findEmployee);
@@ -16,7 +16,7 @@ if(!$result || mysqli_num_rows($result) == 0 ){
     $addEmployee->bind_param("sss", $email, $name, $lastname);
     $addEmployee->execute();
     $addEmployee->close();
-    write_log("Inserted new employee $firstname $lastname with email $email."); // --> Log DB operation
+        write_log("Insertado nuevo empleado $firstname $lastname con correo electrónico $email."); // --> Log DB operation
     $_SESSION["message-success"] = "Nuevo empleado $name $lastname creado.";
     header("Location: admin_equipo.php");
   } else {

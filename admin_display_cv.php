@@ -2,7 +2,7 @@
 session_start();
 require 'connection.php';
 
-$id = $_GET['id'];
+$id = strip_tags($_GET['id']);
 
 $findCV = $connection->prepare("SELECT cv FROM applicant WHERE ID = ?");
 $findCV->bind_param("i", $id);

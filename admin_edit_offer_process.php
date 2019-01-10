@@ -1,19 +1,20 @@
 <?php
-// require 'seguridadEmpleado.php'; // Acceso para admin y empleados
+require 'seguridadEmpleado.php'; // Acceso para admin y empleados
 require 'connection.php';
+require 'log_funcion.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
-$name = $_POST['name'];
-$provider = $_POST['provider'];
-$type = $_POST['type'];
-$price = $_POST['price'];
-$priceType = $_POST['priceType'];
-$data = $_POST['data'];
-$dataUnit = $_POST['dataUnit'];
-$calls = $_POST['calls'];
-$fiber = $_POST['fiber'];
-$description = $_POST['description'];
+$name = strip_tags($_POST['name']);
+$provider = strip_tags($_POST['provider']);
+$type = strip_tags($_POST['type']);
+$price = strip_tags($_POST['price']);
+$priceType = strip_tags($_POST['priceType']);
+$data = strip_tags($_POST['data']);
+$dataUnit = strip_tags($_POST['dataUnit']);
+$calls = strip_tags($_POST['calls']);
+$fiber = strip_tags($_POST['fiber']);
+$description = strip_tags($_POST['description']);
 
 $query_findOffer = "SELECT * from offer where name='$name'";
 $result = $connection->query($query_findOffer);
@@ -31,7 +32,7 @@ if($result and mysqli_num_rows($result) != 0 ){
     $addOffer->bind_param("sssdsisiisi", $name, $provider, $type, $price, $priceType, $default_data, $default_dataUnit, $default_calls, $default_fiber, $description, $id);
     $addOffer->execute();
     $addOffer->close();
-
+      write_log("Cambiado datos de la oferta con ID $id a Nombre: $name, Proveedor: $provider, Tipo: $type, Precio: $price, Tipo_Precio: $priceType, Datos: $default_data $default_dataUnit, Llamadas: $default_calls, Fibra: $default_fiber, Descripción: $description.");
   if (isset($_POST['data_included'])) {
     // Add data to offer
     if($addData = $connection->prepare("UPDATE offer SET data=?, dataUnit=? WHERE `id`=? ")) {
@@ -42,6 +43,7 @@ if($result and mysqli_num_rows($result) != 0 ){
       $addData->bind_param("isi", $data, $dataUnit, $id);
       $addData->execute();
       $addData->close();
+        write_log("Cambiado datos incluidos de la oferta con ID $id a $data $dataUnit.");
     }
   }
   if (isset($_POST['calls_included'])) {
@@ -53,6 +55,7 @@ if($result and mysqli_num_rows($result) != 0 ){
       $addCalls->bind_param("ii", $calls, $id);
       $addCalls->execute();
       $addCalls->close();
+      write_log("Cambiado llamadas incluidas de la oferta con ID $id a $calls.");
     }
   }
   if (isset($_POST['fiber_included'])) {
@@ -61,6 +64,7 @@ if($result and mysqli_num_rows($result) != 0 ){
       $addFiber->bind_param("ii", $fiber, $id);
       $addFiber->execute();
       $addFiber->close();
+      write_log("Cambiado fibra de la oferta con ID $id a $fibre.");
     }
   }
     $_SESSION["message-success"] = "Oferta ".'"'.$name.'"'." editada.";

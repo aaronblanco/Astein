@@ -1,13 +1,13 @@
 <?php
 require 'connection.php';
-include("log_funcion.php");
+require "log_funcion.php";
 session_start();
 
-$firstname = strip_tags($_POST['name']);
-$lastname = $_POST['lastname'];
-$mail = $_POST['mail'];
-$phone = $_POST['phone'];
-$message = $_POST['message'];
+$name = strip_tags($_POST['name']);
+$lastname = strip_tags($_POST['lastname']);
+$mail = strip_tags($_POST['mail']);
+$phone = strip_tags($_POST['phone']);
+$message = strip_tags($_POST['message']);
 
 // get file
 $file = $_FILES["fileToUpload"]["tmp_name"];
@@ -49,6 +49,7 @@ else {
 		$addApplicant->bind_param("ssssss", $firstname, $lastname, $mail, $phone, $message, $cv);
     $addApplicant->execute();
     $addApplicant->close();
+		write_log("Creado nuevo solicitante $firstname $lastname.");
 
     $_SESSION["message-success"] = "Gracias $firstname, tus datos han sido enviados con éxito. ";
     header("Location: inicio.php");

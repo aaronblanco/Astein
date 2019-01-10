@@ -1,6 +1,7 @@
 <?php
 
 header('Content-type: text/plain; charset=utf-8');
+require "log_function.php";
 
 $pass = strip_tags($_POST['password']);
 $email = strip_tags($_POST['email']);
@@ -11,7 +12,7 @@ require 'connection.php';
       $consulta->bind_param("ss", $email,  $password);
       $consulta->execute();
       $consulta->close();
-
+			write_log("Contraseña del adminstrador cambiada.");
       header("Location: admin_useradmin.php");
     }
 

@@ -16,7 +16,7 @@
     include "admin_navbar.php";
     include "user_feedback.php";
 
-    $id = $_GET['id'];
+    $id = strip_tags($_GET['id']);
 
     $query_findOffer = "SELECT * FROM offer WHERE id = $id";
     $result = $connection->query($query_findOffer);

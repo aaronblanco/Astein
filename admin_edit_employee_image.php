@@ -2,6 +2,7 @@
 
 require 'seguridad.php'; // Acceso para el admin
 require 'connection.php';
+require 'log_funcion.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
@@ -44,9 +45,10 @@ else {
 
   if($editImage = $connection->prepare("UPDATE employee SET image=? WHERE `id`=? ")) {
 
-    $editImage->bind_param("si", $imgContent, $id);
-    $editImage->execute();
-    $editImage->close();
+    $editEmployee->bind_param("si", $imgContent, $id);
+    $editEmployee->execute();
+    $editEmployee->close();
+    write_log("Cambiado foto del empleado con ID $id.")
     $_SESSION["message-success"] = "Imagen cambiado.";
     header("Location: admin_oferta_detalle.php?id=$id");
 

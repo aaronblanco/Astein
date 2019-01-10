@@ -11,18 +11,19 @@
   <?php
   include "usuario_navbar.php";
   require 'connection.php';
-  $type = $_GET['type'];
-  $search = $_GET['search'];
+  $type = strip_tags($_GET['type']);
+  $search = strip_tags($_GET['search']);
   ?>
   <div id="main-content">
-    <h1> Resultados de la búsqueda por <?php echo "tipo: '$type' y nombre: '$search'";?></h1>
-  <a href="ofertas.php" target="_self"><i class="material-icons icon-arrow">keyboard_arrow_left</i>Volver</a>
-<?php
+    <h1> Resultados de búsqueda</h1>
+    <p class="subtitle"><?php echo "<b>Tipo:</b> '$type' <br><b>Nombre:</b> '$search'";?></p>
+  <a href="admin_ofertas.php" target="_self"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
+  <?php
     if($type === "Todos"){
       if($search === ""){
         $query_findOffer = $connection->prepare("SELECT * from offer");
       } else {
-        $query_findOffer = $connection->prepare("SELECT * from offer where type is not null and name = ?");
+        $query_findOffer = $connection->prepare("SELECT * from offer where type is not null and name LIKE CONCAT('%', ?, '%')");
         $query_findOffer->bind_param("s", $search);
       }
     } else {
@@ -30,34 +31,29 @@
       $query_findOffer = $connection->prepare("SELECT * from offer where type=?");
       $query_findOffer->bind_param("s", $type);
     } else {
-      $query_findOffer = $connection->prepare("SELECT * from offer where type=? and name like ?");
+      $query_findOffer = $connection->prepare("SELECT * from offer where type=? and name LIKE CONCAT('%', ?, '%')");
       $query_findOffer->bind_param("ss", $type, $search);
     }
   }
   $query_findOffer->execute();
   $result = $query_findOffer->get_result();
+  if(!$result || mysqli_num_rows($result) == 0 ){
+    echo "<p>Su búsqueda no produjo ningún resultado.</p>";
+    echo "<script>document.getElementById('result-table').style.display = 'none';</script>";
+  } else {
 ?>
-  <table>
-    <tr>
-      <th>Código</th>
-      <th>Nombre</th>
-      <th>Proveedor</th>
-      <th>Precio</th>
-      <th style="width:33%; word-wrap: word-break">Descripción</th>
-      </tr>
-  <?php
 
+<div class="ofertas-container">
+  <?php
       while($row = $result->fetch_assoc()){
       ?>
-      <tr>
-      <td><?php echo $row['id']; ?></td>
-      <td><?php echo $row['name']; ?></td>
-      <td><?php echo $row['provider']; ?></td>
-      <td><?php echo $row['price']; ?></td>
-      <td><?php echo $row['description']; ?></td>
-      </tr>
-      <?php } ?>
-  </table>
-</div>
+        <div class="offer">
+            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo '<img class="offer-image" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';?></a>
+        </div>
+      <?php }
+    } ?>
+
+  </div>
+ </div>
 <?php include "usuario_footer.php"; ?>
 </html>
