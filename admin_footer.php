@@ -16,8 +16,8 @@
   <div class="footer">
     <a class="social-media" href="https://www.facebook.com/"><img class="social-media-icon" src="images/facebook_icon.png"></a>
     <a class="social-media" href="https://www.instagram.com/"><img class="social-media-icon" src="images/instagram_icon.png"></a>
-    <i class="material-icons icon-white footer-icon-action" onClick="window.location='inicio.php'">person</i>
-    <p class="footer-text"><a href="inicio.php" class="white-link">página de usuario</a></p>
+    <i class="material-icons icon-white footer-icon-action" onClick="window.location='index.php'">person</i>
+    <p class="footer-text"><a href="index.php" class="white-link">página de usuario</a></p>
   </div>
   <div id="footer-right">
     <i class="material-icons icon-white footer-icon">phone</i>
@@ -31,7 +31,7 @@
   <div class="footer centered-footer">
     <a class="social-media" href="https://www.facebook.com/"><img class="social-media-icon mobile-icon" src="images/facebook_icon.png"></a>
     <a class="social-media" href="https://www.facebook.com/"><img class="social-media-icon mobile-icon" src="images/instagram_icon.png" href="instagram.com"></a>
-    <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='inicio.php'">person</i>
+    <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='index.php'">person</i>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='tel:<?php echo $phone ?>'">phone</i>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='mailto:<?php echo $email ?>'">email</i>
   </div>
