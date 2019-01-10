@@ -3,6 +3,8 @@
 	require 'log_funcion.php';
 	include 'user_feedback.php';
 
+	header('Content-type: text/plain; charset=utf-8');
+
 	if(!empty($_POST))
 	{
 	     	$email = strip_tags($_POST['email']);
@@ -12,9 +14,11 @@
 					$query_admin->execute();
 					$result_admin = $query_admin->get_result();
 						if ($result_admin or (mysqli_num_rows($result_admin) == 1)){
+							$password = md5($row['password']);
+							echo $password;
 							$para      = $email;
 							$titulo    = 'Recuperar contraseña';
-							$mensaje   = 'Hola, tu contraseña es ' .$row['password'];
+							$mensaje   = 'Hola, tu contraseña es ' .$password;
 							$cabeceras = 'From: administracion@astein.net' . "\r\n" .
 									'Reply-To: ' .$email . "\r\n" .
 									'X-Mailer: PHP/' . phpversion();
@@ -28,7 +32,7 @@
 					                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
 					                                 $_SERVER['REQUEST_URI']. "\nSe ha mandado la contraseña a la dirección de correo electrónico $mail","INFO");
 
-							$_SESSION["message-success"] = "Se ha mandado la contraseña a la dirección de correo electrónico $mail";
+							$_SESSION["message-success"] = "Se ha mandado la contraseña a la dirección de correo electrónico $email";
 							header("Location: recupera.php");
 
 						} else {
