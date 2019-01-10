@@ -1,7 +1,7 @@
 <?php
 
 		require 'connection.php';
-		include "log_funcion.php";
+		require "log_funcion.php";
 
 		header('Content-type: text/plain; charset=utf-8');
 

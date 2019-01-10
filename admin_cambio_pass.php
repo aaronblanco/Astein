@@ -1,29 +1,25 @@
 <?php
 require 'seguridad.php'; // Acceso para el admin
-<<<<<<< HEAD
-require 'log_function.php';
-=======
 require 'connection.php';
->>>>>>> 6197deb5db6e17af248f5d66f6f96d9443f0d01e
+require 'log_funcion.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
 $pass = strip_tags($_POST['password']);
-<<<<<<< HEAD
-=======
 $password = md5($pass);
->>>>>>> 6197deb5db6e17af248f5d66f6f96d9443f0d01e
 
 $consulta = $connection->prepare("UPDATE company SET team_password = ? ");
 $consulta->bind_param("s", $password);
 $consulta->execute();
 $consulta->close();
-<<<<<<< HEAD
-write_log("Cambiado contraseña del empleado a $pass.");
-=======
+write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                             "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                             ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                             $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                             $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                             $_SERVER['REQUEST_URI']. "\nContraseña del equipo cambiada","INFO");
 
 $_SESSION["message-success"] = "Contraseña de equípo cambiada.";
->>>>>>> 6197deb5db6e17af248f5d66f6f96d9443f0d01e
 header("Location: admin_contrasena.php");
 
  ?>

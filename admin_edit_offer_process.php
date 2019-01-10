@@ -32,8 +32,13 @@ if($result and mysqli_num_rows($result) != 0 ){
     $addOffer->bind_param("sssdsisiisi", $name, $provider, $type, $price, $priceType, $default_data, $default_dataUnit, $default_calls, $default_fiber, $description, $id);
     $addOffer->execute();
     $addOffer->close();
-      write_log("Cambiado datos de la oferta con ID $id a Nombre: $name, Proveedor: $provider, Tipo: $type, Precio: $price, Tipo_Precio: $priceType, Datos: $default_data $default_dataUnit, Llamadas: $default_calls, Fibra: $default_fiber, Descripción: $description.");
-  if (isset($_POST['data_included'])) {
+    write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                 "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                 ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                 $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                 $_SERVER['REQUEST_URI']. "\nDatos de la oferta con ID $id cambiados a Nombre: $name, Proveedor: $provider, Tipo: $type, Precio: $price, Tipo_Precio: $priceType, Datos: $default_data $default_dataUnit, Llamadas: $default_calls, Fibra: $default_fiber, Descripción: $description.","INFO");
+      if (isset($_POST['data_included'])) {
     // Add data to offer
     if($addData = $connection->prepare("UPDATE offer SET data=?, dataUnit=? WHERE `id`=? ")) {
       if (isset($_POST['data_unlimited'])) {
@@ -43,7 +48,12 @@ if($result and mysqli_num_rows($result) != 0 ){
       $addData->bind_param("isi", $data, $dataUnit, $id);
       $addData->execute();
       $addData->close();
-        write_log("Cambiado datos incluidos de la oferta con ID $id a $data $dataUnit.");
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nDatos incluidos de la oferta con ID $id cambiados a $data $dataUnit","INFO");
     }
   }
   if (isset($_POST['calls_included'])) {
@@ -55,7 +65,12 @@ if($result and mysqli_num_rows($result) != 0 ){
       $addCalls->bind_param("ii", $calls, $id);
       $addCalls->execute();
       $addCalls->close();
-      write_log("Cambiado llamadas incluidas de la oferta con ID $id a $calls.");
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nLlamadas de la oferta con ID $id cambiadas a $llamadas","INFO");
     }
   }
   if (isset($_POST['fiber_included'])) {
@@ -64,7 +79,12 @@ if($result and mysqli_num_rows($result) != 0 ){
       $addFiber->bind_param("ii", $fiber, $id);
       $addFiber->execute();
       $addFiber->close();
-      write_log("Cambiado fibra de la oferta con ID $id a $fibre.");
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nFibra de la oferta con ID $id cambiada a $fibre","INFO");
     }
   }
     $_SESSION["message-success"] = "Oferta ".'"'.$name.'"'." editada.";
@@ -72,7 +92,13 @@ if($result and mysqli_num_rows($result) != 0 ){
   } else {
     printf("Error: %s\n", $connection->error);
   }
-} else {
+} else
+write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                             "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                             ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                             $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                             $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                             $_SERVER['REQUEST_URI']. "\nError en cambiar datos de la oferta con ID $id","ERROR");
   $_SESSION["message-warning"] = "Esta oferta no existe.";
   header("Location: admin_ofertas.php"); //--> mejor: admin_nueva_oferta, pero mensaje no funciona en esta página
 }

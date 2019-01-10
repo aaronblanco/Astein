@@ -1,6 +1,6 @@
 <?php
 require 'connection.php';
-require 'log_function.php';
+require 'log_funcion.php';
 session_start();
 $message = strip_tags($_POST['message']);
 $name = strip_tags($_POST['name']);
@@ -23,7 +23,13 @@ if(mysqli_num_rows($result) > 0 ){
   $addUser->bind_param("sssi", $name, $lastname, $mail, $phone);
   $addUser->execute();
   $addUser->close();
-  write_log("Creado un cliente nuevo $name $lastname ($mail) en el processo de realizar una reservar.");
+  write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                               "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                               ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                               $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                               $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                               $_SERVER['REQUEST_URI']. "\nCreado un cliente nuevo $name $lastname ($mail) en el processo de realizar una reservar.","INFO");
+
   $query_findUser->execute();
   $result = $query_findUser->get_result();
   $row =  $result->fetch_assoc();
@@ -35,7 +41,13 @@ $query = $connection->prepare("INSERT INTO reservation (status, message, id_offe
 $query->bind_param("ssii", $status, $message, $id_offer, $id_client);
 $query->execute();
 $query->close();
-write_log("Creado una reserva nueva para cliente $id_client y oferta $id_offer.");
+write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                             "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                             ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                             $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                             $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                             $_SERVER['REQUEST_URI']. "\nCreado una reserva nueva para cliente $id_client y oferta $id_offer.","INFO");
+
 $_SESSION["message-success"] = "Tu solicitud ha sido enviado con éxito.";
 header("Location: ofertas.php");
  ?>

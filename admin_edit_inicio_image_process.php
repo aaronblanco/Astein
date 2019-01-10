@@ -2,6 +2,7 @@
 
 require 'seguridad.php'; // Acceso para el admin
 require 'connection.php';
+require 'log_funcion.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
@@ -70,11 +71,23 @@ if (!file_exists($_FILES['fileToUpload']['tmp_name']) || !is_uploaded_file($_FIL
       $editOffer->bind_param("si", $imgContent, $id);
       $editOffer->execute();
       $editOffer->close();
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nFoto de inicio con ID $id cambiada","INFO");
       $_SESSION["message-success"] = "Imagen cambiado.";
       header("Location: admin_imagenes.php");
 
     } else {
       printf("Error: %s\n", $connection->error . $editOffer);
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nError en cambiar la foto del inicio","ERROR");
     }
 
   }
