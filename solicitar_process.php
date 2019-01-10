@@ -35,7 +35,7 @@ $query = $connection->prepare("INSERT INTO reservation (status, message, id_offe
 $query->bind_param("ssii", $status, $message, $id_offer, $id_client);
 $query->execute();
 $query->close();
-write_log("Creado una reserva nueva para cliente $id_client y oferta $id_offer".);
+write_log("Creado una reserva nueva para cliente $id_client y oferta $id_offer.");
 $_SESSION["message-success"] = "Tu solicitud ha sido enviado con éxito.";
 header("Location: ofertas.php");
  ?>

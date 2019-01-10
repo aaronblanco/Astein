@@ -17,7 +17,7 @@
   <div id="main-content">
     <h1> Resultados de búsqueda</h1>
     <p class="subtitle"><?php echo "<b>Tipo:</b> '$type' <br><b>Nombre:</b> '$search'";?></p>
-  <a href="admin_ofertas.php" target="_self"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
+  <a href="ofertas.php" target="_self"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
   <?php
     if($type === "Todos"){
       if($search === ""){
