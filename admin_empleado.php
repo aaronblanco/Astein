@@ -45,7 +45,7 @@
       <div id="employee-image-container">
         <?php
         if($image!='') {
-          echo '<img class="employee-image" src="admin_display_employee_image.php?id='.$employee_id.'">';
+          echo '<img class="employee-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
         } else {
           echo '<img class="employee-image" src="images/profile_icon.png">';
         }
