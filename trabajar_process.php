@@ -62,7 +62,7 @@ else {
                                  $_SERVER['REQUEST_URI']. "\nNuevo solicitante $firstname $lastname creado.","INFO");
 
     $_SESSION["message-success"] = "Gracias $firstname, tus datos han sido enviados con éxito. ";
-    header("Location: inicio.php");
+    header("Location: index.php");
 
   } else {
 		write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
