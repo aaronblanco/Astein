@@ -55,7 +55,7 @@
           $lastname = $row["lastname"];
           echo '<div class="employee-div"><div class="employee-image-div"><img class="employee-image image-mobile" alt="foto de empleado '.$firstname.' '.$lastname.'" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/></div>';
         } else {
-          echo '<div class="employee-div"><div class="employee-image-div"><img class="employee-image image-mobile" src="images/profile_icon.png"></div>';
+          echo '<div class="employee-div"><div class="employee-image-div"><img alt="'.$row['firstname'].' '.$row['lastname'].'" title="'.$row['firstname'].' '.$row['lastname'].'" class="employee-image image-mobile" src="images/profile_icon.png"></div>';
         }
       ?>
       <div class="employee-info-div">
