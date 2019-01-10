@@ -24,8 +24,8 @@
 
 <div id="main-content">
 
-  <h1>Subir nuevo imagen de galería</h1>
-  <p class="subtitle">Aquí puede subir un nuevo imagen para la galería de inicio.<br>
+  <h1>Subir nueva imagen a la galería</h1>
+  <p class="subtitle">Aquí puede subir una nueva imagen para la galería de inicio.<br>
     Si quiere, puede asignar una oferta para que se cree un enlace directo a esta oferta.
   </p>
 

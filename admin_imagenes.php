@@ -20,7 +20,7 @@
 <div id="main-content">
 
   <h1>Galería</h1>
-  <p class="subtitle">Aquí puede cambiar los imágenes de la galería de inicio.</p>
+  <p class="subtitle">Aquí puede cambiar las imágenes de la galería de inicio.</p>
 
   <div class="ofertas-container inicio-images">
     <?php

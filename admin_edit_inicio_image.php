@@ -38,8 +38,8 @@
 
 <div id="main-content">
 
-  <h1>Editar imagen de inicio</h1>
-  <p class="subtitle">Aquí puede editar el imagen de inicio y asignar una oferta (opcional).</p>
+  <h1>Editar imagen de galería</h1>
+  <p class="subtitle">Aquí puede editar la imagen de inicio y asignar una oferta (opcional).</p>
 
   <a href="admin_imagenes.php"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
 

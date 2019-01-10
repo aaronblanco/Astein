@@ -18,8 +18,8 @@
 
 <div id="main-content">
 
-  <h1>Contraseña de Equípo</h1>
-  <p class="subtitle">Aquí puede cambiar la contraseña utilizada de los miembros de su equípo.</p>
+  <h1>Contraseña de Equipo</h1>
+  <p class="subtitle">Aquí puede cambiar la contraseña utilizada de los miembros de su equipo.</p>
 
   <a href="admin_gestion_contrasenas.php"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
   <br>
@@ -33,7 +33,7 @@
 
 <div id="team-password-form">
   <form class="astein-form" action="admin_cambio_pass.php" method="post">
-      <label>Contraseña</label> <input type="password" class="astein-input" name="password" placeholder="contraseña equipo" required><br>
+      <label>Contraseña</label> <input type="password" class="astein-input" name="password" placeholder="<?php echo md5($team_password) ?>" required><br>
       <input class="save-changes" type="submit" action="admin_cambio_pass.php" method="post" value="guardar cambios">
   </form>
 </div>

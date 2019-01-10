@@ -19,11 +19,11 @@
 <div id="main-content">
 
   <h1>Contraseñas</h1>
-  <p class="subtitle">Aquí puede cambiar su contraseña y la contraseña utilizada de los miembros de su equípo.</p>
+  <p class="subtitle">Aquí puede cambiar su contraseña y la contraseña utilizada de los miembros de su equipo.</p>
 
   <button type="button" onclick="location.href='admin_useradmin.php'" class="light-icon-button"><i class="material-icons button-icon">build</i>contraseña de administrador</button>
   <br>
-  <button type="button" onclick="location.href='admin_contrasena.php'" class="light-icon-button"><i class="material-icons button-icon">group</i>contraseña de equípo</button>
+  <button type="button" onclick="location.href='admin_contrasena.php'" class="light-icon-button"><i class="material-icons button-icon">group</i>contraseña de equipo</button>
 
 </div>
 
