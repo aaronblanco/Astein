@@ -44,7 +44,7 @@
         echo "<option value='".$rowOffer['id']."'";
         echo ">Oferta $id_this_offer: ".$rowOffer['name']."</option>'";
       }
-      echo "<option value='' selected='selected'>ninuna oferta</option>";
+      echo "<option value='' selected='selected'>ninguna oferta</option>";
       ?>
       </select>
       <br><br>
