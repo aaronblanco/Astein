@@ -1,7 +1,7 @@
 <?php
 require 'seguridadEmpleado.php'; // Acceso para el admin y los empleados
 require 'connection.php';
-require 'log_funcion-php';
+require 'log_funcion.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
