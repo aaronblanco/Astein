@@ -13,7 +13,6 @@
   <?php
     include "admin_navbar.php";
     include "user_feedback.php";
-    session_start();
 
     	if(isset($_SESSION["name"])){
     		header("Location: admin_inicio.php");
