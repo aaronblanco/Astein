@@ -17,7 +17,7 @@ write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
                              ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
                              $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
                              $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
-                             $_SERVER['REQUEST_URI']. "\nContraseña del equipo cambiada","INFO");
+                             $_SERVER['REQUEST_URI']. "\nContraseña del equipo cambiada a $pass","INFO");
 
 $_SESSION["message-success"] = "Contraseña de equípo cambiada a $pass.";
 header("Location: admin_contrasena.php");
