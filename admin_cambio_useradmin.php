@@ -2,6 +2,7 @@
 
 header('Content-type: text/plain; charset=utf-8');
 require "log_funcion.php";
+require 'seguridad.php';
 
 $pass = strip_tags($_POST['password']);
 $email = strip_tags($_POST['email']);
