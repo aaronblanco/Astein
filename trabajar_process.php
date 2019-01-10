@@ -49,12 +49,23 @@ else {
 		$addApplicant->bind_param("ssssss", $firstname, $lastname, $mail, $phone, $message, $cv);
     $addApplicant->execute();
     $addApplicant->close();
-		write_log("Creado nuevo solicitante $firstname $lastname.");
+		write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                 "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                 ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                 $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                 $_SERVER['REQUEST_URI']. "\nNuevo solicitante $firstname $lastname creado.","INFO");
 
     $_SESSION["message-success"] = "Gracias $firstname, tus datos han sido enviados con éxito. ";
     header("Location: inicio.php");
 
   } else {
+		write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                 "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                 ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                 $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                 $_SERVER['REQUEST_URI']. "\nError en crear nuevo solicitante.","ERROR");
     printf("Error: %s\n", $connection->error . $addApplicant);
   }
 }
