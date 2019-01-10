@@ -3,7 +3,7 @@ require 'connection.php';
 require "log_funcion.php";
 session_start();
 
-$name = strip_tags($_POST['name']);
+$firstname = strip_tags($_POST['name']);
 $lastname = strip_tags($_POST['lastname']);
 $mail = strip_tags($_POST['mail']);
 $phone = strip_tags($_POST['phone']);
