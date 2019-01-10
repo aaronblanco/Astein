@@ -1150,3 +1150,12 @@ This class makes the topnav look good on small screens (display the links vertic
   display: flex;
   justify-content: center;
 }
+
+/** ---- Login ---- */
+#BotonEnviar{
+	font-size:20pt;
+	color: white;
+	border-radius:25px;
+	background-color:black;
+	cursor: pointer;
+}
