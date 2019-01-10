@@ -1,6 +1,7 @@
 <?php
 require 'seguridad.php'; // Acceso para el admin
 require 'connection.php';
+require 'log_funcion.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
