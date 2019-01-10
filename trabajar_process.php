@@ -9,6 +9,11 @@ $mail = strip_tags($_POST['mail']);
 $phone = strip_tags($_POST['phone']);
 $message = strip_tags($_POST['message']);
 
+if(!(filter_var($mail, FILTER_VALIDATE_EMAIL))) {
+	echo $_SESSION["message-warning"];
+	header("Location: trabajar.php");
+}
+
 // get file
 $file = $_FILES["fileToUpload"]["tmp_name"];
 
@@ -23,21 +28,21 @@ $imageFileType = finfo_file($fileInfo, $file);
 if (!isset($_FILES["fileToUpload"])) {
 	$_SESSION["message-warning"] = "Por favor, no olvides subir tu curriculum vitae.";
 	echo $_SESSION["message-warning"];
-	// header("Location: trabajar.php");
+	header("Location: trabajar.php");
 }
 
 // Check file size (maximum file size 2mb)
 elseif ($_FILES["fileToUpload"]["size"] > 2000000) {
     $_SESSION["message-warning"] = "El archivo es demasiado grande. Máximo: 2MB";
 		echo $_SESSION["message-warning"];
-		// header("Location: trabajar.php");
+		header("Location: trabajar.php");
 }
 
 // // Allow certain mime types (Integer value: 1=IMAGETYPE_GIF, 2=IMAGETYPE_JPEG, 3=IMAGETYPE_PNG)
 elseif($imageFileType != 'application/pdf') {
   $_SESSION["message-warning"] = "Por favor, sube tu curriculum vitae como PDF.";
 	echo $_SESSION["message-warning"];
-	// header("Location: trabajar.php");
+	header("Location: trabajar.php");
 }
 
 // Si todo está bien, el archivo puede ser subido en la base de datos.
