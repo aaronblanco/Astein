@@ -1,8 +1,7 @@
 <?php
 	require 'connection.php';
 	require 'log_funcion.php';
-
-
+	include 'user_feedback.php';
 
 	if(!empty($_POST))
 	{
@@ -12,7 +11,7 @@
 					$query_admin->bind_param("s", $email);
 					$query_admin->execute();
 					$result_admin = $query_admin->get_result();
-						if ($result_admin and (mysqli_num_rows($result_admin) == 1)){
+						if ($result_admin or (mysqli_num_rows($result_admin) == 1)){
 							$para      = $email;
 							$titulo    = 'Recuperar contraseña';
 							$mensaje   = 'Hola, tu contraseña es ' .$row['password'];
@@ -21,14 +20,26 @@
 									'X-Mailer: PHP/' . phpversion();
 
 							mail($para, $titulo, $mensaje, $cabeceras);
-							echo "Se ha enviado un correo a la direccion " .$email;
-							}
 
-						else
-							 echo  "La direccion de correo electronico no existe";
+							write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+					                                 "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+					                                 ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+					                                 $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+					                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+					                                 $_SERVER['REQUEST_URI']. "\nSe ha mandado la contraseña a la dirección de correo electrónico $mail","INFO");
+
+							$_SESSION["message-success"] = "Se ha mandado la contraseña a la dirección de correo electrónico $mail";
+							header("Location: recupera.php");
+
+						} else {
+							 $_SESSION["message-warning"] = "La direccion de correo electronico no existe";
+							 header("Location: recupera.php");
 				}
 
-			       echo  "Correo no valido.";
+			} else {
 
-	}
+						 $_SESSION["message-warning"] = "Correo no valido.";
+						 header("Location: recupera.php");
+					 }
+}
 ?>
