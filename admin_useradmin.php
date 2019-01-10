@@ -24,7 +24,7 @@
 
 <div id="team-password-form">
   <form class="astein-form" action="admin_cambio_useradmin.php" method="post">
-      <label>Usuario</label> <input type="text" class="astein-input" name="email"  placeholder="email" required ><br>
+      <label>Email</label> <input type="text" class="astein-input" name="email" placeholder="email" required ><br>
       <label>Contraseña</label> <input type="password" class="astein-input" name="password"   placeholder="contraseña" required><br>
       <input class="save-changes" type="submit" action="admin_cambio_useradmin.php" method="post" value="guardar cambios">
   </form>
