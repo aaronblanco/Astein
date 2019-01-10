@@ -13,10 +13,10 @@
 					$query_admin->bind_param("s", $email);
 					$query_admin->execute();
 					$result_admin = $query_admin->get_result();
-						if ($result_admin or (mysqli_num_rows($result_admin) == 1)){
+						if ($result_admin and (mysqli_num_rows($result_admin) == 1)){
+							$row = mysqli_fetch_assoc($result_admin);
 							$pass = $row['password'];
 							$password = base64_decode($pass);
-							echo $password;
 							$para      = $email;
 							$titulo    = 'Your password';
 							$mensaje   = "Hello admin, your password is $password";
