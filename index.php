@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-
 <html>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-  <link rel="stylesheet" href="css\EstilosGenerales.css">
+  <?php require 'meta_tags.php'; ?>
+  <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="icon" href="images\astein_icon.png"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inicio – Astein</title>
 </head>
 <body>
 
@@ -27,9 +25,9 @@
           $image = $row["image"];
           $id_offer = $row["id_offer"];
           if ($id_offer == '') {
-            echo "<img class='slides slides-static' src='data:image/jpeg;base64,".base64_encode($image)."'/>";
+            echo "<img alt='imagen de inicio' class='slides slides-static' src='data:image/jpeg;base64,".base64_encode($image)."'/>";
           } else {
-            echo "<a href='oferta_detalle.php?id=$id_offer'><img class='slides' src='data:image/jpeg;base64,".base64_encode($image)."'/></a>";
+            echo "<a alt='imagen de oferta' href='oferta_detalle.php?id=$id_offer'><img class='slides' src='data:image/jpeg;base64,".base64_encode($image)."'/></a>";
           }
         }
     ?>
