@@ -36,9 +36,9 @@
 
 <div id="contact-info-form">
   <form class="astein-form" action="admin_edit_contact_info_process.php" method="post">
-    <label>Teléfono</label> <input type="text" class="astein-input" name="phone" value="<?php echo $phone ?>" required><br>
+    <label>Teléfono</label> <input type="tel" class="astein-input" name="phone" value="<?php echo $phone ?>" required><br>
     <label>Dirección</label> <input type="text" class="astein-input" name="address" value="<?php echo $address ?>" required><br>
-    <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" value="<?php echo $email ?>" required><br>
+    <label>Correo electrónico</label> <input type="email" class="astein-input" name="email" value="<?php echo $email ?>" required><br>
     <input type="hidden" id="company_id" name="company_id" value="<?php echo $company_id ?>">
     <input class="save-changes" type="submit" action="saved_changes.php" method="post" value="guardar cambios">
   </form>

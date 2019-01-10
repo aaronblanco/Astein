@@ -19,7 +19,10 @@
 <div id="main-content">
 
   <h1>Nueva Oferta</h1>
-  <p class="subtitle">Aquí puede crear una nueva oferta.</p>
+  <p class="subtitle">
+    Aquí puede crear una nueva oferta.
+    Después de haber creado la oferta, puede pulsar en "editar" para añadir un imágen.
+  </p>
   <a href="admin_ofertas.php"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
 
   <div id="oferta-info-form">
@@ -61,7 +64,6 @@
         <input type="number" class="astein-input inline-textfield" min="0" id="fiber" name="fiber" onfocus="manageTextbox(this)">
         <label class="legend-label">Mb</label>
       </div><br><br><br>
-      <label>Imagen</label><input type="file" class"file-upload" name="image" accept="image/*"><br><br><br>
       <label>Descripción</label>
       <textarea class="admin-textarea" id="description" name="description"></textarea>
       <input class="save-changes new-employee-admin" type="submit" method="post" value="Crear oferta">

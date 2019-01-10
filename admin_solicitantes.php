@@ -61,7 +61,7 @@
           echo ('<td> </td>');
         }
         ?>
-        <td><a class="open-link" href="admin_display_cv.php?id=<?php echo $row['id']; ?>">abrir CV</a></td>
+        <td><a class="open-link" target="_blank" rel="noopener noreferrer" href="admin_display_cv.php?id=<?php echo $row['id']; ?>">abrir CV</a></td>
         <td class="reservas-list-options">
           <i class="material-icons icon-action icon-table icon-reservas" onclick="askDeleteApplicant(<?php echo $row["id"] ?>)">delete</i>
         </td>

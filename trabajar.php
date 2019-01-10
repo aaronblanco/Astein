@@ -22,14 +22,12 @@
 <form class="astein-form" action="trabajar_process.php" method="POST" enctype="multipart/form-data">
   <input type="text" name="name" placeholder="Nombre" required="true">
   <input type="text" name="lastname" placeholder="Apellidos" required="true">
-  <input type="text" name="phone" placeholder="Número de teléfono" required="true">
-  <input type="text" name="mail" placeholder="Correo electrónico" required="true">
+  <input type="tel" name="phone" placeholder="Número de teléfono" required="true">
+  <input type="email" name="mail" placeholder="Correo electrónico" required="true">
   <br>
-  Curriculum Vitae:<br>
+  Curriculum vitae:<br>
 
-
-  <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
-  <input type="file" name="archivo" accept="application/pdf">
+  <input type="file" name="fileToUpload" accept="application/pdf" required>
 
   <br><br>
   <textarea class="mensaje" name="message" maxlength="500" placeholder="Mensaje con información adicional (opcional)"></textarea>
