@@ -50,7 +50,7 @@
       <div id="employee-image-container">
         <?php
         if($image!='') {
-          echo '<img class="offer-image-admin" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
+          echo '<img alt="Oferta #'.$id_offer.'" title="Oferta #'.$id_offer.'" class="offer-image-admin" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
         } else {
           echo 'Image not found.';
         }

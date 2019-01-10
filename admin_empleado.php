@@ -45,9 +45,9 @@
       <div id="employee-image-container">
         <?php
         if($image!='') {
-          echo '<img class="employee-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
+          echo '<img alt="'.$row['firstname'].' '.$row['lastname'].'" title="'.$row['firstname'].' '.$row['lastname'].'" class="employee-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
         } else {
-          echo '<img class="employee-image" src="images/profile_icon.png">';
+          echo '<img alt="'.$row['firstname'].' '.$row['lastname'].'" title="'.$row['firstname'].' '.$row['lastname'].'" class="employee-image" src="images/profile_icon.png">';
         }
         ?>
       </div>

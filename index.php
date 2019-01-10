@@ -25,10 +25,18 @@
           $image = $row["image"];
           $id_offer = $row["id_offer"];
           if ($id_offer == '') {
+<<<<<<< HEAD
             echo "<img alt='imagen de inicio' class='slides slides-static' src='data:image/jpeg;base64,".base64_encode($image)."'/>";
           } else {
             echo "<a alt='imagen de oferta' href='oferta_detalle.php?id=$id_offer'><img class='slides' src='data:image/jpeg;base64,".base64_encode($image)."'/></a>";
           }
+=======
+             echo '<img alt="Oferta Astein" title="Oferta Astein" class="slides slides-static" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
+
+          } else {
+            echo '<img alt="Oferta #'.$id_offer.'" title="Oferta #'.$id_offer.'" class="slides" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
+                  }
+>>>>>>> 358d9a3941c80e3a64b580ec507b4ec9379d3b2b
         }
     ?>
 

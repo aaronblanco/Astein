@@ -32,9 +32,9 @@
       <figure>
         <?php
         if($row["image"]!='') {
-          echo '<img alt="'.$row['fisrname'].'" class="employee-image employee-desktop" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/>';
+          echo '<img alt="'.$row['firstname'].' '.$row['lastname'].'" title="'.$row['firstname'].' '.$row['lastname'].'" class="employee-image employee-desktop" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/>';
         } else {
-          echo '<img class="employee-image employee-desktop" src="images/profile_icon.png">';
+          echo '<img alt="'.$row['firstname'].' '.$row['lastname'].'" title="'.$row['firstname'].' '.$row['lastname'].'" class="employee-image employee-desktop" src="images/profile_icon.png">';
         }
         ?>
       </figure>
@@ -51,9 +51,9 @@
     $result = $connection->query($query);
       while($row = $result->fetch_assoc()){
         if($row["image"]!='') {
-          echo '<div class="employee-div"><div class="employee-image-div"><img class="employee-image image-mobile" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/></div>';
+          echo '<div class="employee-div"><div class="employee-image-div"><img alt="'.$row['firstname'].' '.$row['lastname'].'" title="'.$row['firstname'].' '.$row['lastname'].'" class="employee-image image-mobile" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/></div>';
         } else {
-          echo '<div class="employee-div"><div class="employee-image-div"><img class="employee-image image-mobile" src="images/profile_icon.png"></div>';
+          echo '<div class="employee-div"><div class="employee-image-div"><img alt="'.$row['firstname'].' '.$row['lastname'].'" title="'.$row['firstname'].' '.$row['lastname'].'" class="employee-image image-mobile" src="images/profile_icon.png"></div>';
         }
       ?>
       <div class="employee-info-div">
