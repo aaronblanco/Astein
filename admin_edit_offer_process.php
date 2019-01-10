@@ -92,7 +92,7 @@ if($result and mysqli_num_rows($result) != 0 ){
   } else {
     printf("Error: %s\n", $connection->error);
   }
-} else
+} else {
 write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
                              "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
                              ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
