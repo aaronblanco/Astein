@@ -21,12 +21,12 @@ require 'connection.php';
 			                             $_SERVER['REQUEST_URI']. "\nContraseña del administrador cambiada","INFO");
 
 			$_SESSION["message-success"] = "Se han cambiado los datos de administrador.";
-      header("Location: admin_useradmin.php");
+      // header("Location: admin_useradmin.php");
     }
 
 else {
 	$_SESSION["message-warning"] = "Datos invalidos.";
-	header("Location: admin_useradmin.php");
+	// header("Location: admin_useradmin.php");
 }
 
 
