@@ -69,9 +69,9 @@ if ($row['message'] != "") {
 <b>Estado:</b>
 <form class="astein-form" method="post" action="admin_change_status.php">
   <select name="status" style="display: inline;">
-    <option value="new">nueva</option>
-    <option value="in progress">en proceso</option>
-    <option value="completed">completada</option>
+    <option value="new" <?php if($row['status'] == "new") echo "selected='selected'"; ?>>nueva</option>
+    <option value="in progress" <?php if($row['status'] == "in progress") echo "selected='selected'"; ?>>en proceso</option>
+    <option value="completed" <?php if($row['status'] == "completed") echo "selected='selected'"; ?>>completada</option>
   </select>
   <input type="hidden" id="reservation_id" name="reservation_id" value="<?php echo $reservation_id ?>">
   <input id="status-change-button" class="save-changes" type="submit" method="post" value="cambiar estado">
