@@ -6,7 +6,7 @@ require 'log_funcion.php'; // --> Enable logging
 header('Content-type: text/plain; charset=utf-8');
 
 $email = strip_tags($_POST['email']);
-$name = strip_tags($_POST['name'])
+$name = strip_tags($_POST['name']);
 $lastname = strip_tags($_POST['lastname']);
 
 $query_findEmployee = "SELECT * from employee where email='$email'";
@@ -33,7 +33,7 @@ if(!$result || mysqli_num_rows($result) == 0 ){
                                  $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
                                  $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
                                  $_SERVER['REQUEST_URI']. "\nError en crear nuevo empleado.","ERROR");
-      
+
   }
 } else {
   $_SESSION["message-info"] = "Existe ya un empleado con email $email.";

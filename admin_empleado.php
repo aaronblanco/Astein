@@ -55,7 +55,7 @@
       <button type="submit" class="light-icon-button submit-image"><i class="material-icons button-icon">done</i>subir imagen</button>
       <button type="button" class="light-icon-button delete-image" onclick="askDeleteImage(<?php echo $employee_id ?>);"><i class="material-icons button-icon">delete</i>borrar imagen</button><br><br>
     </form>
-    <br><br>
+    <br><br><br><br>
 
     <form class="astein-form" action="admin_edit_employee_process.php?id=<?php echo $employee_id ?>" method="post">
       <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" value="<?php echo $email ?>" required><br>
