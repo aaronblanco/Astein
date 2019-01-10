@@ -20,7 +20,7 @@ if(mysqli_num_rows($result) > 0 ){
   $id_client = $row['id'];
 } else {
   $addUser = $connection->prepare("INSERT INTO client (firstname, lastname, email, phone) values (?, ?, ?, ?)");
-  $addUser->bind_param("sssi", $name, $lastname, $mail, $phone);
+  $addUser->bind_param("ssss", $name, $lastname, $mail, $phone);
   $addUser->execute();
   $addUser->close();
   write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
