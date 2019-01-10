@@ -5,7 +5,7 @@ require "log_funcion.php";
 
 $pass = strip_tags($_POST['password']);
 $email = strip_tags($_POST['email']);
-$password >= base64_encode($pass);
+$password = base64_encode($pass);
 require 'connection.php';
 		if(filter_var($email, FILTER_VALIDATE_EMAIL)){
       $consulta =  $connection->prepare("UPDATE administrator SET  email = ?, password = ? ");

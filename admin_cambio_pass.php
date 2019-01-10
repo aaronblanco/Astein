@@ -6,7 +6,7 @@ require 'log_funcion.php';
 header('Content-type: text/plain; charset=utf-8');
 
 $pass = strip_tags($_POST['password']);
-$password >= base64_encode($pass);
+$password = base64_encode($pass);
 
 $consulta = $connection->prepare("UPDATE company SET team_password = ? ");
 $consulta->bind_param("s", $password);

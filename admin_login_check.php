@@ -8,7 +8,7 @@
 
 		$email = strip_tags($_POST['email']);
 		$pass = strip_tags($_POST['password']);
-		$password >= base64_encode($pass);
+		$password = base64_encode($pass);
 			if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 				$query_admin = $connection->prepare("SELECT * from administrator where email=? AND password=?");
 				$query_admin->bind_param("ss", $email, $password);
@@ -63,5 +63,4 @@
 			else {
 				echo "Correo no valido.";
 			}
-
 ?>
