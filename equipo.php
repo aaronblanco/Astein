@@ -32,7 +32,7 @@
       <figure>
         <?php
         if($row["image"]!='') {
-          echo '<img class="employee-image employee-desktop" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/>';
+          echo '<img alt="'.$row['fisrname'].'" class="employee-image employee-desktop" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/>';
         } else {
           echo '<img class="employee-image employee-desktop" src="images/profile_icon.png">';
         }

@@ -53,7 +53,7 @@
 <br>
 <?php
 if($image!='') {
-  echo '<img class="offer-image-admin offer-image-user" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
+  echo '<img alt="'.$name.'" class="offer-image-admin offer-image-user" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
 } else {
   echo '<br>';
 }
