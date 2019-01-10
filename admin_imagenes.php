@@ -30,7 +30,7 @@
         while($row = $result->fetch_assoc()){
           $image = $row["image"];
           $id = $row["id"];
-          echo '<div class="offer"><a href="admin_edit_inicio_image.php?id='.$id.'"><img alt="Oferta #'.$id_offer.'" title="Oferta #'.$id_offer.'" class="offer-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/></a></div>';
+          echo '<div class="offer"><a href="admin_edit_inicio_image.php?id='.$id.'"><img alt="Oferta #'.$id.'" title="Oferta #'.$id.'" class="offer-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/></a></div>';
         }
     ?>
   </div>

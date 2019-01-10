@@ -68,7 +68,7 @@
       }
       echo "<option value=''";
       if ($id_offer == '') echo 'selected="selected"';
-      echo ">ninuna oferta</option>";
+      echo ">ninguna oferta</option>";
       ?>
       </select>
       <br><br>
