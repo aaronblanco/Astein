@@ -20,6 +20,6 @@ write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
                              $_SERVER['REQUEST_URI']. "\nContraseña del equipo cambiada","INFO");
 
 $_SESSION["message-success"] = "Contraseña de equípo cambiada.";
-header("Location: admin_contrasena.php");
+// header("Location: admin_contrasena.php");
 
  ?>
