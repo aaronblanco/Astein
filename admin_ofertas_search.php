@@ -79,7 +79,7 @@
 
 <script>
 function askDeleteOffer(offerID) {
-    var c = confirm("¿Eliminar esta oferta?");
+    var c = confirm("¿Eliminar esta oferta? \n\n¡Borrar una oferta eliminará todas las reservas de esta oferta!");
     if (c == true) {
       window.location.replace("admin_delete_offer.php"+"?id="+offerID);
     } else {

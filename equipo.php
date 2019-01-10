@@ -2,62 +2,12 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="css/EstilosGenerales.css">
-  <link rel="stylesheet" href="css/equipo.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Nuestro equipo</title>
-</head>
-<body>
-
-  <?php
-    include "usuario_navbar.php";
-    include "connection.php";
-  ?>
-
-<div id="main-content">
-
-<h1>Nuestro equipo</h1>
-<div id="table-container">
-<center>
-  <table>
-    <?php
-    $query = "SELECT * from employee";
-    $result = $connection->query($query);
-      while($row = $result->fetch_assoc()){
-      ?>
-    <tr>
-    <td>
-      <figure>
-        <img src=<?php echo $row['photo'];?>>
-        <figcaption><?php echo $row['name']; echo " "; echo $row['lastname'];?></figcaption>
-      </figure>
-    </td>
-      <td><p><?php echo $row['description']?></p></td>
-    </tr>
-  <?php } ?>
-</table>
-</center>
-</div>
-</div>
-
-<?php
-  include "usuario_footer.php";
-?>
-
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link rel="stylesheet" href="css/equipo.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" href="images\astein_icon.png"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Nuestro equipo</title>
 </head>
 <body>
@@ -70,7 +20,7 @@
 <div id="main-content">
 
 <h1>Nuestro equipo</h1>
-<div id="table-container">
+<div id="container-desktop">
   <table id="employee-table">
     <?php
     $query = "SELECT id, firstname, lastname, activity, description, image from employee";
@@ -82,9 +32,9 @@
       <figure>
         <?php
         if($row["image"]!='') {
-          echo '<img src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/>';
+          echo '<img class="employee-image employee-desktop" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/>';
         } else {
-          echo '<img src="images/profile_icon.png">';
+          echo '<img class="employee-image employee-desktop" src="images/profile_icon.png">';
         }
         ?>
       </figure>
@@ -94,6 +44,28 @@
   <?php } ?>
 </table>
 </div>
+
+<div id="container-mobile">
+    <?php
+    $query = "SELECT id, firstname, lastname, activity, description, image from employee";
+    $result = $connection->query($query);
+      while($row = $result->fetch_assoc()){
+        if($row["image"]!='') {
+          echo '<div class="employee-div"><div class="employee-image-div"><img class="employee-image image-mobile" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/></div>';
+        } else {
+          echo '<div class="employee-div"><div class="employee-image-div"><img class="employee-image image-mobile" src="images/profile_icon.png"></div>';
+        }
+      ?>
+      <div class="employee-info-div">
+        <div class="employee-list-name"><?php echo $row['firstname']; echo " "; echo $row['lastname'];?></div>
+        <div><?php echo $row['activity'];?></div><br>
+        <div><?php echo $row['description']?></div>
+    </div>
+  </div>
+  <?php } ?>
+</table>
+</div>
+
 </div>
 
 <?php
@@ -102,4 +74,3 @@
 
 </body>
 </html>
->>>>>>> a145b4fe8bf782c9140f42b350cb6c7b330da1a0
