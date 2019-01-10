@@ -8,7 +8,7 @@ $email = strip_tags($_POST['email']);
 $password = base64_encode($pass);
 require 'connection.php';
 		if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-      $consulta =  $connection->prepare("UPDATE administrator SET  email = ?, password = ? ");
+      $consulta =  $connection->prepare("UPDATE administrator SET  email = ?, password = ? WHERE id=1");
       $consulta->bind_param("ss", $email,  $password);
       $consulta->execute();
       $consulta->close();
@@ -18,11 +18,14 @@ require 'connection.php';
 			                             $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
 			                             $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
 			                             $_SERVER['REQUEST_URI']. "\nContraseña del administrador cambiada","INFO");
+
+			$_SESSION["message-success"] = "Se han cambiado los datos de administrador.";
       header("Location: admin_useradmin.php");
     }
 
 else {
-  echo "No es un email valido.";
+	$_SESSION["message-warning"] = "Datos invalidos.";
+	header("Location: admin_useradmin.php");
 }
 
 

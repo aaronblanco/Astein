@@ -12,6 +12,7 @@
   <?php
     require 'seguridad.php'; // Acceso solo para el admin
     include "admin_navbar.php";
+    include 'user_feedback.php';
   ?>
 
 <div id="main-content">
