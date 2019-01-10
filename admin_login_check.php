@@ -5,6 +5,7 @@
 
 		header('Content-type: text/plain; charset=utf-8');
 
+
 		$email = strip_tags($_POST['email']);
 		$pass = strip_tags($_POST['password']);
 		$password >= base64_encode($pass);
@@ -62,6 +63,5 @@
 			else {
 				echo "Correo no valido.";
 			}
-
 
 ?>

@@ -17,8 +17,8 @@
 							$password = base64_decode($row['password']);
 							echo $password;
 							$para      = $email;
-							$titulo    = 'Recuperar contrase&#241;a';
-							$mensaje   = 'Hola, tu contraseñ&#241;a es ' .$password;
+							$titulo    = 'Your password';
+							$mensaje   = 'Hello admin, your password is ' .$password;
 							$cabeceras = 'From: administracion@astein.net' . "\r\n" .
 									'Reply-To: ' .$email . "\r\n" .
 									'X-Mailer: PHP/' . phpversion();
