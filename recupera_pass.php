@@ -18,7 +18,7 @@
 							echo $password;
 							$para      = $email;
 							$titulo    = 'Your password';
-							$mensaje   = 'Hello admin, your password is ' .$password;
+							$mensaje   = "Hello admin, your password is $password";
 							$cabeceras = 'From: administracion@astein.net' . "\r\n" .
 									'Reply-To: ' .$email . "\r\n" .
 									'X-Mailer: PHP/' . phpversion();
