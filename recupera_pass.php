@@ -14,11 +14,11 @@
 					$query_admin->execute();
 					$result_admin = $query_admin->get_result();
 						if ($result_admin or (mysqli_num_rows($result_admin) == 1)){
-							$password = md5($row['password']);
+							$password = base64_decode($row['password']);
 							echo $password;
 							$para      = $email;
-							$titulo    = 'Recuperar contraseña';
-							$mensaje   = 'Hola, tu contraseña es ' .$password;
+							$titulo    = 'Recuperar contrase&#241;a';
+							$mensaje   = 'Hola, tu contraseñ&#241;a es ' .$password;
 							$cabeceras = 'From: administracion@astein.net' . "\r\n" .
 									'Reply-To: ' .$email . "\r\n" .
 									'X-Mailer: PHP/' . phpversion();
