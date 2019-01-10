@@ -1,6 +1,5 @@
 <div class="topnav" id="myTopnav">
   <a href="index.php" class="ignore"><div id="logoTab" class="logo-tab-collapsed"><img alt="logo de Astein" id="astein-logo-responsive" src="images/astein_white.png"></div></a>
-  <a href="index.php">Inicio</a>
   <a href="contacto.php">Contacta con nosotros</a>
   <a href="ofertas.php">Ofertas</a>
   <a href="equipo.php">Equipo</a>
