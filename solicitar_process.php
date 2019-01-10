@@ -1,6 +1,6 @@
 <?php
 require 'connection.php';
-require 'log_function.php';
+require 'log_funcion.php';
 session_start();
 $message = strip_tags($_POST['message']);
 $name = strip_tags($_POST['name']);

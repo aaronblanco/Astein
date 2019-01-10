@@ -1,6 +1,7 @@
 <?php
 require 'seguridad.php'; // Acceso para el admin
 require 'connection.php';
+require 'log_funcion.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
@@ -18,11 +19,22 @@ if($editEmployee = $connection->prepare("UPDATE employee SET email=?, firstname=
   $editEmployee->bind_param("sssssi", $email, $name, $lastname, $activity, $description, $id);
   $editEmployee->execute();
   $editEmployee->close();
-  write_log("Cambiado datos del empleado con ID $id a Correo electrónico: $email, Nombre: $name, Apellido: $lastname, Actividad: $activity, Descripción: $description.");
+  write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                               "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                               ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                               $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                               $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                               $_SERVER['REQUEST_URI']. "\nDatos de empresa $id cambiados a Correo electrónico: $email, Nombre: $name, Apellido: $lastname, Actividad: $activity, Descripción: $description.","INFO");
   $_SESSION["message-success"] = "Empleado editado.";
   header("Location: admin_equipo.php");
 } else {
   printf("Error: %s\n", $connection->error . $editEmployee);
+  write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                               "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                               ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                               $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                               $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                               $_SERVER['REQUEST_URI']. "\nError en cambiar los datos de empresa $id","ERROR");
 }
 
 ?>

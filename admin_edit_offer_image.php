@@ -2,6 +2,7 @@
 
 require 'seguridad.php'; // Acceso para el admin
 require 'connection.php';
+require 'log_funcion.php';
 
 header('Content-type: text/plain; charset=utf-8');
 
@@ -47,11 +48,23 @@ else {
     $editOffer->bind_param("si", $imgContent, $id);
     $editOffer->execute();
     $editOffer->close();
+    write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                 "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                 ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                 $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                 $_SERVER['REQUEST_URI']. "\nFoto de la oferta con ID $id cambiada","INFO");
     $_SESSION["message-success"] = "Imagen cambiado.";
     header("Location: admin_oferta_detalle.php?id=$id");
 
   } else {
     printf("Error: %s\n", $connection->error . $editOffer);
+    write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                 "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                 ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                 $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                 $_SERVER['REQUEST_URI']. "\nError en cambiar la foto de la oferta con ID $id","ERROR");
   }
 
 }

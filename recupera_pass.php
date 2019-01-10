@@ -1,6 +1,6 @@
 <?php
 	require 'connection.php';
-	include 'log_funcion.php';
+	require 'log_funcion.php';
 
 
 
@@ -27,7 +27,7 @@
 						else
 							 echo  "La direccion de correo electronico no existe";
 				}
-    	
+
 			       echo  "Correo no valido.";
 
 	}

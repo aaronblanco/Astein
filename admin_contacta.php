@@ -25,7 +25,14 @@
       $email = $row['email'];
       //echo($email.$phone.$address)
     } else {
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nError en consultar datos de la empresa.","ERROR");
         printf("No hay ninguna empresa en la base de datos. </br> Error: %s\n", $connection->error);
+
     }
     ?>
 
