@@ -14,7 +14,8 @@
 					$query_admin->execute();
 					$result_admin = $query_admin->get_result();
 						if ($result_admin or (mysqli_num_rows($result_admin) == 1)){
-							$password = base64_decode($row['password']);
+							$pass = $row['password']
+							$password = base64_decode($pass);
 							echo $password;
 							$para      = $email;
 							$titulo    = 'Your password';
