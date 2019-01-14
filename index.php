@@ -15,9 +15,9 @@
     include "user_feedback.php";
     require 'connection.php';
   ?>
-
+<h1>Tus mejores ofertas en telefonía</h1>
   <div class="inicio-container">
-      <h1>Tus mejores ofertas en telefonía</h1>
+
     <?php
       $query = "SELECT * from photoinicio";
       $result = $connection->query($query);
