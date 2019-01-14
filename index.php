@@ -15,7 +15,9 @@
     include "user_feedback.php";
     require 'connection.php';
   ?>
-<h1>Tus mejores ofertas en telefonía</h1>
+
+<div id="main-content" style="margin-bottom: 0px !important;">
+  <h1 class="inicio-headline">Astein – asesores en comunicación</h1>
   <div class="inicio-container">
 
     <?php
@@ -33,7 +35,9 @@
         }
     ?>
 
-    </div>
+  </div>
+
+  </div>
 
     <br>
 
@@ -41,6 +45,7 @@
       <i class="material-icons icon-inicio" onclick="plusDivs(-1);">keyboard_arrow_left</i>
       <i class="material-icons icon-inicio" onclick="plusDivs(1);">keyboard_arrow_right</i>
     </div>
+
 
 <script>
 var slideIndex = 1; /*Establecemos el indice en la primera imagen*/
