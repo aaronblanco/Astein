@@ -28,7 +28,7 @@
 
   <div id="login-form">
     <form class="astein-form" action="admin_login_check.php" method="post">
-      <label>Correo electrónico</label> <input type="text" class="astein-input" name="email"  placeholder="email" required><br>
+      <label>Correo electrónico</label> <input type="email" class="astein-input" name="email"  placeholder="email" required><br>
       <label>Contraseña</label> <input type="password" class="astein-input" name="password" placeholder="contraseña" required><br>
       <input class="save-changes" type="submit" tabindex=1 value="login">
 
