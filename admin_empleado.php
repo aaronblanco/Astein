@@ -51,20 +51,20 @@
         }
         ?>
       </div>
-      <label>Imagen</label><input type="file" name="fileToUpload" accept="image/*"><br><br>
+      <label for="labFile">Imagen</label><input type="file" name="fileToUpload" id="labFile" accept="image/*"><br><br>
       <button type="submit" class="light-icon-button submit-image"><i class="material-icons button-icon">done</i>subir imagen</button>
       <button type="button" class="light-icon-button delete-image" onclick="askDeleteImage(<?php echo $employee_id ?>);"><i class="material-icons button-icon">delete</i>borrar imagen</button><br><br>
     </form>
     <br><br><br><br>
 
     <form class="astein-form" action="admin_edit_employee_process.php?id=<?php echo $employee_id ?>" method="post">
-      <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" value="<?php echo $email ?>" required><br>
-      <label>Nombre</label> <input type="text" class="astein-input" name="name" value="<?php echo $name ?>" required><br>
-      <label>Apellido</label> <input type="text" class="astein-input" name="lastname" value="<?php echo $lastname ?>" required><br>
-      <label>Actividad</label> <input type="text" class="astein-input" name="activity" value="<?php echo $activity ?>"><br>
+      <label for="lab">Correo electrónico</label> <input type="text" class="astein-input" name="email" id="lab" value="<?php echo $email ?>" required><br>
+      <label for="lab1">Nombre</label> <input type="text" class="astein-input" name="name" id="lab1" value="<?php echo $name ?>" required><br>
+      <label for="lab2">Apellido</label> <input type="text" class="astein-input" name="lastname" id="lab2" value="<?php echo $lastname ?>" required><br>
+      <label for="lab3">Actividad</label> <input type="text" class="astein-input" name="activity" id="lab3" value="<?php echo $activity ?>"><br>
       <label>Descripción</label>
-      <textarea class="admin-textarea" name="description"><?php echo $description ?></textarea>
-      <input class="save-changes save-changes-admin" id="submit-button-form" type="submit" value="guardar cambios">
+      <label for="lab4"><textarea class="admin-textarea" name="description" id="lab4"><?php echo $description ?></textarea>
+      <label for<input class="save-changes save-changes-admin" id="submit-button-form" type="submit" value="guardar cambios">
     </form>
 
   </div>
