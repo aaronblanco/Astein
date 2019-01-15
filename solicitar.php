@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="icon" href="images\astein_icon.png"/>
+  <link rel="icon" href="images/astein_icon.png"/>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Reserva tu oferta</title>
 </head>
@@ -22,10 +22,10 @@
 <h1>Reserva tu oferta ahora</h1>
 <form class="astein-form" action="solicitar_process.php" method="POST">
 <input type="hidden" name="id" value="<?php echo $id?>">
-<input type="text" name="name" placeholder="Nombre" required="true">
-<input type="text" name="lastname" placeholder="Apellidos" required="true">
-<input type="email" name="mail" placeholder="Correo electrónico" required="true">
-<input type="tel" name="phone" placeholder="Telefono" required="true">
+<input type="text" name="name" placeholder="Nombre" required>
+<input type="text" name="lastname" placeholder="Apellidos" required>
+<input type="email" name="mail" placeholder="Correo electrónico" required>
+<input type="tel" name="phone" placeholder="Telefono" required>
 <textarea name="message" maxlength="500" placeholder="Mensaje con información adicional (opcional)"></textarea>
 <input type="submit" id="button-solicitar" value="Solicitar ahora">
 </form>

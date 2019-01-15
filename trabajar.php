@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="css/EstilosGenerales.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="icon" href="images\astein_icon.png"/>
+  <link rel="icon" href="images/astein_icon.png"/>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Trabaja con nosotros</title>
 </head>
@@ -20,10 +20,10 @@
 
 <h1>Trabaja con nosotros </h1>
 <form class="astein-form" action="trabajar_process.php" method="POST" enctype="multipart/form-data">
-  <input type="text" name="name" placeholder="Nombre" required="true">
-  <input type="text" name="lastname" placeholder="Apellidos" required="true">
-  <input type="tel" name="phone" placeholder="Número de teléfono" required="true">
-  <input type="email" name="mail" placeholder="Correo electrónico" required="true">
+  <input type="text" name="name" placeholder="Nombre" required>
+  <input type="text" name="lastname" placeholder="Apellidos" required>
+  <input type="tel" name="phone" placeholder="Número de teléfono" required>
+  <input type="email" name="mail" placeholder="Correo electrónico" required>
   <br>
   Curriculum vitae:<br>
 
