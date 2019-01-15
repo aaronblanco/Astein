@@ -1,6 +1,7 @@
 <?php
   require 'seguridadEmpleado.php'; // Acceso para admin y empleados
   require 'connection.php';
+  require 'log_funcion.php';
 
   header('Content-type: text/plain; charset=utf-8');
 
@@ -27,6 +28,12 @@ if(!$result || mysqli_num_rows($result) == 0 ){
     $addOffer->bind_param("sssdsisiis", $name, $provider, $type, $price, $priceType, $default_data, $default_dataUnit, $default_calls, $default_fiber, $description);
     $addOffer->execute();
     $addOffer->close();
+    write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                 "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                 ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                 $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                 $_SERVER['REQUEST_URI']. "\nNueva oferta creada con datos Nombre: $name, Proveedor: $provider, Tipo: $type, Precio: $price, Tipo_Precio: $priceType, Datos: $default_data $default_dataUnit, Llamadas: $default_calls, Fibra: $default_fiber, Descripción: $description.","INFO");
 
   if (isset($_POST['data_included'])) {
     echo "Data set.";
@@ -44,6 +51,13 @@ if(!$result || mysqli_num_rows($result) == 0 ){
       $addData->bind_param("isi", $data, $dataUnit, $id);
       $addData->execute();
       $addData->close();
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nDatos incluidos de la oferta con ID $id cambiados a $data $dataUnit","INFO");
+
     }
   }
   if (isset($_POST['calls_included'])) {
@@ -61,6 +75,12 @@ if(!$result || mysqli_num_rows($result) == 0 ){
       $addCalls->bind_param("ii", $calls, $id);
       $addCalls->execute();
       $addCalls->close();
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nLlamadas de la oferta con ID $id cambiadas a $llamadas","INFO");
     }
   }
   if (isset($_POST['fiber_included'])) {
@@ -75,11 +95,23 @@ if(!$result || mysqli_num_rows($result) == 0 ){
       $addFiber->bind_param("ii", $fiber, $id);
       $addFiber->execute();
       $addFiber->close();
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nFibra de la oferta con ID $id cambiada a $fibre","INFO");
     }
   }
     $_SESSION["message-success"] = "Nueva oferta ".'"'.$name.'"'." creada.";
     header("Location: admin_ofertas.php");
   } else {
+    write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                 "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                 ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                 $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                 $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                 $_SERVER['REQUEST_URI']. "\nError en cambiar datos de la oferta con ID $id","ERROR");
     printf("Error: %s\n", $connection->error);
   }
 } else {

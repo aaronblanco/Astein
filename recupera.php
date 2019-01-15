@@ -30,7 +30,7 @@
 
   <div style="margin-top:10px" >
 
-      <button  class="save-changes" type="submit" method="post" tabindex=1 value="recuperar contraseña">Enviar</a>
+      <button  class="save-changes submit-button" type="submit" method="post" tabindex=1 value="recuperar contraseña">Enviar</a>
 
   </div>
 

@@ -17,7 +17,7 @@
   <div id="main-content">
     <h1> Resultados de búsqueda</h1>
     <p class="subtitle"><?php echo "<b>Tipo:</b> '$type' <br><b>Nombre:</b> '$search'";?></p>
-  <a href="admin_ofertas.php" target="_self"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
+  <a href="ofertas.php" target="_self"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
   <?php
     if($type === "Todos"){
       if($search === ""){
@@ -45,13 +45,21 @@
 
 <div class="ofertas-container">
   <?php
-      while($row = $result->fetch_assoc()){
-      ?>
-        <div class="offer">
-            <a href="oferta_detalle.php?id=<?php echo $row['id'];?>"><?php echo '<img class="offer-image" src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';?></a>
-        </div>
-      <?php }
-    } ?>
+  while($row = $result->fetch_assoc()){
+    $image = $row["image"];
+    $id = $row["id"];
+    if($image!='') {
+      echo '<div class="offer"><a href="oferta_detalle.php?id='.$id.'"><img alt="'.$row['name'].'" title="'.$row['name'].'" class="offer-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/></a></div>';
+    } else {
+      $url = "'oferta_detalle.php?id=$id'";
+      echo '<div class="offer-no-image-user-thumbnail" onclick="location.href='.$url.';">
+        <p class="offer-headline-user-thumbnail">'.$row['name'].'<p>
+        <p class="offer-price-user-thumbnail">'.$row['price'].'€'.'/'.$row['priceType'].'<p>
+      </div>';
+    }
+  }
+}
+  ?>
 
   </div>
  </div>

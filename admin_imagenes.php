@@ -13,51 +13,32 @@
   <?php
     require 'seguridad.php'; // Acceso solo para el admin
     include 'admin_navbar.php';
+    require 'connection.php';
+    include 'user_feedback.php';
   ?>
 
 <div id="main-content">
 
-<?php
-include("seguridad.php");
-?>
-  <h1>Imágenes</h1>
-  <p class="subtitle">Aquí puede cambiar los imagenes que aparecen en la página de inicio.</p>
+  <h1>Galería</h1>
+  <p class="subtitle">Aquí puede cambiar las imágenes de la galería de inicio.</p>
 
-<div id="admin-inicio-image-list">
+  <div class="ofertas-container inicio-images">
+    <?php
+      $query = "SELECT * from photoinicio";
+      $result = $connection->query($query);
 
-<form class="astein-form" action="/action_page.php" method="post">
-
-<div class="admin-inicio-image">
-  <p class="inicio-imagename">foto_oferta_digi_500.jpeg</p>
-  <i class="material-icons icon-action">cloud_upload</i>
-  <i class="material-icons icon-action">delete</i>
-  <input type="text" class="filename-input" placeholder="c�digo oferta" name="filename" value="0073833">
-  <i class="material-icons icon-arrow">keyboard_arrow_down</i>
-</div>
-<div class="admin-inicio-image">
-  <p class="inicio-imagename">foto_equipo.jpeg</p>
-    <i class="material-icons icon-action">cloud_upload</i>
-    <i class="material-icons icon-action">delete</i>
-    <input type="text" class="filename-input" placeholder="código oferta" name="filename" value="">
-    <i class="material-icons icon-arrow">keyboard_arrow_up</i>
-    <i class="material-icons icon-arrow">keyboard_arrow_down</i>
-</div>
-<div class="admin-inicio-image">
-  <p class="inicio-imagename">foto_oferta_navidad.jpeg</p>
-    <i class="material-icons icon-action">cloud_upload</i>
-    <i class="material-icons icon-action">delete</i>
-    <input type="text" class="filename-input" placeholder="c�digo oferta" name="filename" value="1899376">
-    <i class="material-icons icon-arrow">keyboard_arrow_up</i>
-</div>
+        while($row = $result->fetch_assoc()){
+          $image = $row["image"];
+          $id = $row["id"];
+          echo '<div class="offer"><a href="admin_edit_inicio_image.php?id='.$id.'"><img alt="Oferta #'.$id.'" title="Oferta #'.$id.'" class="offer-image" src="data:image/jpeg;base64,'.base64_encode($image).'"/></a></div>';
+        }
+    ?>
+  </div>
 
 <div>
-<i class="material-icons icon_action plus_icon">add_box</i>
-<input type="submit" class="submit_button" action="saved_changes.php" method="post" value="guardar cambios">
+<i class="material-icons icon_action plus_icon" onclick="window.location='admin_new_inicio_image.php'">add_box</i>
 </div>
 
-</form>
-
-</div>
 
 </div>
 

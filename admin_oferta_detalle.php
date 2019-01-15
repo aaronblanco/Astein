@@ -14,6 +14,7 @@
     require 'seguridadEmpleado.php'; // Acceso para admin y empleados
     require 'connection.php';
     include "admin_navbar.php";
+    include "user_feedback.php";
 
     $id = strip_tags($_GET['id']);
 
@@ -22,6 +23,7 @@
 
     if(mysqli_num_rows($result) > 0 ){
       $row = $result->fetch_assoc();
+      $image = $row["image"];
     } else {
         echo "<script>window.onload = function(e) {document.getElementById('main-content').remove();};</script>";
         echo "<h1>&nbsp;&nbsp;Esta Oferta no existe. </br>".$connection->error."</h1></div>";
@@ -35,6 +37,27 @@
   <a href="admin_ofertas.php"><i class="material-icons icon-back">keyboard_arrow_left</i></a>
 
   <div id="oferta-info-form">
+
+    <form class="astein-form" action="admin_edit_offer_image.php?id=<?php echo $row["id"] ?>" method="post" enctype="multipart/form-data">
+      <label id="image-label"></label><br>
+      <div id="employee-image-container">
+        <?php
+        if($image!='') {
+          echo '<img alt="Oferta #'.$id.'" title="Oferta #'.$id.'" class="offer-image-admin" src="data:image/jpeg;base64,'.base64_encode($image).'"/>';
+        } else {
+          echo '<div class="offer-no-image-admin">
+            <p class="offer-headline">'.$row['name'].'<p>
+            <p class="offer-price">'.$row['price'].'€'.'/'.$row['priceType'].'<p>
+          </div>';
+        }
+        ?>
+      </div>
+      <label>Imagen</label><input type="file" name="fileToUpload" accept="image/*"><br><br>
+      <button type="submit" class="light-icon-button submit-image"><i class="material-icons button-icon">done</i>subir imagen</button>
+      <button type="button" class="light-icon-button delete-image" onclick="askDeleteImage(<?php echo $row["id"]?>);"><i class="material-icons button-icon">delete</i>borrar imagen</button><br><br>
+    </form>
+    <br><br><br><br>
+
     <form class="astein-form" action="admin_edit_offer_process.php" method="post">
       <label>Nombre</label> <input type="text" class="astein-input" name="name" value="<?php echo $row["name"]?>"required><br>
       <label>Proveedor</label> <input type="text" class="astein-input" name="provider" value="<?php echo $row["provider"]?>" required><br>
@@ -73,11 +96,11 @@
         <input type="number" class="astein-input inline-textfield" min="0" id="fiber" name="fiber" value="<?php if($row["fiber"]!='0') echo $row["fiber"]?>" onfocus="manageTextbox(this)">
         <label class="legend-label">Mb</label>
       </div><br><br><br>
-      <label>Imagen</label><input type="file" class"file-upload" name="imagen"><br><br><br>
       <label>Descripción</label>
       <textarea class="admin-textarea" id="description" name="description"><?php echo $row["description"]?></textarea>
-      <input class="save-changes new-employee-admin" type="submit" method="post" value="Guardar cambios">
+      <input class="save-changes new-employee-admin" type="submit" method="post" value="guardar cambios">
     </form>
+
   </div>
 
   <script>
@@ -127,6 +150,17 @@
   </script>
 
 </div>
+
+<script>
+function askDeleteImage(employeeID) {
+    var c = confirm("¿Eliminar este imagen?");
+    if (c == true) {
+      console.log("Deleting image from employee"+employeeID);
+      window.location.replace("admin_delete_offer_image.php?id="+employeeID);
+    } else {
+  }
+}
+</script>
 
 <?php
   include "admin_footer.php";

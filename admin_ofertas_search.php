@@ -64,7 +64,7 @@
       <td><?php echo $row['name']; ?></td>
       <td><?php echo $row['provider']; ?></td>
       <td><?php echo $row['type']; ?></td>
-      <td><?php echo $row['price']; ?></td>
+      <td><?php echo $row['price']; ?>€</td>
       <!-- <td><?php echo $row['description']; ?></td> -->
       <td class="reservas-list-options">
         <a href="admin_oferta_detalle.php?id=<?php echo $row["id"] ?>"><i class="material-icons icon-action icon-table icon-reservas">edit</i></a><i class="material-icons icon-action icon-table icon-reservas" onclick="askDeleteOffer(<?php echo $row["id"] ?>)">delete</i>
@@ -79,7 +79,7 @@
 
 <script>
 function askDeleteOffer(offerID) {
-    var c = confirm("¿Eliminar esta oferta?");
+    var c = confirm("¿Eliminar esta oferta? \n\n¡Borrar una oferta eliminará todas las reservas de esta oferta!");
     if (c == true) {
       window.location.replace("admin_delete_offer.php"+"?id="+offerID);
     } else {

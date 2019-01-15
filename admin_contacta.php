@@ -25,7 +25,14 @@
       $email = $row['email'];
       //echo($email.$phone.$address)
     } else {
+      write_log("IP: ".$_SERVER['REMOTE_ADDR']." - ".$_SERVER['HTTP_X_FORWARDED_FOR'].
+                                   "\nHTTP_HOST: ".$_SERVER['HTTP_HOST']."\nHTTP_REFERER:
+                                   ".$_SERVER['HTTP_REFERER']."\nHTTP_USER_AGENT: ".
+                                   $_SERVER['HTTP_USER_AGENT']."\nREMOTE_HOST: ".
+                                   $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
+                                   $_SERVER['REQUEST_URI']. "\nError en consultar datos de la empresa.","ERROR");
         printf("No hay ninguna empresa en la base de datos. </br> Error: %s\n", $connection->error);
+
     }
     ?>
 
@@ -36,9 +43,9 @@
 
 <div id="contact-info-form">
   <form class="astein-form" action="admin_edit_contact_info_process.php" method="post">
-    <label>Teléfono</label> <input type="text" class="astein-input" name="phone" value="<?php echo $phone ?>" required><br>
+    <label>Teléfono</label> <input type="tel" class="astein-input" name="phone" value="<?php echo $phone ?>" required><br>
     <label>Dirección</label> <input type="text" class="astein-input" name="address" value="<?php echo $address ?>" required><br>
-    <label>Correo electrónico</label> <input type="text" class="astein-input" name="email" value="<?php echo $email ?>" required><br>
+    <label>Correo electrónico</label> <input type="email" class="astein-input" name="email" value="<?php echo $email ?>" required><br>
     <input type="hidden" id="company_id" name="company_id" value="<?php echo $company_id ?>">
     <input class="save-changes" type="submit" action="saved_changes.php" method="post" value="guardar cambios">
   </form>

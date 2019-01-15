@@ -1,11 +1,9 @@
 <div class="topnav" id="myTopnav">
-  <a href="inicio.php" class="ignore"><div id="logoTab" class="logo-tab-collapsed"><img id="astein-logo-responsive" src="images/astein_white.png"></div></a>
-  <a href="inicio.php">Inicio</a>
+  <a href="index.php" class="ignore"><div id="logoTab" class="logo-tab-collapsed"><img alt="logo de Astein" id="astein-logo-responsive" src="images/astein_white.png"></div></a>
   <a href="contacto.php">Contacta con nosotros</a>
   <a href="ofertas.php">Ofertas</a>
   <a href="equipo.php">Equipo</a>
   <a href="trabajar.php">Trabaja con nosotros</a>
-  <a href="aviso_legal.php">Aviso legal</a>
   <a href="javascript:void(0);" class="hamburger-icon ignore" onclick="myFunction()">
     <div id="hamburger-tab">
       <i class="material-icons" id="navbar-hamburger">menu</i>
