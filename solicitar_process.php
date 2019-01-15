@@ -30,8 +30,6 @@ if(mysqli_num_rows($result) > 0 ){
                                $_SERVER['REMOTE_HOST']."\nREQUEST_URI: ".
                                $_SERVER['REQUEST_URI']. "\nCreado un cliente nuevo $name $lastname ($mail) en el processo de realizar una reservar.","INFO");
 
-  $query_findUser->execute();
-  $result = $query_findUser->get_result();
   $row =  $result->fetch_assoc();
   $id_client = $row['id'];
   $query_findUser->close();
