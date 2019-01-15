@@ -29,8 +29,8 @@
 
 <div id="footer-mobile">
   <div class="footer centered-footer">
-    <a class="social-media" href="https://www.facebook.com/"><img alt="Facebook" class="social-media-icon mobile-icon" src="images/facebook_icon.png"></a>
-    <a class="social-media" href="https://www.facebook.com/"><img alt="Instagram" class="social-media-icon mobile-icon" src="images/instagram_icon.png" href="instagram.com"></a>
+    <a class="social-media" href="https://www.facebook.com/astein.telecomunicaciones.54"><img alt="Facebook" class="social-media-icon mobile-icon" src="images/facebook_icon.png"></a>
+    <a class="social-media" href="https://www.instagram.com/asteintelecomunicaciones/"><img alt="Instagram" class="social-media-icon mobile-icon" src="images/instagram_icon.png"></a>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='index.php'">person</i>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='tel:<?php echo $phone ?>'">phone</i>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='mailto:<?php echo $email ?>'">email</i>

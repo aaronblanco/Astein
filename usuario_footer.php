@@ -32,8 +32,8 @@
 
 <div id="footer-mobile">
   <div class="footer centered-footer">
-    <a class="social-media" href="https://www.facebook.com/"><img alt="icono de facebook" class="social-media-icon mobile-icon" src="images/facebook_icon.png"></a>
-    <a class="social-media" href="https://www.facebook.com/"><img alt="icono de instagram" class="social-media-icon mobile-icon" src="images/instagram_icon.png"></a>
+    <a class="social-media" href="https://www.facebook.com/astein.telecomunicaciones.54"><img alt="icono de facebook" class="social-media-icon mobile-icon" src="images/facebook_icon.png"></a>
+    <a class="social-media" href="https://www.instagram.com/asteintelecomunicaciones/"><img alt="icono de instagram" class="social-media-icon mobile-icon" src="images/instagram_icon.png"></a>
     <p class="footer-text"><a href="aviso_legal.php" class="white-link link-margin mobile-aviso-legal">aviso legal</a></p>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='admin_inicio.php'">build</i>
     <i class="material-icons icon-white footer-icon-action mobile-icon" onClick="window.location='tel:<?php echo str_replace(' ', '', $phone); ?>'">phone</i>
