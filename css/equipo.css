@@ -1,28 +1,74 @@
-#main-content img{
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  float: left;
-  position: static;
-  font-size: 25px;
-  font-size: 50pt;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
-  margin-bottom: 25px;
-  text-align: center;
-}
-.caption{
-  text-align: center;
-  padding: 10px 20px;
+.employee-list-name {
   font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 8px;
+}
+#main-content td{
+  padding: 0px !important;
 }
 table {
-  padding-top: 50px;
-  width: 50%;
   layout: fixed;
 }
-td {
-  word-wrap: break-word;
+#employee-table td {
+  background-color: white !important;
+  padding-bottom: calc(70px + 2vw) !important;
 }
-#table-container tr{
-  background-color: white;
+#employee-table tr, th, td {
+  padding: 0px;
+}
+
+/* Responsive display of the employee list */
+
+#container-desktop {
+  margin-left: 3vw;
+  margin-right: 6vw;
+  margin-top: 70px;
+}
+
+#container-mobile {
+  display: none;
+  width: 97vw;
+  margin-left: -5vw;
+  align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+  #container-desktop {
+    display: none;
+  }
+  #container-mobile {
+    display: block;
+  }
+}
+
+.employee-div {
+  width: 97vw;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.employee-image-div {
+  margin-top: 6vh;
+  width: 97vw;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-mobile {
+  margin-top: 0px !important;
+}
+
+.employee-info-div {
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  width: 97vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  text-align: center;
+}
+
+.employee-desktop {
+  margin-top: -10px;
 }

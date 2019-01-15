@@ -6,38 +6,68 @@
   <link rel="stylesheet" href="css/equipo.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="images\astein_icon.png"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Nuestro equipo</title>
 </head>
 <body>
 
   <?php
     include "usuario_navbar.php";
+    require 'connection.php';
   ?>
 
 <div id="main-content">
-  <div id="table-container">
+
 <h1>Nuestro equipo</h1>
-<center>
-  <table>
+<div id="container-desktop">
+  <table id="employee-table">
+    <?php
+    $query = "SELECT id, firstname, lastname, activity, description, image from employee";
+    $result = $connection->query($query);
+      while($row = $result->fetch_assoc()){
+      ?>
     <tr>
-    <td> <img src="images\equipo.jpg""><div class="caption">Nombre Apellidos</div></img></td>
-      <td><p>Yo soy nombre apellido, tengo algunos años y soy el jefe aquí. Mis responsilidades son hacer eso y eso y también a veces eso. Nunca hago esto ni aquello</p></td>
+    <td>
+      <figure>
+        <?php
+        if($row["image"]!='') {
+          echo '<img alt=" foto de empleado '.$row['firstname'].' '.$row['lastname'].'" class="employee-image employee-desktop" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/>';
+        } else {
+          echo '<img class="employee-image employee-desktop" alt="empleado no tiene foto" src="images/profile_icon.png">';
+        }
+        ?>
+      </figure>
+    </td>
+      <td><div class="employee-list-name"><?php echo $row['firstname']; echo " "; echo $row['lastname'];?></div><?php echo $row['activity'];?><br><br><?php echo $row['description']?></td>
     </tr>
-    <tr>
-    <td style="padding-right:30px"><img src="images\equipo.jpg"><div class="caption">Nombre Apellidos</div></img></td>
-    <td><p>Yo soy nombre apellido y trabajo aquí</p></td>
-  </tr>
-  <tr>
-    <td><img src="images\equipo.jpg""><div class="caption">Nombre Apellidos</div></img></td>
-    <td><p>Yo soy nombre apellido y trabajo aquí</p></td>
-  </tr>
-  <tr>
-    <td><img src="images\equipo.jpg""><div class="caption">Nombre Apellidos</div></img></td>
-    <td><p>Yo soy nombre apellido y trabajo aquí</p></td>
-  </tr>
+  <?php } ?>
 </table>
-</center>
 </div>
+
+<div id="container-mobile">
+    <?php
+    $query = "SELECT id, firstname, lastname, activity, description, image from employee";
+    $result = $connection->query($query);
+      while($row = $result->fetch_assoc()){
+        if($row["image"]!='') {
+          $firstname = $row["firstname"];
+          $lastname = $row["lastname"];
+          echo '<div class="employee-div"><div class="employee-image-div"><img class="employee-image image-mobile" alt="foto de empleado '.$firstname.' '.$lastname.'" src="data:image/jpeg;base64,'.base64_encode($row["image"]).'"/></div>';
+        } else {
+          echo '<div class="employee-div"><div class="employee-image-div"><img alt="'.$row['firstname'].' '.$row['lastname'].'" title="'.$row['firstname'].' '.$row['lastname'].'" class="employee-image image-mobile" src="images/profile_icon.png"></div>';
+        }
+      ?>
+      <div class="employee-info-div">
+        <div class="employee-list-name"><?php echo $row['firstname']; echo " "; echo $row['lastname'];?></div>
+        <div><?php echo $row['activity'];?></div><br>
+        <div><?php echo $row['description']?></div>
+    </div>
+  </div>
+  <?php } ?>
+</table>
+</div>
+
 </div>
 
 <?php
