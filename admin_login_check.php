@@ -30,7 +30,7 @@
 				{
 				 		session_start();
 						$_SESSION['loggedin'] = true;
-						$_SESSION['name'] = "Administrador";
+						$_SESSION['name'] = "administrador";
 						$_SESSION['start'] = time();
 						$_SESSION['expire'] = $_SESSION['start'] + 1800;
 
