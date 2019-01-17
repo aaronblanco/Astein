@@ -18,8 +18,7 @@
     <a class="social-media" href="https://www.facebook.com/"><img alt="icono de facebook" class="social-media-icon" src="images/facebook_icon.png"></a>
     <a class="social-media" href="https://www.instagram.com/"><img alt="icono de instagram" class="social-media-icon" src="images/instagram_icon.png"></a>
     <i class="material-icons icon-white footer-icon-action" onClick="window.location='aviso.php'">info</i>
-    <p class="footer-text"><a href="aviso
-      .php" class="white-link">aviso legal</a></p>
+    <p class="footer-text"><a href="aviso.php" class="white-link">aviso legal</a></p>
     <i class="material-icons icon-white footer-icon-action" onClick="window.location='admin_inicio.php'">build</i>
     <p class="footer-text"><a href="admin_login.php" class="white-link">página de administrador</a></p>
   </div>
