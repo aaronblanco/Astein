@@ -31,11 +31,9 @@
       <label for="lab">Correo electrónico</label> <input type="email" class="astein-input" name="email" id="lab"  placeholder="email" required><br>
       <label for="lab2">Contraseña</label> <input type="password" class="astein-input" name="password" id="lab2" placeholder="contraseña" required><br>
       <input class="save-changes" type="submit" action="admin_login_check.php" method="post" tabindex=1 value="login">
-
-
     </form>
   	<form class="astein-form" action="recupera.php" method="post">
-  	  <input class="save-changes" type="submit" action="recupera.php" method="post" tabindex=1 value="recuperar contraseña">
+  	  <input class="save-changes" type="submit" tabindex=1 value="recuperar contraseña">
   	</form>
   </div>
 
